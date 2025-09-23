@@ -108,7 +108,7 @@ export default function CaseStudiesPage() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center space-x-3">
-              <img src="/images/startuprunway-icon.png" alt="StartupRunway" className="h-8 w-8" />
+              <img src="/images/startuprunway-logo.png" alt="StartupRunway" className="h-8 w-8" />
               <span className="text-xl font-bold text-white">StartupRunway</span>
             </Link>
             <Link href="/">
@@ -126,7 +126,7 @@ export default function CaseStudiesPage() {
         <div className="max-w-6xl mx-auto">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Success Stories</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-amber-400 mb-6">Success Stories</h1>
             <p className="text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
               Discover how we've helped entrepreneurs transform their ideas into thriving businesses. These case studies
               showcase real results from our comprehensive business solutions.
