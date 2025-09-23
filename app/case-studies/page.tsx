@@ -108,7 +108,7 @@ export default function CaseStudiesPage() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center space-x-3">
-              <img src="/images/startuprunway-icon.png" alt="StartupRunway" className="h-8 w-8" />
+              <img src="/images/startuprunway-logo.png" alt="StartupRunway" className="h-8 w-8" />
               <span className="text-xl font-bold text-white">StartupRunway</span>
             </Link>
             <Link href="/">
