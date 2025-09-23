@@ -63,14 +63,6 @@ export default function ServicesSection() {
 			  End-to-end office setup including interiors, equipment, branding, and workspace in your location.
 			  </p>
 		    </div>
-		  {/* Offline Marketing & Branding */}
-		    <div className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group">
-			  <Megaphone className="w-12 h-12 text-amber-400 mb-6 group-hover:scale-110 transition-transform" />
-			  <h3 className="text-2xl font-bold mb-4 text-white">Marketing</h3>
-			  <p className="text-slate-300 leading-relaxed">
-			  From social media to local events, we make your business visible everywhere.
-			  </p>
-		    </div>
               <div className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group">
                 <BookOpenCheck className="w-12 h-12 text-amber-400 mb-6 group-hover:scale-110 transition-transform" />
                 <h3 className="text-2xl font-bold mb-4 text-white">Business Strategy</h3>
@@ -94,8 +86,20 @@ export default function ServicesSection() {
                 <h3 className="text-2xl font-bold mb-4 text-white">Growth Marketing</h3>
                 <p className="text-slate-300 leading-relaxed">
                   Data-driven marketing strategies, customer acquisition, and brand development to accelerate growth.
+	          From social media to local events, offline marketing, we make your business visible everywhere.
                 </p>
               </div>
+
+		  {/* Franchise Model Building */}
+		    <div className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group">
+			  <Megaphone className="w-12 h-12 text-amber-400 mb-6 group-hover:scale-110 transition-transform" />
+			  <h3 className="text-2xl font-bold mb-4 text-white">Franchise Model Designing</h3>
+			  <p className="text-slate-300 leading-relaxed">
+                           We design franchise models that make your services replicable, profitable, and future-ready.
+		           From operations manuals to branding, technology systems, and franchise support, 
+			   we help you create a complete ecosystem for growth.	
+			  </p>
+		    </div>
 
               <div className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group">
                 <Shield className="w-12 h-12 text-amber-400 mb-6 group-hover:scale-110 transition-transform" />
