@@ -133,8 +133,8 @@ export default function AboutPage() {
                   <div>
                     <h3 className="text-white font-semibold mb-2">Proven Track Record</h3>
                     <p className="text-slate-300 text-sm">
-                      Successfully helped hundreds of startups launch and scale their businesses across various
-                      industries.
+			Successfully guided startups in launching and scaling businesses across diverse industries. From software and 			     technology to healthcare, consumer services, and beyond. Our franchise model empowers brands to expand 
+			rapidly while ensuring consistency, quality, and long-term profitability.
                     </p>
                   </div>
                 </div>
@@ -161,7 +161,7 @@ export default function AboutPage() {
                   <div>
                     <h3 className="text-white font-semibold mb-2">End-to-End Support</h3>
                     <p className="text-slate-300 text-sm">
-                      From initial concept to market launch and beyond, we're with you every step of the entrepreneurial
+                      From initial concept to market launch and beyond, we're with you at very step of the entrepreneurial
                       journey.
                     </p>
                   </div>
