@@ -218,6 +218,7 @@ export default function CustomerRegisterPage() {
                       <SelectItem value="ecommerce">E-commerce</SelectItem>
                       <SelectItem value="saas">SaaS</SelectItem>
                       <SelectItem value="cleantech">CleanTech</SelectItem>
+                      <SelectItem value="Software">Software</SelectItem>                      
                       <SelectItem value="other">Other</SelectItem>
                     </SelectContent>
                   </Select>
@@ -231,9 +232,10 @@ export default function CustomerRegisterPage() {
                     <SelectValue placeholder="Select package" />
                   </SelectTrigger>
                   <SelectContent className="bg-slate-700 border-slate-600">
-                    <SelectItem value="starter">Starter - $2,999</SelectItem>
-                    <SelectItem value="growth">Growth - $7,999</SelectItem>
-                    <SelectItem value="scale">Scale - $15,999</SelectItem>
+                    <SelectItem value="starter">Starter</SelectItem>
+                    <SelectItem value="growth">Growth</SelectItem>
+                    <SelectItem value="scale">Scale</SelectItem>
+                    <SelectItem value="custom">Custom Service</SelectItem>
                     <SelectItem value="enterprise">Enterprise - Custom</SelectItem>
                   </SelectContent>
                 </Select>
@@ -245,7 +247,7 @@ export default function CustomerRegisterPage() {
                 </Label>
                 <Input
                   id="fundingRequirements"
-                  placeholder="e.g., $100K seed funding"
+                  placeholder="e.g., Rs800K funding"
                   value={formData.fundingRequirements}
                   onChange={(e) => handleInputChange("fundingRequirements", e.target.value)}
                   className="bg-slate-700 border-slate-600 text-white"

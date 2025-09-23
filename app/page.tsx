@@ -19,8 +19,6 @@ import {
   User,
 } from "lucide-react"
 
-import AboutSection from "@/components/AboutSection"
-import ServicesSection from "@/components/ServicesSection"
 export default function StartupRunwayLanding() {
   const [logoAnimating, setLogoAnimating] = useState(false)
   const [loginDropdownOpen, setLoginDropdownOpen] = useState(false)
@@ -38,7 +36,7 @@ export default function StartupRunwayLanding() {
 
   const scrollToContact = () => {
     scrollToSection("contact")
-  }
+]  }
 
   const [contactForm, setContactForm] = useState({
     name: "",
@@ -147,7 +145,7 @@ export default function StartupRunwayLanding() {
                 Home
               </button>
               <button
-                onClick={() => scrollToSection("about")} 
+                onClick={() => scrollToSection("about")}
                 className="text-slate-300 hover:text-white transition-colors"
               >
                 About
@@ -158,13 +156,15 @@ export default function StartupRunwayLanding() {
               >
                 Services
               </button>
-			  <a href="/blog" className="text-slate-300 hover:text-white transition-colors">
+              <button
+                onClick={() => scrollToSection("blog")}
+                className="text-slate-300 hover:text-white transition-colors"
+              >
                 Blog
-              </a> 
-
+              </button>
               <a href="/case-studies" className="text-slate-300 hover:text-white transition-colors">
                 Case Studies
-              </a> 
+              </a>
               <button
                 onClick={() => scrollToSection("contact")}
                 className="text-slate-300 hover:text-white transition-colors"
@@ -255,9 +255,9 @@ export default function StartupRunwayLanding() {
               <p className="text-xl md:text-2xl text-slate-300 mb-8 leading-relaxed">
                 Helping Indian Startups Launch, Scale, and Succeed.
               </p>
-			  <p className="text-base md:text-lg text-slate-400 mb-8 leading-relaxed">
+              <p className="text-base md:text-lg text-slate-400 mb-8 leading-relaxed">
               <span className="text-yellow-400 font-semibold">Powered by global investors who believe in Indian startups.</span>
-              </p>
+              </p>              
               <button
                 onClick={() => scrollToSection("services")}
                 className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
@@ -269,78 +269,105 @@ export default function StartupRunwayLanding() {
         </section>
 
         {/* About Section */}
-		<section id="about">
-			<AboutSection />
-		</section>
-		
-        {/* Services Section */}
-		<section id="services">
-			<ServicesSection />
-		</section>
-{/*		
-        <section id="services" className="py-20 bg-slate-900">
+        <section id="about" className="py-20 bg-slate-800">
           <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-amber-400">Our Services</h2>
-              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-                Comprehensive startup support from ideation to scale
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-4xl md:text-5xl font-bold mb-8 text-amber-400">About StartupRunway</h2>
+              <p className="text-xl text-slate-300 mb-8 leading-relaxed">
+                StartupRunway orchestrates professional support for entrepreneurs, weaving together legal, technical,
+                and operational victuals required to thrive.
               </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              <div className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group">
-                <Building2 className="w-12 h-12 text-amber-400 mb-6 group-hover:scale-110 transition-transform" />
-                <h3 className="text-2xl font-bold mb-4 text-white">Business Strategy</h3>
-                <p className="text-slate-300 leading-relaxed">
-                  Strategic planning, market analysis, and business model development to set your startup on the path to
-                  success.
-                </p>
-              </div>
-
-              <div className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group">
-                <Users className="w-12 h-12 text-amber-400 mb-6 group-hover:scale-110 transition-transform" />
-                <h3 className="text-2xl font-bold mb-4 text-white">Team Building</h3>
-                <p className="text-slate-300 leading-relaxed">
-                  Talent acquisition, team structure optimization, and culture development to build high-performing
-                  teams.
-                </p>
-              </div>
-
-              <div className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group">
-                <TrendingUp className="w-12 h-12 text-amber-400 mb-6 group-hover:scale-110 transition-transform" />
-                <h3 className="text-2xl font-bold mb-4 text-white">Growth Marketing</h3>
-                <p className="text-slate-300 leading-relaxed">
-                  Data-driven marketing strategies, customer acquisition, and brand development to accelerate growth.
-                </p>
-              </div>
-
-              <div className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group">
-                <Shield className="w-12 h-12 text-amber-400 mb-6 group-hover:scale-110 transition-transform" />
-                <h3 className="text-2xl font-bold mb-4 text-white">Legal & Compliance</h3>
-                <p className="text-slate-300 leading-relaxed">
-                  Legal structure setup, intellectual property protection, and regulatory compliance guidance.
-                </p>
-              </div>
-
-              <div className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group">
-                <Lightbulb className="w-12 h-12 text-amber-400 mb-6 group-hover:scale-110 transition-transform" />
-                <h3 className="text-2xl font-bold mb-4 text-white">Product Development</h3>
-                <p className="text-slate-300 leading-relaxed">
-                  MVP development, product strategy, and technical architecture to bring your vision to life.
-                </p>
-              </div>
-
-              <div className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group">
-                <Target className="w-12 h-12 text-amber-400 mb-6 group-hover:scale-110 transition-transform" />
-                <h3 className="text-2xl font-bold mb-4 text-white">Funding Support</h3>
-                <p className="text-slate-300 leading-relaxed">
-                  Investor relations, pitch deck development, and funding strategy to secure the capital you need.
-                </p>
-              </div>
+              <p className="text-xl text-slate-300 mb-8 leading-relaxed">
+                We transcend traditional consulting we're your partners in the crucible of innovation. From initial
+                concept to market dominance, we provide the strategic guidance, technical expertise, and operational
+                support that transforms visionary ideas into thriving enterprises.
+              </p>
+              <p className="text-xl text-slate-300 mb-8 leading-relaxed">
+                No idea? No problem, We turn your investment into a running business. From concept and brand name to
+                launch, leads, and revenue we build businesses that fit your budget and deliver returns.
+              </p>
             </div>
           </div>
         </section>
-*/}
+
+{/* Services Section */}
+<section id="services" className="py-20 bg-slate-900">
+  <div className="container mx-auto px-6">
+    <div className="text-center mb-16">
+      <h2 className="text-4xl md:text-5xl font-bold mb-6 text-amber-400">Our Services</h2>
+      <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+        Comprehensive startup support from ideation to scale
+      </p>
+    </div>
+
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      {/* Workspace & Office Setup */}
+      <div className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group">
+        <Building2 className="w-12 h-12 text-amber-400 mb-6 group-hover:scale-110 transition-transform" />
+        <h3 className="text-2xl font-bold mb-4 text-white">Workspace & Office Setup</h3>
+        <p className="text-slate-300 leading-relaxed">
+          End-to-end office setup including interiors, equipment, branding, and workspace in your location.
+        </p>
+      </div>
+
+      {/* Business Strategy */}
+      <div className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group">
+        <Building2 className="w-12 h-12 text-amber-400 mb-6 group-hover:scale-110 transition-transform" />
+        <h3 className="text-2xl font-bold mb-4 text-white">Business Strategy</h3>
+        <p className="text-slate-300 leading-relaxed">
+          Strategic planning, market analysis, and business model development to set your startup on the path to success.
+        </p>
+      </div>
+
+      {/* Team Building */}
+      <div className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group">
+        <Users className="w-12 h-12 text-amber-400 mb-6 group-hover:scale-110 transition-transform" />
+        <h3 className="text-2xl font-bold mb-4 text-white">Team Building</h3>
+        <p className="text-slate-300 leading-relaxed">
+          Talent acquisition, team structure optimization, and culture development to build high-performing teams.
+        </p>
+      </div>
+
+      {/* Growth Marketing */}
+      <div className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group">
+        <TrendingUp className="w-12 h-12 text-amber-400 mb-6 group-hover:scale-110 transition-transform" />
+        <h3 className="text-2xl font-bold mb-4 text-white">Growth Marketing</h3>
+        <p className="text-slate-300 leading-relaxed">
+          Data-driven marketing strategies, customer acquisition, and brand development to accelerate growth.
+        </p>
+      </div>
+
+      {/* Legal & Compliance */}
+      <div className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group">
+        <Shield className="w-12 h-12 text-amber-400 mb-6 group-hover:scale-110 transition-transform" />
+        <h3 className="text-2xl font-bold mb-4 text-white">Legal & Compliance</h3>
+        <p className="text-slate-300 leading-relaxed">
+          Legal structure setup, intellectual property protection, and regulatory compliance guidance.
+        </p>
+      </div>
+
+      {/* Product Development */}
+      <div className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group">
+        <Lightbulb className="w-12 h-12 text-amber-400 mb-6 group-hover:scale-110 transition-transform" />
+        <h3 className="text-2xl font-bold mb-4 text-white">Product Development</h3>
+        <p className="text-slate-300 leading-relaxed">
+          MVP development, product strategy, and technical architecture to bring your vision to life.
+        </p>
+      </div>
+
+      {/* Funding Support */}
+      <div className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group">
+        <Target className="w-12 h-12 text-amber-400 mb-6 group-hover:scale-110 transition-transform" />
+        <h3 className="text-2xl font-bold mb-4 text-white">Funding Support</h3>
+        <p className="text-slate-300 leading-relaxed">
+          Investor relations, pitch deck development, and funding strategy to secure the capital you need.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
         {/* Growth Plan Packages Section */}
         <section id="pricing" className="py-20 bg-slate-800">
           <div className="container mx-auto px-6">
@@ -356,6 +383,7 @@ export default function StartupRunwayLanding() {
               <div className="bg-slate-900 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group relative">
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold mb-2 text-white">Starter</h3>
+                  <div className="text-3xl font-bold text-amber-400 mb-2">₹2,49,999</div>
                   <div className="text-slate-400">One-time</div>
                 </div>
                 <ul className="space-y-3 mb-8">
@@ -394,6 +422,7 @@ export default function StartupRunwayLanding() {
                 </div>
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold mb-2 text-white">Growth</h3>
+                  <div className="text-3xl font-bold text-amber-400 mb-2">₹6,65,999</div>
                   <div className="text-slate-400">3-month engagement</div>
                 </div>
                 <ul className="space-y-3 mb-8">
@@ -434,6 +463,7 @@ export default function StartupRunwayLanding() {
               <div className="bg-slate-900 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group relative">
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold mb-2 text-white">Scale</h3>
+                  <div className="text-3xl font-bold text-amber-400 mb-2">₹13,31,999</div>
                   <div className="text-slate-400">6-month engagement</div>
                 </div>
                 <ul className="space-y-3 mb-8">
@@ -665,7 +695,7 @@ export default function StartupRunwayLanding() {
                 <img
                   src="/aws-logo.png"
                   alt="AWS"
-                  className="w-full h-full object-contain transition-transform group-hover:scale-105"
+                  className="h-8 w-auto group-hover:scale-110 transition-transform"
                 />
               </div>
 
@@ -673,7 +703,7 @@ export default function StartupRunwayLanding() {
                 <img
                   src="/images/partners/google-cloud-logo.png"
                   alt="Google Cloud"
-                  className="w-full h-full object-contain transition-transform group-hover:scale-105"
+                  className="h-8 w-auto group-hover:scale-110 transition-transform"
                 />
               </div>
 
@@ -681,7 +711,7 @@ export default function StartupRunwayLanding() {
                 <img
                   src="/microsoft-azure-logo.jpg"
                   alt="Microsoft Azure"
-                  className="w-full h-full object-contain transition-transform group-hover:scale-105"
+                  className="h-8 w-auto group-hover:scale-110 transition-transform"
                 />
               </div>
 
@@ -689,7 +719,7 @@ export default function StartupRunwayLanding() {
                 <img
                   src="/stripe-logo.png"
                   alt="Stripe"
-                  className="w-full h-full object-contain transition-transform group-hover:scale-105"
+                  className="h-8 w-auto group-hover:scale-110 transition-transform"
                 />
               </div>
 
@@ -697,7 +727,7 @@ export default function StartupRunwayLanding() {
                 <img
                   src="/salesforce-logo.png"
                   alt="Salesforce"
-                  className="w-full h-full object-contain transition-transform group-hover:scale-105"
+                  className="h-8 w-auto group-hover:scale-110 transition-transform"
                 />
               </div>
 
@@ -705,7 +735,7 @@ export default function StartupRunwayLanding() {
                 <img
                   src="/hubspot-logo.png"
                   alt="HubSpot"
-                  className="w-full h-full object-contain transition-transform group-hover:scale-105"
+                  className="h-8 w-auto group-hover:scale-110 transition-transform"
                 />
               </div>
             </div>
@@ -860,7 +890,7 @@ export default function StartupRunwayLanding() {
                     <Mail className="w-6 h-6 text-amber-400 mr-4" />
                     <div>
                       <div className="text-white font-medium">Email</div>
-                      <div className="text-slate-300">info@startuprunway.in</div>
+                      <div className="text-slate-300">contact@startuprunway.in</div>
                     </div>
                   </div>
                   <div className="flex items-center">
@@ -874,7 +904,7 @@ export default function StartupRunwayLanding() {
                     <MapPin className="w-6 h-6 text-amber-400 mr-4" />
                     <div>
                       <div className="text-white font-medium">Location</div>
-                      <div className="text-slate-300">Bangalore · Supporting Global Teams Remotely</div>
+                      <div className="text-slate-300">Bangalore,India (Global Remote Team)</div>
                     </div>
                   </div>
                   <div className="flex items-center">

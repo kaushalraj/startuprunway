@@ -1,4 +1,28 @@
+-- Create profiles table for user management
+CREATE TABLE IF NOT EXISTS public.profiles (
+  id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
+  email TEXT NOT NULL,
+  full_name TEXT,
+  company_name TEXT,
+  phone TEXT,
+  user_type TEXT CHECK (user_type IN ('customer', 'partner', 'admin')) DEFAULT 'customer',
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
 -- Create customers table for detailed customer information
+CREATE TABLE IF NOT EXISTS public.customers (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
+  business_stage TEXT,
+  industry TEXT,
+  funding_requirements TEXT,
+  business_description TEXT,
+  growth_plan_package TEXT,
+  status TEXT DEFAULT 'active',
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
 
 -- Create partners table
 CREATE TABLE IF NOT EXISTS public.partners (
@@ -14,30 +38,6 @@ CREATE TABLE IF NOT EXISTS public.partners (
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- Create profiles table for user management
-CREATE TABLE IF NOT EXISTS public.profiles (
-  id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
-  email TEXT NOT NULL,
-  full_name TEXT,
-  company_name TEXT,
-  phone TEXT,
-  user_type TEXT CHECK (user_type IN ('customer', 'partner', 'admin')) DEFAULT 'customer',
-  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
-
-CREATE TABLE IF NOT EXISTS public.customers (
-  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-  user_id UUID REFERENCES auth.users(id) ON DELETE CASCADE,
-  business_stage TEXT,
-  industry TEXT,
-  funding_requirements TEXT,
-  business_description TEXT,
-  growth_plan_package TEXT,
-  status TEXT DEFAULT 'active',
-  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
-  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-);
 -- Create contact_submissions table
 CREATE TABLE IF NOT EXISTS public.contact_submissions (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),

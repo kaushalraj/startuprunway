@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowLeft, Users, Target, Award, Lightbulb } from "lucide-react"
 import Link from "next/link"
 
-export default function AboutSection() {
+export default function AboutPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       {/* Header */}
@@ -11,7 +11,7 @@ export default function AboutSection() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center space-x-3">
-              <img src="/images/startuprunway-logo.png" alt="StartupRunway" className="h-8 w-8" />
+              <img src="/images/startuprunway-icon.png" alt="StartupRunway" className="h-8 w-8" />
               <span className="text-xl font-bold text-white">StartupRunway</span>
             </Link>
             <Link href="/">
@@ -26,14 +26,16 @@ export default function AboutSection() {
 
       {/* Main Content */}
       <main className="container mx-auto px-4 py-16">
-	    <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-amber-400">About StartupRunway</h2>
-              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+        <div className="max-w-4xl mx-auto">
+          {/* Hero Section */}
+          <div className="text-center mb-16">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">About StartupRunway</h1>
+            <p className="text-xl text-slate-300 leading-relaxed">
               Empowering entrepreneurs to transform innovative ideas into successful businesses through comprehensive
               support and strategic guidance.
-              </p>
-            </div>
+            </p>
+          </div>
+
           {/* Mission & Vision */}
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             <Card className="bg-slate-800/50 border-slate-700">
