@@ -1,185 +1,982 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, Users, Target, Award, Lightbulb } from "lucide-react"
-import Link from "next/link"
+"use client"
 
-export default function AboutSection() {
+import type React from "react"
+import { useState } from "react"
+import {
+  Building2,
+  Users,
+  TrendingUp,
+  Shield,
+  Lightbulb,
+  Target,
+  Star,
+  ArrowRight,
+  Mail,
+  Phone,
+  MapPin,
+  ChevronDown,
+  MessageCircle,
+  User,
+} from "lucide-react"
+
+import AboutSection from "@/components/AboutSection"
+import ServicesSection from "@/components/ServicesSection"
+export default function StartupRunwayLanding() {
+  const [logoAnimating, setLogoAnimating] = useState(false)
+  const [loginDropdownOpen, setLoginDropdownOpen] = useState(false)
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
+  }
+
+  const scrollToPricing = () => {
+    scrollToSection("pricing")
+  }
+
+  const scrollToContact = () => {
+    scrollToSection("contact")
+  }
+
+  const [contactForm, setContactForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+  })
+
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitMessage, setSubmitMessage] = useState("")
+  const [emailError, setEmailError] = useState("")
+  const [touchStart, setTouchStart] = useState<number | null>(null)
+
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return emailRegex.test(email)
+  }
+
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const email = e.target.value
+    setContactForm((prev) => ({ ...prev, email }))
+
+    if (email && !validateEmail(email)) {
+      setEmailError("Please enter a valid email address")
+    } else {
+      setEmailError("")
+    }
+  }
+
+  const handleWhatsAppClick = (planName?: string) => {
+    const phoneNumber = "919071883088"
+    let message = "Hi! I'm interested in learning more about Startup Runway's services."
+
+    if (planName) {
+      message = `Hi! I'm interested in the ${planName} plan. Can you provide more details and help me get started?`
+    } else {
+      message += " Can you help me get started?"
+    }
+
+    const encodedMessage = encodeURIComponent(message)
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`
+    window.open(whatsappUrl, "_blank")
+  }
+
+  const handleContactSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitMessage("")
+
+    if (!validateEmail(contactForm.email)) {
+      setEmailError("Please enter a valid email address")
+      setIsSubmitting(false)
+      return
+    }
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(contactForm),
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        if (data.mailtoUrl) {
+          window.open(data.mailtoUrl, "_blank")
+        }
+
+        setSubmitMessage("Thank you! Your message has been prepared. Please send it from your email client.")
+        setContactForm({ name: "", email: "", message: "" })
+      } else {
+        setSubmitMessage(data.error || "Failed to submit form. Please try again.")
+      }
+    } catch (error) {
+      console.error("Form submission error:", error)
+      setSubmitMessage("Network error. Please check your connection and try again.")
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Header */}
-      <header className="bg-slate-900/95 backdrop-blur-sm border-b border-slate-700 sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center space-x-3">
-              <img src="/images/startuprunway-logo.png" alt="StartupRunway" className="h-8 w-8" />
-              <span className="text-xl font-bold text-white">StartupRunway</span>
-            </Link>
-            <Link href="/">
-              <Button variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-700 bg-transparent">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Home
-              </Button>
-            </Link>
+    <div className="min-h-screen bg-slate-900 text-white overflow-x-hidden">
+      <div className="w-full">
+        {/* Header */}
+        <header className="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800">
+          <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+            <div
+              className="flex items-center cursor-pointer"
+              onClick={() => {
+                window.scrollTo({ top: 0, behavior: "smooth" })
+              }}
+            >
+              <img src="/images/startuprunway-logo.png" alt="StartupRunway" className="h-10 w-10 mr-3" />
+              <span className="text-white font-bold text-xl">StartupRunway</span>
+            </div>
+            <nav className="hidden md:flex items-center space-x-8">
+              <button
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" })
+                }}
+                className="text-slate-300 hover:text-white transition-colors"
+              >
+                Home
+              </button>
+              <button
+                onClick={() => scrollToSection("about")} 
+                className="text-slate-300 hover:text-white transition-colors"
+              >
+                About
+              </button>
+              <button
+                onClick={() => scrollToSection("services")}
+                className="text-slate-300 hover:text-white transition-colors"
+              >
+                Services
+              </button>
+			  <a href="/blog" className="text-slate-300 hover:text-white transition-colors">
+                Blog
+              </a> 
+
+              <a href="/case-studies" className="text-slate-300 hover:text-white transition-colors">
+                Case Studies
+              </a> 
+              <button
+                onClick={() => scrollToSection("contact")}
+                className="text-slate-300 hover:text-white transition-colors"
+              >
+                Contact
+              </button>
+              <div className="relative">
+                <button
+                  onMouseEnter={() => setLoginDropdownOpen(true)}
+                  className="flex items-center bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 px-4 py-2 rounded-lg font-medium transition-colors"
+                >
+                  <User className="w-4 h-4 mr-2" />
+                  Login
+                  <ChevronDown className="w-4 h-4 ml-2" />
+                </button>
+
+                {loginDropdownOpen && (
+                  <div
+                    className="absolute top-full right-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-slate-200 py-2 z-50"
+                    onMouseEnter={() => setLoginDropdownOpen(true)}
+                    onMouseLeave={() => setLoginDropdownOpen(false)}
+                  >
+                    <div className="px-4 py-2 border-b border-slate-200">
+                      <p className="text-sm text-slate-600 font-medium">Choose Login Type</p>
+                    </div>
+                    <a
+                      href="/auth/customer/login"
+                      className="flex items-center px-4 py-3 text-slate-700 hover:bg-amber-50 hover:text-amber-700 transition-colors"
+                    >
+                      <div className="w-2 h-2 bg-amber-500 rounded-full mr-3"></div>
+                      <div>
+                        <div className="font-medium">Customer Login</div>
+                        <div className="text-xs text-slate-500">Access your startup dashboard</div>
+                      </div>
+                    </a>
+                    <a
+                      href="/auth/partner/login"
+                      className="flex items-center px-4 py-3 text-slate-700 hover:bg-blue-50 hover:text-blue-700 transition-colors"
+                    >
+                      <div className="w-2 h-2 bg-blue-500 rounded-full mr-3"></div>
+                      <div>
+                        <div className="font-medium">Partner Login</div>
+                        <div className="text-xs text-slate-500">Access partner portal</div>
+                      </div>
+                    </a>
+                    <div className="border-t border-slate-200 mt-2 pt-2">
+                      <a
+                        href="/admin/login"
+                        className="flex items-center px-4 py-2 text-slate-600 hover:bg-slate-50 hover:text-slate-800 transition-colors text-sm"
+                      >
+                        <div className="w-2 h-2 bg-slate-400 rounded-full mr-3"></div>
+                        Admin Access
+                      </a>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </nav>
+          </div>
+        </header>
+
+        <div className="fixed bottom-6 right-6 z-50">
+          <div className="relative group">
+            <button
+              onClick={() => (window.location.href = "/auth/customer/register")}
+              className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 group"
+            >
+              <MessageCircle className="w-6 h-6" />
+            </button>
+            <div className="absolute bottom-full right-0 mb-2 px-3 py-2 bg-slate-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+              Join StartupRunway
+            </div>
           </div>
         </div>
-      </header>
 
-      {/* Main Content */}
-      <main className="container mx-auto px-4 py-16">
-	    <div className="container mx-auto px-6">
+        {loginDropdownOpen && <div className="fixed inset-0 z-40" onClick={() => setLoginDropdownOpen(false)}></div>}
+
+        {/* Hero Section */}
+        <section
+          id="hero"
+          className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800"
+        >
+          <div className="container mx-auto px-6 text-center relative z-10">
+            <div className="max-w-4xl mx-auto">
+              <h1 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
+                StartupRunway – Your Trusted Partner in Startup Success
+              </h1>
+              <p className="text-xl md:text-2xl text-slate-300 mb-8 leading-relaxed">
+                Helping Indian Startups Launch, Scale, and Succeed.
+              </p>
+			  <p className="text-base md:text-lg text-slate-400 mb-8 leading-relaxed">
+              <span className="text-yellow-400 font-semibold">Powered by global investors who believe in Indian startups.</span>
+              </p>
+              <button
+                onClick={() => scrollToSection("services")}
+                className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                Get Started
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* About Section */}
+		<section id="about">
+			<AboutSection />
+		</section>
+		
+        {/* Services Section */}
+		<section id="services">
+			<ServicesSection />
+		</section>
+{/*		
+        <section id="services" className="py-20 bg-slate-900">
+          <div className="container mx-auto px-6">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-amber-400">About StartupRunway</h2>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-amber-400">Our Services</h2>
               <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              Empowering entrepreneurs to transform innovative ideas into successful businesses through comprehensive
-              support and strategic guidance.
+                Comprehensive startup support from ideation to scale
               </p>
             </div>
-          {/* Mission & Vision */}
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
-            <Card className="bg-slate-800/50 border-slate-700">
-              <CardHeader>
-                <CardTitle className="text-white flex items-center">
-                  <Target className="mr-3 h-6 w-6 text-amber-400" />
-                  Our Mission
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-slate-300">
-                  To provide comprehensive business solutions that enable startups and entrepreneurs to navigate the
-                  complex journey from idea to successful enterprise with confidence and clarity.
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              <div className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group">
+                <Building2 className="w-12 h-12 text-amber-400 mb-6 group-hover:scale-110 transition-transform" />
+                <h3 className="text-2xl font-bold mb-4 text-white">Business Strategy</h3>
+                <p className="text-slate-300 leading-relaxed">
+                  Strategic planning, market analysis, and business model development to set your startup on the path to
+                  success.
                 </p>
-              </CardContent>
-            </Card>
+              </div>
 
-            <Card className="bg-slate-800/50 border-slate-700">
-              <CardHeader>
-                <CardTitle className="text-white flex items-center">
-                  <Lightbulb className="mr-3 h-6 w-6 text-amber-400" />
-                  Our Vision
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-slate-300">
-                  To be the leading catalyst for entrepreneurial success, fostering innovation and creating a thriving
-                  ecosystem where every business idea has the opportunity to flourish.
+              <div className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group">
+                <Users className="w-12 h-12 text-amber-400 mb-6 group-hover:scale-110 transition-transform" />
+                <h3 className="text-2xl font-bold mb-4 text-white">Team Building</h3>
+                <p className="text-slate-300 leading-relaxed">
+                  Talent acquisition, team structure optimization, and culture development to build high-performing
+                  teams.
                 </p>
-              </CardContent>
-            </Card>
-          </div>
+              </div>
 
-          {/* What We Do */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold text-white mb-8 text-center">What We Do</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              <Card className="bg-slate-800/50 border-slate-700">
-                <CardHeader>
-                  <CardTitle className="text-white text-lg">Business Planning</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-slate-300 text-sm">
-                    Comprehensive business plan development, market analysis, and strategic roadmap creation.
-                  </p>
-                </CardContent>
-              </Card>
+              <div className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group">
+                <TrendingUp className="w-12 h-12 text-amber-400 mb-6 group-hover:scale-110 transition-transform" />
+                <h3 className="text-2xl font-bold mb-4 text-white">Growth Marketing</h3>
+                <p className="text-slate-300 leading-relaxed">
+                  Data-driven marketing strategies, customer acquisition, and brand development to accelerate growth.
+                </p>
+              </div>
 
-              <Card className="bg-slate-800/50 border-slate-700">
-                <CardHeader>
-                  <CardTitle className="text-white text-lg">Legal & Compliance</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-slate-300 text-sm">
-                    Company registration, legal documentation, compliance management, and regulatory guidance.
-                  </p>
-                </CardContent>
-              </Card>
+              <div className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group">
+                <Shield className="w-12 h-12 text-amber-400 mb-6 group-hover:scale-110 transition-transform" />
+                <h3 className="text-2xl font-bold mb-4 text-white">Legal & Compliance</h3>
+                <p className="text-slate-300 leading-relaxed">
+                  Legal structure setup, intellectual property protection, and regulatory compliance guidance.
+                </p>
+              </div>
 
-              <Card className="bg-slate-800/50 border-slate-700">
-                <CardHeader>
-                  <CardTitle className="text-white text-lg">Growth Support</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-slate-300 text-sm">
-                    Marketing strategies, funding assistance, operational optimization, and scaling solutions.
-                  </p>
-                </CardContent>
-              </Card>
+              <div className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group">
+                <Lightbulb className="w-12 h-12 text-amber-400 mb-6 group-hover:scale-110 transition-transform" />
+                <h3 className="text-2xl font-bold mb-4 text-white">Product Development</h3>
+                <p className="text-slate-300 leading-relaxed">
+                  MVP development, product strategy, and technical architecture to bring your vision to life.
+                </p>
+              </div>
+
+              <div className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group">
+                <Target className="w-12 h-12 text-amber-400 mb-6 group-hover:scale-110 transition-transform" />
+                <h3 className="text-2xl font-bold mb-4 text-white">Funding Support</h3>
+                <p className="text-slate-300 leading-relaxed">
+                  Investor relations, pitch deck development, and funding strategy to secure the capital you need.
+                </p>
+              </div>
             </div>
           </div>
+        </section>
+*/}
+        {/* Growth Plan Packages Section */}
+        <section id="pricing" className="py-20 bg-slate-800">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-amber-400">Growth Plan Packages</h2>
+              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+                Choose the perfect package to accelerate your startup journey from ideation to scale
+              </p>
+            </div>
 
-          {/* Why Choose Us */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold text-white mb-8 text-center">Why Choose StartupRunway</h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-amber-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Users className="h-6 w-6 text-amber-400" />
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
+              {/* Starter Package */}
+              <div className="bg-slate-900 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group relative">
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-bold mb-2 text-white">Starter</h3>
+                  <div className="text-slate-400">One-time</div>
+                </div>
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-center text-slate-300">
+                    <div className="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
+                    Business Model Validation
+                  </li>
+                  <li className="flex items-center text-slate-300">
+                    <div className="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
+                    Market Research & Analysis
+                  </li>
+                  <li className="flex items-center text-slate-300">
+                    <div className="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
+                    Basic Legal Structure Setup
+                  </li>
+                  <li className="flex items-center text-slate-300">
+                    <div className="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
+                    MVP Planning & Roadmap
+                  </li>
+                  <li className="flex items-center text-slate-300">
+                    <div className="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>2 Strategy Sessions
+                  </li>
+                </ul>
+                <button
+                  onClick={() => handleWhatsAppClick("Starter")}
+                  className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold py-3 px-6 rounded-lg transition-all duration-300 transform group-hover:scale-105"
+                >
+                  Get Started
+                </button>
+              </div>
+
+              {/* Growth Package */}
+              <div className="bg-slate-900 p-8 rounded-xl border-2 border-amber-500 transition-all duration-300 group relative">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                  <span className="bg-amber-500 text-slate-900 px-4 py-1 rounded-full text-sm font-bold">POPULAR</span>
+                </div>
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-bold mb-2 text-white">Growth</h3>
+                  <div className="text-slate-400">3-month engagement</div>
+                </div>
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-center text-slate-300">
+                    <div className="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
+                    Everything in Starter
+                  </li>
+                  <li className="flex items-center text-slate-300">
+                    <div className="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
+                    MVP Development Support
+                  </li>
+                  <li className="flex items-center text-slate-300">
+                    <div className="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
+                    Go-to-Market Strategy
+                  </li>
+                  <li className="flex items-center text-slate-300">
+                    <div className="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
+                    Team Building & Hiring
+                  </li>
+                  <li className="flex items-center text-slate-300">
+                    <div className="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
+                    Funding Preparation
+                  </li>
+                  <li className="flex items-center text-slate-300">
+                    <div className="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
+                    Weekly Strategy Sessions
+                  </li>
+                </ul>
+                <button
+                  onClick={() => handleWhatsAppClick("Growth")}
+                  className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold py-3 px-6 rounded-lg transition-all duration-300 transform group-hover:scale-105"
+                >
+                  Get Started
+                </button>
+              </div>
+
+              {/* Scale Package */}
+              <div className="bg-slate-900 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group relative">
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-bold mb-2 text-white">Scale</h3>
+                  <div className="text-slate-400">6-month engagement</div>
+                </div>
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-center text-slate-300">
+                    <div className="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
+                    Everything in Growth
+                  </li>
+                  <li className="flex items-center text-slate-300">
+                    <div className="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
+                    Full Product Development
+                  </li>
+                  <li className="flex items-center text-slate-300">
+                    <div className="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
+                    Marketing & Sales Systems
+                  </li>
+                  <li className="flex items-center text-slate-300">
+                    <div className="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
+                    Operations Optimization
+                  </li>
+                  <li className="flex items-center text-slate-300">
+                    <div className="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
+                    Investor Pitch & Funding
+                  </li>
+                  <li className="flex items-center text-slate-300">
+                    <div className="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
+                    Dedicated Account Manager
+                  </li>
+                </ul>
+                <button
+                  onClick={() => handleWhatsAppClick("Scale")}
+                  className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold py-3 px-6 rounded-lg transition-all duration-300 transform group-hover:scale-105"
+                >
+                  Get Started
+                </button>
+              </div>
+
+              {/* Enterprise Package */}
+              <div className="bg-slate-900 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group relative">
+                <div className="text-center mb-6">
+                  <h3 className="text-2xl font-bold mb-2 text-white">Enterprise</h3>
+                  <div className="text-3xl font-bold text-amber-400 mb-2">Custom</div>
+                  <div className="text-slate-400">12+ months</div>
+                </div>
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-center text-slate-300">
+                    <div className="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
+                    Everything in Scale
+                  </li>
+                  <li className="flex items-center text-slate-300">
+                    <div className="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
+                    Multi-Product Strategy
+                  </li>
+                  <li className="flex items-center text-slate-300">
+                    <div className="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
+                    International Expansion
+                  </li>
+                  <li className="flex items-center text-slate-300">
+                    <div className="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
+                    Series A+ Preparation
+                  </li>
+                  <li className="flex items-center text-slate-300">
+                    <div className="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
+                    Executive Team Support
+                  </li>
+                  <li className="flex items-center text-slate-300">
+                    <div className="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
+                    24/7 Priority Support
+                  </li>
+                </ul>
+                <button
+                  onClick={() => handleWhatsAppClick("Enterprise")}
+                  className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold py-3 px-6 rounded-lg transition-all duration-300 transform group-hover:scale-105"
+                >
+                  Contact Us
+                </button>
+              </div>
+            </div>
+
+            {/* Additional Features Section */}
+            <div className="mt-16 text-center">
+              <h3 className="text-2xl font-bold mb-8 text-white">All Packages Include</h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                <div className="flex items-center justify-center text-slate-300">
+                  <Shield className="w-5 h-5 text-amber-400 mr-2" />
+                  Legal Protection
+                </div>
+                <div className="flex items-center justify-center text-slate-300">
+                  <Users className="w-5 h-5 text-amber-400 mr-2" />
+                  Expert Network Access
+                </div>
+                <div className="flex items-center justify-center text-slate-300">
+                  <Target className="w-5 h-5 text-amber-400 mr-2" />
+                  Success Metrics Tracking
+                </div>
+                <div className="flex items-center justify-center text-slate-300">
+                  <Lightbulb className="w-5 h-5 text-amber-400 mr-2" />
+                  Innovation Workshops
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* How It Works Section */}
+        <section id="how-it-works" className="py-20 bg-slate-900">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-amber-400">How It Works</h2>
+              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+                Our proven 4-step process to transform your startup vision into reality
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+              <div className="text-center group">
+                <div className="bg-gradient-to-br from-amber-500 to-amber-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 text-slate-900 font-bold text-xl group-hover:scale-110 transition-transform">
+                  1
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-white">Discovery</h3>
+                <p className="text-slate-300 leading-relaxed">
+                  We analyze your vision, market opportunity, and current challenges to create a tailored roadmap.
+                </p>
+              </div>
+
+              <div className="text-center group">
+                <div className="bg-gradient-to-br from-amber-500 to-amber-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 text-slate-900 font-bold text-xl group-hover:scale-110 transition-transform">
+                  2
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-white">Strategy</h3>
+                <p className="text-slate-300 leading-relaxed">
+                  Develop comprehensive business strategy, technical architecture, and go-to-market plans.
+                </p>
+              </div>
+
+              <div className="text-center group">
+                <div className="bg-gradient-to-br from-amber-500 to-amber-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 text-slate-900 font-bold text-xl group-hover:scale-110 transition-transform">
+                  3
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-white">Execute</h3>
+                <p className="text-slate-300 leading-relaxed">
+                  Implement solutions with our expert team while building your internal capabilities.
+                </p>
+              </div>
+
+              <div className="text-center group">
+                <div className="bg-gradient-to-br from-amber-500 to-amber-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 text-slate-900 font-bold text-xl group-hover:scale-110 transition-transform">
+                  4
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-white">Scale</h3>
+                <p className="text-slate-300 leading-relaxed">
+                  Optimize operations, expand market reach, and prepare for sustainable growth and funding.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Blog Section */}
+        <section id="blog" className="py-20 bg-slate-900">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-amber-400">Latest Insights</h2>
+              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+                Stay updated with the latest trends and insights in the startup ecosystem
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              <article className="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-amber-500 transition-all duration-300 group">
+                <div className="h-48 bg-gradient-to-br from-amber-500 to-amber-600"></div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-3 text-white group-hover:text-amber-400 transition-colors">
+                    The Future of Startup Funding in 2024
+                  </h3>
+                  <p className="text-slate-300 mb-4 leading-relaxed">
+                    Exploring new funding models and investor trends shaping the startup landscape.
+                  </p>
+                  <div className="flex items-center text-amber-400 font-medium">
+                    Read More <ArrowRight className="w-4 h-4 ml-2" />
                   </div>
-                  <div>
-                    <h3 className="text-white font-semibold mb-2">Expert Team</h3>
-                    <p className="text-slate-300 text-sm">
-                      Our experienced professionals bring decades of combined expertise in business development, legal
-                      affairs, and strategic planning.
-                    </p>
+                </div>
+              </article>
+
+              <article className="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-amber-500 transition-all duration-300 group">
+                <div className="h-48 bg-gradient-to-br from-blue-500 to-blue-600"></div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-3 text-white group-hover:text-amber-400 transition-colors">
+                    Building Remote-First Startup Teams
+                  </h3>
+                  <p className="text-slate-300 mb-4 leading-relaxed">
+                    Best practices for creating and managing distributed teams in the modern startup environment.
+                  </p>
+                  <div className="flex items-center text-amber-400 font-medium">
+                    Read More <ArrowRight className="w-4 h-4 ml-2" />
+                  </div>
+                </div>
+              </article>
+
+              <article className="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-amber-500 transition-all duration-300 group">
+                <div className="h-48 bg-gradient-to-br from-green-500 to-green-600"></div>
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-3 text-white group-hover:text-amber-400 transition-colors">
+                    AI Integration for Early-Stage Startups
+                  </h3>
+                  <p className="text-slate-300 mb-4 leading-relaxed">
+                    How emerging startups can leverage AI technologies to gain competitive advantages.
+                  </p>
+                  <div className="flex items-center text-amber-400 font-medium">
+                    Read More <ArrowRight className="w-4 h-4 ml-2" />
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        {/* Technology Partners Section */}
+        <section id="partners" className="py-20 bg-slate-800">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-amber-400">Technology Partners</h2>
+              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+                Trusted partnerships with industry-leading technology providers
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 max-w-6xl mx-auto">
+              <div className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex flex-col items-center justify-center group">
+                <img
+                  src="/aws-logo.png"
+                  alt="AWS"
+                  className="w-full h-full object-contain transition-transform group-hover:scale-105"
+                />
+              </div>
+
+              <div className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex flex-col items-center justify-center group">
+                <img
+                  src="/images/partners/google-cloud-logo.png"
+                  alt="Google Cloud"
+                  className="w-full h-full object-contain transition-transform group-hover:scale-105"
+                />
+              </div>
+
+              <div className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex flex-col items-center justify-center group">
+                <img
+                  src="/microsoft-azure-logo.jpg"
+                  alt="Microsoft Azure"
+                  className="w-full h-full object-contain transition-transform group-hover:scale-105"
+                />
+              </div>
+
+              <div className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex flex-col items-center justify-center group">
+                <img
+                  src="/stripe-logo.png"
+                  alt="Stripe"
+                  className="w-full h-full object-contain transition-transform group-hover:scale-105"
+                />
+              </div>
+
+              <div className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex flex-col items-center justify-center group">
+                <img
+                  src="/salesforce-logo.png"
+                  alt="Salesforce"
+                  className="w-full h-full object-contain transition-transform group-hover:scale-105"
+                />
+              </div>
+
+              <div className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex flex-col items-center justify-center group">
+                <img
+                  src="/hubspot-logo.png"
+                  alt="HubSpot"
+                  className="w-full h-full object-contain transition-transform group-hover:scale-105"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Companies We've Mentored Section */}
+        <section id="companies" className="py-20 bg-slate-900">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-amber-400">Companies We've Mentored</h2>
+              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+                Proud to have supported these innovative startups on their journey to success
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              <div className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300">
+                <h3 className="text-2xl font-bold mb-4 text-white">TechFlow Solutions</h3>
+                <p className="text-slate-300 mb-4 leading-relaxed">
+                  B2B SaaS platform that achieved $2M ARR within 18 months of launch.
+                </p>
+                <div className="text-amber-400 font-medium">Series A: $5M raised</div>
+              </div>
+
+              <div className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300">
+                <h3 className="text-2xl font-bold mb-4 text-white">GreenEnergy Innovations</h3>
+                <p className="text-slate-300 mb-4 leading-relaxed">
+                  Clean tech startup revolutionizing solar energy storage solutions.
+                </p>
+                <div className="text-amber-400 font-medium">Seed: $3M raised</div>
+              </div>
+
+              <div className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300">
+                <h3 className="text-2xl font-bold mb-4 text-white">HealthTech Connect</h3>
+                <p className="text-slate-300 mb-4 leading-relaxed">
+                  Digital health platform connecting patients with specialized care providers.
+                </p>
+                <div className="text-amber-400 font-medium">Series B: $12M raised</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section id="testimonials" className="py-20 bg-slate-800">
+          <div className="container mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-amber-400">What Our Clients Say</h2>
+              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+                Hear from the entrepreneurs who've transformed their visions into successful ventures
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              <div className="bg-slate-900 p-8 rounded-xl border border-slate-700">
+                <div className="flex mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-amber-400 fill-current" />
+                  ))}
+                </div>
+                <p className="text-slate-300 mb-6 leading-relaxed italic">
+                  "StartupRunway didn't just provide consulting - they became true partners in our journey. Their
+                  strategic guidance helped us secure Series A funding and scale to 50+ employees."
+                </p>
+                <div>
+                  <div className="font-bold text-white">Sarah Chen</div>
+                  <div className="text-amber-400">CEO, TechFlow Solutions</div>
+                </div>
+              </div>
+
+              <div className="bg-slate-900 p-8 rounded-xl border border-slate-700">
+                <div className="flex mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-amber-400 fill-current" />
+                  ))}
+                </div>
+                <p className="text-slate-300 mb-6 leading-relaxed italic">
+                  "The technical expertise and business acumen of the StartupRunway team is unmatched. They helped us
+                  avoid costly mistakes and accelerated our time to market by 6 months."
+                </p>
+                <div>
+                  <div className="font-bold text-white">Michael Rodriguez</div>
+                  <div className="text-amber-400">Founder, GreenEnergy Innovations</div>
+                </div>
+              </div>
+
+              <div className="bg-slate-900 p-8 rounded-xl border border-slate-700">
+                <div className="flex mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-amber-400 fill-current" />
+                  ))}
+                </div>
+                <p className="text-slate-300 mb-6 leading-relaxed italic">
+                  "From legal structure to product development, StartupRunway provided end-to-end support that was
+                  crucial for our success. We couldn't have done it without them."
+                </p>
+                <div>
+                  <div className="font-bold text-white">Dr. Emily Watson</div>
+                  <div className="text-amber-400">Co-founder, HealthTech Connect</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section id="cta" className="py-20 bg-gradient-to-br from-amber-600 via-amber-500 to-yellow-500">
+          <div className="container mx-auto px-6 text-center">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-4xl md:text-6xl font-bold mb-6 text-slate-900">Ready to Build Your Business?</h2>
+              <p className="text-xl md:text-2xl text-slate-800 mb-8 leading-relaxed">
+                Join hundreds of successful entrepreneurs who've transformed their visions into thriving businesses with
+                StartupRunway.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                  onClick={() => scrollToSection("contact")}
+                  className="bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                >
+                  Start Your Journey
+                </button>
+                <button
+                  onClick={() => handleWhatsAppClick()}
+                  className="bg-transparent border-2 border-slate-900 hover:bg-slate-900 hover:text-white text-slate-900 font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105"
+                >
+                  Chat on WhatsApp
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section
+          id="contact"
+          className="py-20 relative overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900"
+        >
+          <div className="container mx-auto px-6 relative z-10">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-amber-400">Get In Touch</h2>
+              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+                Ready to transform your startup vision into reality? Let's discuss how we can help you succeed.
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+              <div>
+                <h3 className="text-2xl font-bold mb-6 text-white">Contact Information</h3>
+                <div className="space-y-6">
+                  <div className="flex items-center">
+                    <Mail className="w-6 h-6 text-amber-400 mr-4" />
+                    <div>
+                      <div className="text-white font-medium">Email</div>
+                      <div className="text-slate-300">info@startuprunway.in</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center">
+                    <Phone className="w-6 h-6 text-amber-400 mr-4" />
+                    <div>
+                      <div className="text-white font-medium">Phone</div>
+                      <div className="text-slate-300">+91 90718 83088</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center">
+                    <MapPin className="w-6 h-6 text-amber-400 mr-4" />
+                    <div>
+                      <div className="text-white font-medium">Location</div>
+                      <div className="text-slate-300">Bangalore · Supporting Global Teams Remotely</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center">
+                    <MessageCircle className="w-6 h-6 text-amber-400 mr-4" />
+                    <div>
+                      <div className="text-white font-medium">WhatsApp</div>
+                      <button
+                        onClick={() => handleWhatsAppClick()}
+                        className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-medium transition-colors flex items-center mt-1"
+                      >
+                        <MessageCircle className="w-4 h-4 mr-2" />
+                        Click to message us
+                      </button>
+                    </div>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-amber-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Award className="h-6 w-6 text-amber-400" />
-                  </div>
-                  <div>
-                    <h3 className="text-white font-semibold mb-2">Proven Track Record</h3>
-                    <p className="text-slate-300 text-sm">
-                      Successfully helped hundreds of startups launch and scale their businesses across various
-                      industries.
-                    </p>
+                <div className="mt-8 pt-8 border-t border-slate-700">
+                  <h4 className="text-lg font-bold mb-4 text-white">New to StartupRunway?</h4>
+                  <div className="flex flex-col space-y-3">
+                    <a
+                      href="/auth/customer/register"
+                      className="bg-amber-500 hover:bg-amber-600 text-slate-900 px-4 py-3 rounded-lg font-medium transition-colors text-center flex items-center justify-center"
+                    >
+                      <User className="w-4 h-4 mr-2" />
+                      Register as Customer
+                    </a>
+                    <a
+                      href="/auth/partner/register"
+                      className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-3 rounded-lg font-medium transition-colors text-center flex items-center justify-center"
+                    >
+                      <Users className="w-4 h-4 mr-2" />
+                      Join as Partner
+                    </a>
                   </div>
                 </div>
               </div>
 
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-amber-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Target className="h-6 w-6 text-amber-400" />
+              <div>
+                <form onSubmit={handleContactSubmit} className="space-y-6">
+                  <div>
+                    <label htmlFor="name" className="block text-white font-medium mb-2">
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      value={contactForm.name}
+                      onChange={(e) => setContactForm((prev) => ({ ...prev, name: e.target.value }))}
+                      className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-amber-400 transition-colors"
+                      required
+                    />
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold mb-2">Personalized Approach</h3>
-                    <p className="text-slate-300 text-sm">
-                      Every business is unique. We tailor our solutions to meet your specific needs and industry
-                      requirements.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-amber-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Lightbulb className="h-6 w-6 text-amber-400" />
+                    <label htmlFor="email" className="block text-white font-medium mb-2">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      value={contactForm.email}
+                      onChange={handleEmailChange}
+                      className={`w-full px-4 py-3 bg-slate-800 border rounded-lg text-white focus:outline-none transition-colors resize-none ${
+                        emailError ? "border-red-500" : "border-slate-700 focus:border-amber-400"
+                      }`}
+                      required
+                    />
+                    {emailError && <p className="text-red-400 text-sm mt-1">{emailError}</p>}
                   </div>
                   <div>
-                    <h3 className="text-white font-semibold mb-2">End-to-End Support</h3>
-                    <p className="text-slate-300 text-sm">
-                      From initial concept to market launch and beyond, we're with you every step of the entrepreneurial
-                      journey.
-                    </p>
+                    <label htmlFor="message" className="block text-white font-medium mb-2">
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      rows={5}
+                      value={contactForm.message}
+                      onChange={(e) => setContactForm((prev) => ({ ...prev, message: e.target.value }))}
+                      className="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-amber-400 transition-colors resize-none"
+                      required
+                    />
                   </div>
-                </div>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting || !!emailError}
+                    className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 disabled:from-slate-600 disabled:to-slate-700 text-slate-900 font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 disabled:scale-100 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? "Sending..." : "Send Message"}
+                  </button>
+                  {submitMessage && (
+                    <p
+                      className={`text-center ${submitMessage.includes("Thank you") ? "text-green-400" : "text-red-400"}`}
+                    >
+                      {submitMessage}
+                    </p>
+                  )}
+                </form>
               </div>
             </div>
           </div>
-
-          {/* CTA */}
-          <div className="text-center">
-            <h2 className="text-2xl font-bold text-white mb-4">Ready to Start Your Journey?</h2>
-            <p className="text-slate-300 mb-8">Let's discuss how we can help turn your business idea into reality.</p>
-            <Link href="/">
-              <Button className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-semibold px-8 py-3">
-                Get Started Today
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </main>
+        </section>
+      </div>
     </div>
   )
 }
