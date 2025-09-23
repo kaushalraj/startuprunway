@@ -131,8 +131,8 @@ export default function AboutSection() {
                   <div>
                     <h3 className="text-white font-semibold mb-2">Proven Track Record</h3>
                     <p className="text-slate-300 text-sm">
-                      Successfully helped hundreds of startups launch and scale their businesses across various
-                      industries.
+                        Successfully guided startups in launching and scaling businesses across diverse industries. From software and                        technology to healthcare, consumer services, and beyond. Our franchise model empowers brands to expand
+                        rapidly while ensuring consistency, quality, and long-term profitability.
                     </p>
                   </div>
                 </div>
