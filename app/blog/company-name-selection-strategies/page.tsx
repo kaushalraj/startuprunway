@@ -13,7 +13,7 @@ export default function CompanyNameStrategiesPage() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
-              <img src="/images/startuprunway-icon.png" alt="StartupRunway" className="h-10 w-10 mr-3" />
+              <img src="/images/startuprunway-logo.png" alt="StartupRunway" className="h-10 w-10 mr-3" />
               <span className="text-white font-bold text-xl">StartupRunway</span>
             </Link>
             <Link href="/blog">
