@@ -126,7 +126,7 @@ export default function CaseStudiesPage() {
         <div className="max-w-6xl mx-auto">
           {/* Hero Section */}
           <div className="text-center mb-16">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Success Stories</h1>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-amber-400">Success Stories</h1>
             <p className="text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
               Discover how we've helped entrepreneurs transform their ideas into thriving businesses. These case studies
               showcase real results from our comprehensive business solutions.
