@@ -9,6 +9,7 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-navy-900">
       {/* Header */}
+      {/*
       <header className="bg-slate-900/95 backdrop-blur-sm border-b border-slate-700/50 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
@@ -29,7 +30,7 @@ export default function BlogPage() {
           </div>
         </div>
       </header>
-
+      */}
       {/* Blog Content */}
       <main className="container mx-auto px-4 py-12">
         <div className="text-center mb-16">
