@@ -34,7 +34,7 @@ export default function BlogSection() {
       {/* Blog Content */}
       <main className="container mx-auto px-4 py-12">
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-amber-400 mb-6" style={{ fontFamily: "var(--font-dm-sans)" }}>
+          <h2 className="text-4xl md:text-5xl font-bold text-amber-400 mb-6" style={{ fontFamily: "var(--font-dm-sans)" }}>
             StartupRunway Blog
           </h1>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto">
