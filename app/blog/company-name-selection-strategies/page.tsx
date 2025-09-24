@@ -1,6 +1,6 @@
 "use client"
 
-import Script from "next/script";
+import Script from "next/script"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ArrowLeft, Calendar, Clock, User, CheckCircle, Lightbulb, Target, TrendingUp } from "lucide-react"
