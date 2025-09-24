@@ -16,24 +16,7 @@ import {
 export default function ServicesSection() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Header */}
-      <header className="bg-slate-900/95 backdrop-blur-sm border-b border-slate-700 sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center space-x-3">
-              <img src="/images/startuprunway-logo.png" alt="StartupRunway" className="h-8 w-8" />
-              <span className="text-xl font-bold text-white">StartupRunway</span>
-            </Link>
-            <Link href="/">
-              <Button variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-700 bg-transparent">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Home
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </header>
-
+      
       {/* Main Content */}
       <main className="container mx-auto px-4 py-16">
           <div className="container mx-auto px-6">
