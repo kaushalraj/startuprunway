@@ -2,6 +2,7 @@
 
 import type React from "react"
 import { useState } from "react"
+import Script from "next/script"
 import {
   Building2,
   Users,
@@ -862,6 +863,11 @@ export default function StartupRunwayLanding() {
           </div>
         </section>
       </div>
+      {/* Noupe Chatbot Script */}
+       <Script
+       	src="https://www.noupe.com/embed/01997896505278e59e770cc4f49a1de9b374.js"
+       	strategy="lazyOnload"
+       />
     </div>
   )
 }
