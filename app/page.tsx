@@ -132,7 +132,7 @@ export default function StartupRunwayLanding() {
             <div
               className="flex items-center cursor-pointer"
               onClick={() => {
-                window.scrollTo({ top: 0, behavior: "smooth" })
+                window.scrollTo({ top: 0, scroll-padding-top: 80px; behavior: "smooth" })
               }}
             >
               <img src="/images/startuprunway-logo.png" alt="StartupRunway" className="h-10 w-10 mr-3" />
