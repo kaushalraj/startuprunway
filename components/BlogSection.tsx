@@ -13,7 +13,7 @@ export default function BlogSection() {
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-amber-400 mb-6" style={{ fontFamily: "var(--font-dm-sans)" }}>
             StartupRunway Blog
-          </h1>
+          </h2>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto">
             Expert insights, practical guides, and success stories to help you build and scale your business
           </p>
