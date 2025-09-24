@@ -21,6 +21,7 @@ import {
 
 import AboutSection from "@/components/AboutSection"
 import ServicesSection from "@/components/ServicesSection"
+import ServicesSection from "@/components/BlogSection"
 export default function StartupRunwayLanding() {
   const [logoAnimating, setLogoAnimating] = useState(false)
   const [loginDropdownOpen, setLoginDropdownOpen] = useState(false)
