@@ -8,7 +8,6 @@ import Link from "next/link"
 
 export default function CompanyNameStrategiesPage() {
   return (
-    <script src='https://www.noupe.com/embed/01997896505278e59e770cc4f49a1de9b374.js'></script>
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-navy-900">
 
       {/* Article Content */}
