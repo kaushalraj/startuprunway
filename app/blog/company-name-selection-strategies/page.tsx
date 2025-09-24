@@ -8,27 +8,6 @@ import Link from "next/link"
 export default function CompanyNameStrategiesPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-navy-900">
-      {/* Header */}
-      <header className="bg-slate-900/95 backdrop-blur-sm border-b border-slate-700/50 sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
-              <img src="/images/startuprunway-logo.png" alt="StartupRunway" className="h-10 w-10 mr-3" />
-              <span className="text-white font-bold text-xl">StartupRunway</span>
-            </Link>
-            <Link href="/blog">
-              <Button
-                variant="outline"
-                size="sm"
-                className="border-amber-500/50 text-amber-400 hover:bg-amber-500 hover:text-slate-900 bg-transparent"
-              >
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Blog
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </header>
 
       {/* Article Content */}
       <main className="container mx-auto px-4 py-12">
