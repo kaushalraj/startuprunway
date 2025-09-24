@@ -158,11 +158,12 @@ export default function StartupRunwayLanding() {
                 className="text-slate-300 hover:text-white transition-colors"
               >
                 Services
-              </button>
-			  <a href="/blog" className="text-slate-300 hover:text-white transition-colors">
-                Blog
-              </a> 
-
+              <button
+	        onClick={() => scrollToSection("blog")}
+                className="text-slate-300 hover:text-white transition-colors"
+              >
+	       Blog
+	      </button>
               <a href="/case-studies" className="text-slate-300 hover:text-white transition-colors">
                 Case Studies
               </a> 
