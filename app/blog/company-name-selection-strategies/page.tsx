@@ -1,5 +1,6 @@
 "use client"
 
+import Script from "next/script";
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ArrowLeft, Calendar, Clock, User, CheckCircle, Lightbulb, Target, TrendingUp } from "lucide-react"
@@ -242,6 +243,11 @@ export default function CompanyNameStrategiesPage() {
           </div>
         </article>
       </main>
+	    {/* Noupe Chatbot Script */}
+            <Script
+        	src="https://www.noupe.com/embed/01997896505278e59e770cc4f49a1de9b374.js"
+        	strategy="lazyOnload"
+      	   />
     </div>
   )
 }

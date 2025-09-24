@@ -535,65 +535,6 @@ export default function StartupRunwayLanding() {
 		<BlogSection />
 	</section>
         
-{/*
-	<section id="blog" className="py-20 bg-slate-900">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-amber-400">Latest Insights</h2>
-              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-                Stay updated with the latest trends and insights in the startup ecosystem
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              <article className="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-amber-500 transition-all duration-300 group">
-                <div className="h-48 bg-gradient-to-br from-amber-500 to-amber-600"></div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3 text-white group-hover:text-amber-400 transition-colors">
-                    The Future of Startup Funding in 2024
-                  </h3>
-                  <p className="text-slate-300 mb-4 leading-relaxed">
-                    Exploring new funding models and investor trends shaping the startup landscape.
-                  </p>
-                  <div className="flex items-center text-amber-400 font-medium">
-                    Read More <ArrowRight className="w-4 h-4 ml-2" />
-                  </div>
-                </div>
-              </article>
-
-              <article className="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-amber-500 transition-all duration-300 group">
-                <div className="h-48 bg-gradient-to-br from-blue-500 to-blue-600"></div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3 text-white group-hover:text-amber-400 transition-colors">
-                    Building Remote-First Startup Teams
-                  </h3>
-                  <p className="text-slate-300 mb-4 leading-relaxed">
-                    Best practices for creating and managing distributed teams in the modern startup environment.
-                  </p>
-                  <div className="flex items-center text-amber-400 font-medium">
-                    Read More <ArrowRight className="w-4 h-4 ml-2" />
-                  </div>
-                </div>
-              </article>
-
-              <article className="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-amber-500 transition-all duration-300 group">
-                <div className="h-48 bg-gradient-to-br from-green-500 to-green-600"></div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3 text-white group-hover:text-amber-400 transition-colors">
-                    AI Integration for Early-Stage Startups
-                  </h3>
-                  <p className="text-slate-300 mb-4 leading-relaxed">
-                    How emerging startups can leverage AI technologies to gain competitive advantages.
-                  </p>
-                  <div className="flex items-center text-amber-400 font-medium">
-                    Read More <ArrowRight className="w-4 h-4 ml-2" />
-                  </div>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-*/}
         {/* Technology Partners Section */}
         <section id="partners" className="py-20 bg-slate-800">
           <div className="container mx-auto px-6">
