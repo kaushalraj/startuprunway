@@ -43,7 +43,7 @@ export default function BlogSection() {
                 asset rolled into one. In this comprehensive guide, we'll explore proven strategies used by successful
                 startups to create memorable, marketable names that resonate with customers and stand the test of time.
               </CardDescription>
-              <Link href="/company-name-selection-strategies">
+              <Link href="company-name-selection-strategies">
                 <Button className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-semibold">
                   Read Full Article
                   <ArrowRight className="ml-2 h-4 w-4" />
