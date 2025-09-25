@@ -639,6 +639,76 @@ export default function StartupRunwayLanding() {
           </div>
         </section>
 
+        {/* Partner Echo System*/}
+<section className="bg-slate-900 text-white py-16 px-6">
+  <div className="max-w-6xl mx-auto text-center">
+    <h2 className="text-4xl md:text-5xl font-bold mb-6">Our Partner Ecosystem</h2>
+    <p className="text-lg md:text-xl mb-12 text-slate-300 leading-relaxed">
+      Access trusted experts, service providers, and networks to launch, grow, and scale your startup seamlessly.
+    </p>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+      {/* Financial & Legal Services */}
+      <div className="bg-slate-800 p-6 rounded-xl shadow-lg">
+        <h3 className="text-2xl font-semibold mb-4 text-amber-400">Financial & Legal Services</h3>
+        <ul className="text-slate-300 mb-6 space-y-2">
+          <li>Chartered Accountants (CAs)</li>
+          <li>Banks & FinCorps</li>
+          <li>Legal Advocates & Consultants</li>
+        </ul>
+        <button className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-3 px-6 rounded-lg transition-all duration-300">
+          Connect with Experts
+        </button>
+      </div>
+
+      {/* Marketing & Growth */}
+      <div className="bg-slate-800 p-6 rounded-xl shadow-lg">
+        <h3 className="text-2xl font-semibold mb-4 text-amber-400">Marketing & Growth</h3>
+        <ul className="text-slate-300 mb-6 space-y-2">
+          <li>SEO Agencies</li>
+          <li>Web Development Companies</li>
+          <li>Branding & Design Agencies</li>
+          <li>Offline Digital Marketing</li>
+        </ul>
+        <button className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-3 px-6 rounded-lg transition-all duration-300">
+          Find Growth Partners
+        </button>
+      </div>
+
+      {/* Technology & Operations */}
+      <div className="bg-slate-800 p-6 rounded-xl shadow-lg">
+        <h3 className="text-2xl font-semibold mb-4 text-amber-400">Technology & Operations</h3>
+        <ul className="text-slate-300 mb-6 space-y-2">
+          <li>Web & App Development</li>
+          <li>IT Support & Cloud Services</li>
+          <li>Co-Working Spaces</li>
+          <li>Interior Designers & Office Setup</li>
+          <li>Plumbers, Electricians & Facility Services</li>
+        </ul>
+        <button className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-3 px-6 rounded-lg transition-all duration-300">
+          Explore Operational Services
+        </button>
+      </div>
+
+      {/* Ecosystem & Networking */}
+      <div className="bg-slate-800 p-6 rounded-xl shadow-lg col-span-1 md:col-span-2 lg:col-span-3">
+        <h3 className="text-2xl font-semibold mb-4 text-amber-400">Ecosystem & Networking</h3>
+        <ul className="text-slate-300 mb-6 space-y-2">
+          <li>Incubators & Accelerators</li>
+          <li>Startup Networks & Communities</li>
+          <li>Mentorship & Advisory Programs</li>
+        </ul>
+        <button className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-3 px-6 rounded-lg transition-all duration-300">
+          Join Our Network
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
         {/* Testimonials Section */}
         <section id="testimonials" className="py-20 bg-slate-800">
           <div className="container mx-auto px-6">
@@ -727,6 +797,7 @@ export default function StartupRunwayLanding() {
             </div>
           </div>
         </section>
+
 
         {/* Contact Section */}
         <section
