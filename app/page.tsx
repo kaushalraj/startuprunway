@@ -136,7 +136,7 @@ export default function StartupRunwayLanding() {
                 window.scrollTo({ top: 0, behavior: "smooth" })
               }}
             >
-              <img src="/images/startuprunway-logo.png" alt="StartupRunway" className="h-13 w-13 mr-2" />
+              <img src="/images/startuprunway-logo.png" alt="StartupRunway" className="h-8 w-8 mr-0" />
               <span className="text-white font-bold text-xl">StartupRunway</span>
             </div>
             <nav className="hidden md:flex items-center space-x-8">
