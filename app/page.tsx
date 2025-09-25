@@ -553,9 +553,11 @@ export default function StartupRunwayLanding() {
           	<li>Banks & FinCorps</li>
           	<li>Legal Advocates & Consultants</li>
         	</ul>
+		{/*
         	<button className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-3 px-6 rounded-lg transition-all duration-300">
           	Connect with Experts
         	</button>
+	        */}
       	</div>
 
       	{/* Marketing & Growth */}
@@ -567,9 +569,12 @@ export default function StartupRunwayLanding() {
           	<li>Branding & Design Agencies</li>
           	<li>Offline Digital Marketing</li>
         	</ul>
+
+		{/*
         	<button className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-3 px-6 rounded-lg transition-all duration-300">
           	Find Growth Partners
         	</button>
+                */}
       	</div>
 
 	      {/* Technology & Operations */}
@@ -582,9 +587,12 @@ export default function StartupRunwayLanding() {
           	<li>Interior Designers & Office Setup</li>
           	<li>Facility Services</li>
         	</ul>
+
+		{/*
         	<button className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-3 px-6 rounded-lg transition-all duration-300">
           	Explore Operational Services
         	</button>
+                */}
       	</div>
 
 	      {/* Ecosystem & Networking */}
@@ -595,9 +603,11 @@ export default function StartupRunwayLanding() {
 	          <li>Startup Networks & Communities</li>
 	          <li>Mentorship & Advisory Programs</li>
 	        </ul>
+		{/*
 	        <button className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-3 px-6 rounded-lg transition-all duration-300">
         	  Join Our Network
 	        </button>
+	       */}
 	      </div>
     	  </div>
   	</div>
