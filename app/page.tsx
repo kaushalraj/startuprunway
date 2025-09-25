@@ -596,8 +596,8 @@ export default function StartupRunwayLanding() {
       	</div>
 
 	      {/* E-Centers & Researchers */}
-	      <div className="bg-slate-800 p-6 rounded-xl shadow-lg col-span-1 md:col-span-2 lg:col-span-3">
-	        <h3 className="text-2xl font-semibold mb-4 text-amber-400">Ecosystem & Networking</h3>
+	      <div className="bg-slate-800 p-6 rounded-xl shadow-lg">
+	        <h3 className="text-2xl font-semibold mb-4 text-amber-400">Unitversities/ R&D Collaboration</h3>
 	        <ul className="text-slate-300 mb-6 space-y-2">
 	          <li>E-Centers</li>
 	          <li>University R&D Centers</li>
@@ -610,7 +610,7 @@ export default function StartupRunwayLanding() {
 	      </div>
 
 	      {/* Ecosystem & Networking */}
-	      <div className="bg-slate-800 p-6 rounded-xl shadow-lg col-span-1 md:col-span-2 lg:col-span-3">
+	      <div className="bg-slate-800 p-6 rounded-xl shadow-lg">
 	        <h3 className="text-2xl font-semibold mb-4 text-amber-400">Ecosystem & Networking</h3>
 	        <ul className="text-slate-300 mb-6 space-y-2">
 	          <li>Incubators & Accelerators</li>
