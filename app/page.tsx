@@ -761,7 +761,7 @@ export default function StartupRunwayLanding() {
                 </p>
                 <div>
                   <div className="font-bold text-white">Jagadish M</div>
-                  <div className="text-amber-400">MD, FruTera Bevarages, Prakasam (DT), Andhra Pradesh</div>
+                  <div className="text-amber-400">MD, Frutera Bevarages, Prakasam (DT), Andhra Pradesh</div>
                 </div>
               </div>
 
