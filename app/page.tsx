@@ -259,7 +259,7 @@ export default function StartupRunwayLanding() {
               <p className="text-xl md:text-2xl text-slate-300 mb-8 leading-relaxed">
                 Helping Indian Startups Launch, Scale, and Succeed.
 	      </p>
-              <p className="text-xl md:text-2xl text-slate-300 mb-8 leading-relaxed">
+              <p className="text-slate-300 mb-8 leading-relaxed">
 	      <span className="text-yellow-400 font-semibold">Powered by global investors who believe in Indian startups.</span>
               </p>
 	      <p className="text-base md:text-lg text-slate-300 mb-8 leading-relaxed">
