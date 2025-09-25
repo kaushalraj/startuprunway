@@ -771,12 +771,14 @@ export default function StartupRunwayLanding() {
                   ))}
                 </div>
                 <p className="text-slate-300 mb-6 leading-relaxed italic">
-                  "The technical expertise and business acumen of the StartupRunway team is unmatched. They helped us
-                  avoid costly mistakes and accelerated our time to market."
+                   Team StartupRunway has been a key mentor in our journey, providing strategic guidance from the very beginning. 
+		   They supported us in naming our company and setting up operations, offering insights that helped shape our vision. 			Under their mentorship, we successfully developed innovative solutions, including our 
+		   rural food delivery platform, 'Aahaargo,' bridging the gap between rural communities and modern services. 
+		   Their guidance and belief in our potential have been instrumental in our growth
                 </p>
                 <div>
-                  <div className="font-bold text-white">Vinay Kumar M</div>
-                  <div className="text-amber-400">Co-Founder, DriftSync Solutions</div>
+                  <div className="font-bold text-white">Vinay Teja Mathe</div>
+                  <div className="text-amber-400">CEO & Managing Director, DriftSync Solutions</div>
                 </div>
               </div>
 
@@ -787,8 +789,14 @@ export default function StartupRunwayLanding() {
                   ))}
                 </div>
                 <p className="text-slate-300 mb-6 leading-relaxed italic">
-                  As a student struggling to complete my engineering, Founder of StartupRunway mentored and guided me, helping me participate in tech competitions and develop early computer-to-computer calling functionality in 2005 — the foundation of Lintel India’s core product. Later, he advised me on career moves, including joining a Pune-based IVR startup as a partner, where I contributed to projects for clients like Radio Mirchi, HDFC Bank, and HP Gas. His mentorship and strategic guidance continued when I started my own cloud IVR venture, which has now grown into a multinational company. I credit much of my early growth and success to his encouragement and guidance.
-
+                  As a student struggling to complete my engineering, Founder of StartupRunway mentored and guided me, 
+		  helping me participate in tech competitions and develop early computer-to-computer calling 
+		  functionality in 2005 — the foundation of Lintel India’s core product. 
+	          Later, he advised me on career moves, including joining a Pune-based IVR startup as a partner, 
+		  where I contributed to projects for clients like Radio Mirchi, HDFC Bank, and HP Gas. 
+		  His mentorship and strategic guidance continued when I started my own cloud IVR venture, 
+		  which has now grown into a multinational company. 
+		  I credit much of my early growth and success to his encouragement and guidance.
                 </p>
                 <div>
                   <div className="font-bold text-white"></div>
