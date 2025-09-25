@@ -769,11 +769,11 @@ export default function StartupRunwayLanding() {
                 </div>
                 <p className="text-slate-300 mb-6 leading-relaxed italic">
                   "The technical expertise and business acumen of the StartupRunway team is unmatched. They helped us
-                  avoid costly mistakes and accelerated our time to market by 6 months."
+                  avoid costly mistakes and accelerated our time to market."
                 </p>
                 <div>
-                  <div className="font-bold text-white">Michael Rodriguez</div>
-                  <div className="text-amber-400">Founder, GreenEnergy Innovations</div>
+                  <div className="font-bold text-white">Vinay Kumar M</div>
+                  <div className="text-amber-400">Co-Founder, DriftSync Solutions</div>
                 </div>
               </div>
 
@@ -784,12 +784,12 @@ export default function StartupRunwayLanding() {
                   ))}
                 </div>
                 <p className="text-slate-300 mb-6 leading-relaxed italic">
-                  "From legal structure to product development, StartupRunway provided end-to-end support that was
-                  crucial for our success. We couldn't have done it without them."
+                  As a student struggling to complete my engineering, Founder of StartupRunway mentored and guided me, helping me participate in tech competitions and develop early computer-to-computer calling functionality in 2005 — the foundation of Lintel India’s core product. Later, he advised me on career moves, including joining a Pune-based IVR startup as a partner, where I contributed to projects for clients like Radio Mirchi, HDFC Bank, and HP Gas. His mentorship and strategic guidance continued when I started my own cloud IVR venture, which has now grown into a multinational company. I credit much of my early growth and success to his encouragement and guidance.
+
                 </p>
                 <div>
-                  <div className="font-bold text-white">Dr. Emily Watson</div>
-                  <div className="text-amber-400">Co-founder, HealthTech Connect</div>
+                  <div className="font-bold text-white"></div>
+                  <div className="text-amber-400">Godson Gera, Founder & CEO, Lintel India</div>
                 </div>
               </div>
             </div>
@@ -802,7 +802,7 @@ export default function StartupRunwayLanding() {
             <div className="max-w-4xl mx-auto">
               <h2 className="text-4xl md:text-6xl font-bold mb-6 text-slate-900">Ready to Build Your Business?</h2>
               <p className="text-xl md:text-2xl text-slate-800 mb-8 leading-relaxed">
-                Join hundreds of successful entrepreneurs who've transformed their visions into thriving businesses with
+                Join successful entrepreneurs who've transformed their visions into thriving businesses with
                 StartupRunway.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
