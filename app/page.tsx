@@ -551,6 +551,7 @@ export default function StartupRunwayLanding() {
         	<ul className="text-slate-300 mb-6 space-y-2">
           	<li>Chartered Accountants (CAs)</li>
           	<li>Banks & FinCorps</li>
+		<li>Online Payment Gateways</li>
           	<li>Legal Advocates & Consultants</li>
         	</ul>
 		{/*
@@ -613,7 +614,7 @@ export default function StartupRunwayLanding() {
 	      <div className="bg-slate-800 p-6 rounded-xl shadow-lg">
 	        <h3 className="text-2xl font-semibold mb-4 text-amber-400">Ecosystem & Networking</h3>
 	        <ul className="text-slate-300 mb-6 space-y-2">
-	          <li>Incubators & Accelerators</li>
+	          <li>Incubators & Accelerators Accross India</li>
 	          <li>Startup Networks & Communities</li>
 	          <li>Mentorship & Advisory Programs</li>
 	        </ul>
