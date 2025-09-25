@@ -752,12 +752,15 @@ export default function StartupRunwayLanding() {
                   ))}
                 </div>
                 <p className="text-slate-300 mb-6 leading-relaxed italic">
-                  "StartupRunway didn't just provide consulting - they became true partners in our journey. Their
-                  strategic guidance helped us secure Series A funding and scale to 50+ employees."
+                  "StartupRunway Team provided invaluable mentorship in launching Frutera, guiding us from the very beginning. 
+	           The team helped us choose the company name, develop branding, and plan the business strategy. 
+		   Beyond that, supported the operational setup, including establishing our factory, 
+		   ensuring that we were prepared for production and scale.
+		   His guidance and expertise were instrumental in turning our concept into a fully functional business.
                 </p>
                 <div>
-                  <div className="font-bold text-white">Sarah Chen</div>
-                  <div className="text-amber-400">CEO, TechFlow Solutions</div>
+                  <div className="font-bold text-white">Jagadish M</div>
+                  <div className="text-amber-400">MD, FruTera Bevarages, Prakasam (DT), Andhra Pradesh</div>
                 </div>
               </div>
 
