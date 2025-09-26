@@ -31,7 +31,7 @@ export default function AdminLoginPage() {
         password,
       });
       if (signInError) throw signInError;
-
+      console.log("Current logged-in user:", user); 
       // Get user ID from the new session
       const userId = signInData.user?.id;
       if (!userId) throw new Error("Failed to get user session");
@@ -78,7 +78,7 @@ export default function AdminLoginPage() {
                 <Input
                   id="email"
                   type="email"
-                  placeholder="admin@startuprunway.com"
+                  placeholder="hello@startuprunway.in"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="bg-slate-700 border-slate-600 text-white placeholder:text-slate-400"
