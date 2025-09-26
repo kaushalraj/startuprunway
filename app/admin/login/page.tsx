@@ -25,18 +25,26 @@ export default function AdminLoginPage() {
     setError(null)
 
     try {
-      const { error } = await supabase.auth.signInWithPassword({
-        email,
-        password,
-      })
-      if (error) throw error
 
-      // Check if user is an admin
-      const { data: profile } = await supabase
-        .from("profiles")
-        .select("user_type")
-        .eq("id", (await supabase.auth.getUser()).data.user?.id)
-        .single()
+      const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
+  	email,
+  	password,
+	}); 
+
+      if (signInError) throw signInError;
+
+      // Get the newly logged-in user from the response
+	const userId = signInData.user?.id;
+	if (!userId) throw new Error("Failed to get user session");
+
+
+      // Fetch profile after session is established
+	const { data: profile, error: profileError } = await supabase
+  	.from("profiles")
+  	.select("user_type")
+  	.eq("id", userId)
+  	.single(); 
+      if (profileError) throw profileError;
 
       if (profile?.user_type !== "admin") {
         await supabase.auth.signOut()
