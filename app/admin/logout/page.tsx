@@ -11,11 +11,13 @@ export default function AdminLogoutPage() {
   useEffect(() => {
     const logout = async () => {
       try {
-        await supabase.auth.signOut(); // Clear session
+        // Sign out the current session
+        await supabase.auth.signOut();
       } catch (error) {
         console.error("Logout error:", error);
       } finally {
-        router.push("/admin/login"); // Redirect to login page
+        // Redirect to admin login page
+        router.push("/admin/login");
       }
     };
 
