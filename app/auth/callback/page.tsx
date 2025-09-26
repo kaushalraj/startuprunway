@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { createClient } from "@/lib/createClient";
+import { createClient } from "@/lib/client"; // ✅ fixed
 
 export default function AuthCallback() {
   const router = useRouter();
@@ -15,9 +15,9 @@ export default function AuthCallback() {
       supabase.auth.exchangeCodeForSession(hash).then(({ error }) => {
         if (error) {
           console.error("Auth error:", error.message);
-          router.push("/auth/error"); // you already have this route
+          router.push("/auth/error");
         } else {
-          router.push("/auth/protected"); // or /dashboard if that’s your app entry
+          router.push("/auth/protected");
         }
       });
     }
