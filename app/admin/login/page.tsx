@@ -37,11 +37,22 @@ export default function AdminLoginPage() {
       if (!userId) throw new Error("Failed to get user session");
 
       // Fetch profile AFTER session is established
-      const { data: profile, error: profileError } = await supabase
-        .from("profiles")
-        .select("user_type")
-        .eq("id", userId)
-        .single();
+      //
+      // Get current logged-in user
+	const { data: userData, error: userError } = await supabase.auth.getUser();
+	if (userError) throw userError;
+
+	const user = userData.user;
+	if (!user) throw new Error("No user logged in");
+
+	// Now fetch profile
+	const { data: profile } = await supabase
+	  .from("profiles")
+	  .select("user_type")
+	  .eq("id", user.id)
+ 	 .single();
+   
+
       if (profileError) throw profileError;
 
       // Check if user is admin
