@@ -1,63 +1,63 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { createClient } from "@/lib/supabase/client";
 
-import { createClient } from "@/lib/supabase/client"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { useRouter } from "next/navigation"
-import { useState } from "react"
-import { Shield } from "lucide-react"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import { Shield } from "lucide-react";
 
 export default function AdminLoginPage() {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [error, setError] = useState<string | null>(null)
-  const [isLoading, setIsLoading] = useState(false)
-  const router = useRouter()
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
+  const supabase = createClient();
 
   const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault()
-    const supabase = createClient()
-    setIsLoading(true)
-    setError(null)
+    e.preventDefault();
+    setIsLoading(true);
+    setError(null);
 
     try {
-
+      // Sign in with password
       const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
-  	email,
-  	password,
-	}); 
-
+        email,
+        password,
+      });
       if (signInError) throw signInError;
 
-      // Get the newly logged-in user from the response
-	const userId = signInData.user?.id;
-	if (!userId) throw new Error("Failed to get user session");
+      // Get user ID from the new session
+      const userId = signInData.user?.id;
+      if (!userId) throw new Error("Failed to get user session");
 
-
-      // Fetch profile after session is established
-	const { data: profile, error: profileError } = await supabase
-  	.from("profiles")
-  	.select("user_type")
-  	.eq("id", userId)
-  	.single(); 
+      // Fetch profile AFTER session is established
+      const { data: profile, error: profileError } = await supabase
+        .from("profiles")
+        .select("user_type")
+        .eq("id", userId)
+        .single();
       if (profileError) throw profileError;
 
+      // Check if user is admin
       if (profile?.user_type !== "admin") {
-        await supabase.auth.signOut()
-        throw new Error("Access denied. Admin privileges required.")
+        await supabase.auth.signOut();
+        throw new Error("Access denied. Admin privileges required.");
       }
 
-      router.push("/admin/dashboard")
+      // Redirect to admin dashboard
+      router.push("/admin/dashboard");
     } catch (error: unknown) {
-      setError(error instanceof Error ? error.message : "An error occurred")
+      setError(error instanceof Error ? error.message : "An error occurred");
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-slate-900 flex items-center justify-center p-6">
@@ -74,9 +74,7 @@ export default function AdminLoginPage() {
           <CardContent>
             <form onSubmit={handleLogin} className="space-y-4">
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-white">
-                  Email
-                </Label>
+                <Label htmlFor="email" className="text-white">Email</Label>
                 <Input
                   id="email"
                   type="email"
@@ -88,9 +86,7 @@ export default function AdminLoginPage() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="password" className="text-white">
-                  Password
-                </Label>
+                <Label htmlFor="password" className="text-white">Password</Label>
                 <Input
                   id="password"
                   type="password"
@@ -101,7 +97,9 @@ export default function AdminLoginPage() {
                 />
               </div>
               {error && (
-                <div className="text-red-400 text-sm bg-red-900/20 p-3 rounded-lg border border-red-800">{error}</div>
+                <div className="text-red-400 text-sm bg-red-900/20 p-3 rounded-lg border border-red-800">
+                  {error}
+                </div>
               )}
               <Button
                 type="submit"
@@ -115,5 +113,6 @@ export default function AdminLoginPage() {
         </Card>
       </div>
     </div>
-  )
+  );
 }
+
