@@ -46,12 +46,11 @@ export default function AdminLoginPage() {
 	if (!user) throw new Error("No user logged in");
 
 	// Now fetch profile
-	const { data: profile } = await supabase
+	 const { data: profile, error: profileError } = await supabase
 	  .from("profiles")
 	  .select("user_type")
-	  .eq("id", user.id)
- 	 .single();
-   
+ 	  .eq("id", user.id)
+  	  .single();  
 
       if (profileError) throw profileError;
 
