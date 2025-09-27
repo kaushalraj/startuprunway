@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { Building2, TrendingUp, Users, Target, Calendar, CheckCircle, Clock, AlertCircle } from "lucide-react"
 import { SignOutButton } from "@/components/sign-out-button"
 
-export default async function CustomerDashboard() {
+export default async function PartnerDashboard() {
   const supabase = await createClient()
 
   const {
@@ -13,31 +13,31 @@ export default async function CustomerDashboard() {
     error,
   } = await supabase.auth.getUser()
   if (error || !user) {
-    redirect("/auth/customer/login")
+    redirect("/auth/partner/login")
   }
 
   // Get user profile
   const { data: profile } = await supabase.from("profiles").select("*").eq("id", user.id).single()
 
-  if (!profile || profile.user_type !== "customer") {
-    redirect("/auth/customer/login")
+  if (!profile || profile.user_type !== "partner") {
+    redirect("/auth/partner/login")
   }
 
-  // Get customer data
-  const { data: customer } = await supabase.from("customers").select("*").eq("user_id", user.id).single()
+  // Get partner data
+  const { data: partner } = await supabase.from("partner").select("*").eq("user_id", user.id).single()
 
   // Get project status
   const { data: projectStatus } = await supabase
     .from("project_status")
     .select("*")
-    .eq("customer_id", customer?.id)
+    .eq("partner_id", partner?.id)
     .order("created_at", { ascending: false })
 
   // Get tasks
   const { data: tasks } = await supabase
     .from("tasks")
     .select("*")
-    .eq("customer_id", customer?.id)
+    .eq("partner_id", partner?.id)
     .order("created_at", { ascending: false })
     .limit(5)
 
@@ -50,13 +50,13 @@ export default async function CustomerDashboard() {
             <Building2 className="w-8 h-8 text-amber-400 mr-3" />
             <div>
               <h1 className="text-xl font-bold text-white">StartupRunway</h1>
-              <p className="text-sm text-slate-300">Customer Dashboard</p>
+              <p className="text-sm text-slate-300">Partner Dashboard</p>
             </div>
           </div>
           <div className="flex items-center space-x-4">
             <div className="text-right">
               <p className="text-sm font-medium text-white">{profile.full_name || profile.email}</p>
-              <p className="text-xs text-slate-400">{customer?.growth_plan_package || "No package selected"}</p>
+              <p className="text-xs text-slate-400">{partner?.growth_plan_package || "No package selected"}</p>
             </div>
             <SignOutButton />
           </div>
