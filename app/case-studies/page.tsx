@@ -41,7 +41,7 @@ export default function CaseStudiesPage() {
     },
     {
       id: 4,
-      title: "FinTech Revolution ( Client Name not presented here",
+      title: "FinTech Revolution ( Name not presented here )",
       industry: "Financial Technology",
       description: "Investors company for Pre-IPO funding",
       challenge: "Getting the Pre-IPO Company Leads",
@@ -56,9 +56,9 @@ export default function CaseStudiesPage() {
     },
     {
       id: 5,
-      title: "EdTech Learning Platform (Client Name Not Presented Here)",
+      title: "EdTech Learning Platform (Name not presented here)",
       industry: "Education Technology",
-      description: "An online learning platform focused on skill development for pre-school professionals and parents of early child",
+      description: "An online learning platform focused on skill development (NTT Online Courses) for pre-school professionals and parents of early child",
       challenge: "High competition in EdTech space and difficulty in user retention",
       solution:
         "Provided strategic solution of partnering with bangalore pre-schools and NGOs",
@@ -72,14 +72,15 @@ export default function CaseStudiesPage() {
       id: 6,
       title: "TerraLeaf Private Limited",
       industry: "Agriculture Technology",
-      description: "IoT & AI/ML-based smart vertical/tower hydroponics, aeroponics greenhouses farming and maintanance automation solutions .",
-      challenge: "Greenhouse farming often struggles with inconsistent plant growth due to manual monitoring, delayed disease detection, and inaccurate nutrient management. These challenges lead to reduced yields, higher costs, and inefficiencies in maintaining optimal growing conditions.",
-      solution:
-        "TerraLeaf Private Limited delivers IoT and AI/ML-driven solutions for Hydroponics, Aeroponics, and Aquaponics farming, automating plant health monitoring, disease detection, and nutrient optimization with seamless, humanless robotic systems",
+      description: "A smart AgriTech startup offering IoT and AI/ML-powered automation solutions for vertical hydroponics, aeroponics, and greenhouse farming.", 
+      challenge: "Greenhouse farming faces issues such as inconsistent plant growth, delayed disease detection, and inaccurate nutrient management, leading to reduced yields, higher operational costs, and inefficiencies in maintaining optimal growing conditions.", 
+      solution: "TerraLeaf provides fully automated IoT and AI/ML-driven systems that monitor plant health, detect diseases early, optimize nutrient mixes, and control greenhouse operations through seamless robotic and sensor-based automation.",
+
       results: {
-        revenue: "It's Intellectual Property of TerraLeaf, sent proposals to Netherland Entreprenuers",
+        revenue: "",
         timeline: "12 months",
         employees: "10+",
+	status: "Intellectual Property",
       },
       tags: ["AgriTech", "IoT", "Hydroponics", "Aeroponics", "Aquaponics"],
     },
