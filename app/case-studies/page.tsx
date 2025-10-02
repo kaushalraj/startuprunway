@@ -131,8 +131,7 @@ export default function CaseStudiesPage() {
               showcase real results from our comprehensive business solutions.
             </p>
           </div>
-
-          {/* Case Studies Grid */}
+          {/*
           <div className="space-y-12">
             {caseStudies.map((study) => (
               <Card key={study.id} className="bg-slate-800/50 border-slate-700 overflow-hidden">
@@ -156,7 +155,6 @@ export default function CaseStudiesPage() {
                 </CardHeader>
 
                 <CardContent className="space-y-6">
-                  {/* Challenge & Solution */}
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
                       <h4 className="text-white font-semibold mb-3 flex items-center">
@@ -174,7 +172,6 @@ export default function CaseStudiesPage() {
                     </div>
                   </div>
 
-                  {/* Results */}
                   <div>
                     <h4 className="text-white font-semibold mb-4 flex items-center">
                       <div className="w-2 h-2 bg-amber-400 rounded-full mr-3"></div>
@@ -207,7 +204,7 @@ export default function CaseStudiesPage() {
               </Card>
             ))}
           </div>
-
+          */}
           {/* CTA Section */}
           <div className="text-center mt-16 bg-gradient-to-r from-amber-500/10 to-orange-500/10 rounded-2xl p-8 border border-amber-500/20">
             <h2 className="text-3xl font-bold text-white mb-4">Ready to Write Your Success Story?</h2>
