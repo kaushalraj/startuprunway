@@ -15,8 +15,8 @@ export default function CaseStudiesPage() {
       solution: "Developed detailed business plan, handled all legal compliance, and created go-to-market strategy",
       results: {
 	status: "startup",
-	product: "Web, Mobile App & SEO development"
-	sub_product: "EatsApp"
+	product: "Web, Mobile App & SEO development",
+	sub_product: "EatsApp",
         revenue: "In Progress",
         growth: "90%",
         timeline: "18 months",
@@ -28,9 +28,9 @@ export default function CaseStudiesPage() {
       id: 3,
       title: "Kannaya Ayurvedic Labs",
       industry: "Healthcare",
-      description: "A healthcare technology startup developing innovative ayurvedic medicines.",
-      challenge: "Strict regulatory compliance and complex healthcare market entry",
-      solution: "Navigated healthcare regulations, developed compliance framework, and established partnerships",
+      description: "An innovative HealthTech startup focused on developing next-generation Ayurvedic medicines by integrating traditional knowledge with modern technology.", 
+      challenge: "Faced stringent regulatory requirements and the complexities of entering the competitive healthcare market.",
+      solution: "Implemented a robust compliance framework, successfully navigated healthcare regulations, established strategic partnerships, and guided the team in developing a patented Ayurvedic formulation.",
       results: {
         timeline: "12 months",
         employees: "20+",
