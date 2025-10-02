@@ -162,11 +162,13 @@ export default function CaseStudiesPage() {
                       Results Achieved
                     </h4>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+		      {/*
                       <div className="bg-slate-700/50 rounded-lg p-4 text-center">
                         <DollarSign className="h-6 w-6 text-green-400 mx-auto mb-2" />
                         <div className="text-white font-bold text-lg">{study.results.revenue}</div>
                         <div className="text-slate-400 text-xs">Annual Revenue</div>
                       </div>
+		      */}
                       <div className="bg-slate-700/50 rounded-lg p-4 text-center">
                         <TrendingUp className="h-6 w-6 text-blue-400 mx-auto mb-2" />
                         <div className="text-white font-bold text-lg">{study.results.growth}</div>
