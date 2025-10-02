@@ -32,6 +32,8 @@ export default function CaseStudiesPage() {
       challenge: "Faced stringent regulatory requirements and the complexities of entering the competitive healthcare market.",
       solution: "Implemented a robust compliance framework, successfully navigated healthcare regulations, established strategic partnerships, and guided the team in developing a patented Ayurvedic formulation.",
       results: {
+	revenue: "In Progress",
+	growth: "50%",
         timeline: "12 months",
         employees: "20+",
       },
