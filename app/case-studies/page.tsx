@@ -41,9 +41,9 @@ export default function CaseStudiesPage() {
     },
     {
       id: 4,
-      title: "FinTech Revolution ( Name not presented here )",
+      title: "FinTech Revolution ( Name Confidential )",
       industry: "Financial Technology",
-      description: "Investors company for Pre-IPO funding",
+      description: "An investment firm specializing in Pre-IPO funding, enabling high-growth companies to secure capital ahead of public listing.",
       challenge: "Getting the Pre-IPO Company Leads",
       solution: "Provided Lead contacts, helped in marketing strategy",
       results: {
@@ -56,7 +56,7 @@ export default function CaseStudiesPage() {
     },
     {
       id: 5,
-      title: "EdTech Learning Platform (Name not presented here)",
+      title: "EdTech Learning Platform (Name Confidential)",
       industry: "Education Technology",
       description: "An online learning platform focused on skill development (NTT Online Courses) for pre-school professionals and parents of early child",
       challenge: "High competition in EdTech space and difficulty in user retention",
