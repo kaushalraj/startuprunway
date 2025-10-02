@@ -48,7 +48,7 @@ export default function CaseStudiesPage() {
       solution: "Provided Lead contacts, helped in marketing strategy",
       results: {
         revenue: "₹5 Cr",
-        growth: "50%",
+        growth: "80%",
         timeline: "24 months",
         employees: "60+",
       },
@@ -63,6 +63,8 @@ export default function CaseStudiesPage() {
       solution:
         "Provided strategic solution of partnering with bangalore pre-schools and NGOs",
       results: {
+	revenue: "",
+	growth: "0% - 20%",
         timeline: "14 months",
         employees: "20+",
       },
