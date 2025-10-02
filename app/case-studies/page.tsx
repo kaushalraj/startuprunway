@@ -8,96 +8,78 @@ export default function CaseStudiesPage() {
   const caseStudies = [
     {
       id: 1,
-      title: "TechStart Solutions",
+      title: "DriftSync Solutions",
       industry: "Technology",
       description: "A SaaS startup that needed comprehensive business planning and legal setup.",
       challenge: "Complex regulatory requirements and unclear market positioning",
       solution: "Developed detailed business plan, handled all legal compliance, and created go-to-market strategy",
       results: {
-        revenue: "₹2.5 Cr",
-        growth: "300%",
+	status: "startup",
+	product: "Web, Mobile App & SEO development"
+	sub_product: "EatsApp"
+        revenue: "In Progress",
+        growth: "90%",
         timeline: "18 months",
-        employees: "25+",
+        employees: "8+",
       },
       tags: ["SaaS", "B2B", "Technology"],
     },
     {
-      id: 2,
-      title: "EcoFriendly Products",
-      industry: "Sustainability",
-      description: "An eco-friendly product company looking to scale operations and enter new markets.",
-      challenge: "Limited funding options and complex supply chain management",
-      solution: "Secured funding through investor connections, optimized supply chain, and expanded market reach",
-      results: {
-        revenue: "₹1.8 Cr",
-        growth: "250%",
-        timeline: "12 months",
-        employees: "15+",
-      },
-      tags: ["Sustainability", "E-commerce", "Manufacturing"],
-    },
-    {
       id: 3,
-      title: "HealthTech Innovations",
+      title: "Kannaya Ayurvedic Labs",
       industry: "Healthcare",
-      description: "A healthcare technology startup developing innovative patient management solutions.",
+      description: "A healthcare technology startup developing innovative ayurvedic medicines.",
       challenge: "Strict regulatory compliance and complex healthcare market entry",
       solution: "Navigated healthcare regulations, developed compliance framework, and established partnerships",
       results: {
-        revenue: "₹3.2 Cr",
-        growth: "400%",
-        timeline: "24 months",
-        employees: "40+",
+        timeline: "12 months",
+        employees: "20+",
       },
       tags: ["HealthTech", "B2B", "Innovation"],
     },
     {
       id: 4,
-      title: "FinTech Revolution",
+      title: "FinTech Revolution ( Client Name not presented here",
       industry: "Financial Technology",
-      description: "A digital payment platform startup targeting underserved markets in rural India.",
-      challenge: "Complex financial regulations, security concerns, and building trust in digital payments",
-      solution:
-        "Developed robust security framework, obtained necessary licenses, and created user-friendly mobile app with local language support",
+      description: "Investors company for Pre-IPO funding",
+      challenge: "Getting the Pre-IPO Company Leads",
+      solution: "Provided Lead contacts, helped in marketing strategy",
       results: {
-        revenue: "₹5.1 Cr",
-        growth: "500%",
-        timeline: "30 months",
+        revenue: "₹5 Cr",
+        growth: "50%",
+        timeline: "24 months",
         employees: "60+",
       },
-      tags: ["FinTech", "Mobile App", "Rural Markets"],
+      tags: ["FinTech"],
     },
     {
       id: 5,
-      title: "EdTech Learning Platform",
+      title: "EdTech Learning Platform (Client Name Not Presented Here)",
       industry: "Education Technology",
-      description: "An online learning platform focused on skill development for working professionals.",
+      description: "An online learning platform focused on skill development for pre-school professionals and parents of early child",
       challenge: "High competition in EdTech space and difficulty in user retention",
       solution:
-        "Created personalized learning paths, gamification features, and industry partnerships for certification",
+        "Provided strategic solution of partnering with bangalore pre-schools and NGOs",
       results: {
-        revenue: "₹4.3 Cr",
-        growth: "350%",
-        timeline: "20 months",
-        employees: "45+",
+        timeline: "14 months",
+        employees: "20+",
       },
       tags: ["EdTech", "B2C", "Professional Development"],
     },
     {
       id: 6,
-      title: "AgriTech Solutions",
+      title: "TerraLeaf Private Limited",
       industry: "Agriculture Technology",
-      description: "IoT-based smart farming solutions helping farmers optimize crop yields and reduce costs.",
-      challenge: "Limited technology adoption in rural areas and high hardware costs",
+      description: "IoT & AI/ML-based smart vertical/tower hydroponics, aeroponics greenhouses farming and maintanance automation solutions .",
+      challenge: "Greenhouse farming often struggles with inconsistent plant growth due to manual monitoring, delayed disease detection, and inaccurate nutrient management. These challenges lead to reduced yields, higher costs, and inefficiencies in maintaining optimal growing conditions.",
       solution:
-        "Developed affordable IoT devices, created farmer education programs, and established distribution network",
+        "TerraLeaf Private Limited delivers IoT and AI/ML-driven solutions for Hydroponics, Aeroponics, and Aquaponics farming, automating plant health monitoring, disease detection, and nutrient optimization with seamless, humanless robotic systems",
       results: {
-        revenue: "₹2.8 Cr",
-        growth: "280%",
-        timeline: "22 months",
-        employees: "35+",
+        revenue: "It's Intellectual Property of TerraLeaf, sent proposals to Netherland Entreprenuers",
+        timeline: "12 months",
+        employees: "10+",
       },
-      tags: ["AgriTech", "IoT", "Rural Innovation"],
+      tags: ["AgriTech", "IoT", "Hydroponics", "Aeroponics", "Aquaponics"],
     },
   ]
 
@@ -131,7 +113,6 @@ export default function CaseStudiesPage() {
               showcase real results from our comprehensive business solutions.
             </p>
           </div>
-          {/*
           <div className="space-y-12">
             {caseStudies.map((study) => (
               <Card key={study.id} className="bg-slate-800/50 border-slate-700 overflow-hidden">
@@ -204,7 +185,6 @@ export default function CaseStudiesPage() {
               </Card>
             ))}
           </div>
-          */}
           {/* CTA Section */}
           <div className="text-center mt-16 bg-gradient-to-r from-amber-500/10 to-orange-500/10 rounded-2xl p-8 border border-amber-500/20">
             <h2 className="text-3xl font-bold text-white mb-4">Ready to Write Your Success Story?</h2>
