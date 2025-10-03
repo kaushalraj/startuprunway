@@ -254,10 +254,10 @@ export default function StartupRunwayLanding() {
           <div className="container mx-auto px-6 text-center relative z-10">
             <div className="max-w-4xl mx-auto">
               <h1 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
-              One-Stop Startup Hub, SaaS at Every Stage   
+	      One-Stop Startup Hub — SaaS & Services at Every Stage
               </h1>
               <p className="text-xl md:text-2xl text-slate-300 mb-8 leading-relaxed">
-                Helping Indian Startups Launch, Scale, and Succeed
+	      Founders Students Investors Partners One Platform to Grow 
 	      </p>
               <p className="text-base md:text-lg text-slate-300 mb-8 leading-relaxed">
 	      <span className="text-yellow-400 font-semibold">Powered by global investors who believe in Indian startups</span>
