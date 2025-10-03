@@ -750,8 +750,8 @@ export default function StartupRunwayLanding() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto flex flex-col justify-between">
-              <div className="bg-slate-900 p-8 rounded-xl border border-slate-700">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              <div className="bg-slate-900 p-8 rounded-xl border border-slate-700 flex flex-col justify-between h-full">
                 <div className="flex mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 text-amber-400 fill-current" />
@@ -764,7 +764,7 @@ export default function StartupRunwayLanding() {
 		   ensuring that we were prepared for production and scale.
 		   His guidance and expertise were instrumental in turning our concept into a fully functional business.
                 </p>
-                <div className="font-bold text-white mt-auto">
+                <div className="mt-auto">
                   <div className="font-bold text-white">Jagadish M</div>
                   <div className="text-amber-400">MD, Frutera Bevarages, Prakasam (DT), Andhra Pradesh</div>
                 </div>
