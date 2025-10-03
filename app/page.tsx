@@ -795,14 +795,17 @@ export default function StartupRunwayLanding() {
                   ))}
                 </div>
                 <p className="text-slate-300 mb-6 leading-relaxed italic">
-                  As a student struggling to complete my engineering, Founder of StartupRunway mentored and guided me, 
-		  helping me participate in tech competitions and develop early computer-to-computer calling 
-		  functionality in 2005 — the foundation of Lintel India’s core product. 
-	          Later, he advised me on career moves, including joining a Pune-based IVR startup as a partner, 
-		  where I contributed to projects for clients like Radio Mirchi, HDFC Bank, and HP Gas. 
-		  His mentorship and strategic guidance continued when I started my own cloud IVR venture, 
-		  which has now grown into a multinational company. 
-		  I credit much of my early growth and success to his encouragement and guidance.
+		The Founder of StartupRunway mentored and guided me early in my journey, 
+		helping me participate in tech competitions and develop 
+		the computer-to-computer calling functionality in 2005, 
+		it's the foundation of Lintel India’s core product. 
+		He provided invaluable advice on career moves, including joining a 
+		Pune-based IVR startup as a partner, where I contributed to 
+		projects for clients such as Radio Mirchi, HDFC Bank, and HP Gas. 
+		His continued mentorship and strategic guidance were instrumental 
+		when I launched my own cloud IVR venture, which has now grown into 
+		a multinational company. 
+		I owe much of my early growth and success to his support and guidance.
                 </p>
                 <div>
                   <div className="font-bold text-white"></div>
