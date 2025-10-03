@@ -259,7 +259,7 @@ export default function StartupRunwayLanding() {
 	      <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-semibold mb-6 text-white leading-snug">
 	      SaaS Enabled & Providing Services at Every Stage
 	      </h2>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-300 mb-8 leading-relaxed" > 
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-200 mb-6 leading-relaxed" > 
 	      Founders | Entreprenuers | Studentprenuers | Service Partners | Investors
 	      </p>
 	      <p className="text-lg sm:text-lg md:text-xl lg:text-2xl text-slate-300 mb-8 leading-relaxed">
