@@ -330,7 +330,7 @@ export default function StartupRunwayLanding() {
                 </ul>
                 <button
                   onClick={() => handleWhatsAppClick("Starter")}
-                  className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold py-3 px-6 rounded-lg transition-all duration-300 transform group-hover:scale-105"
+                  className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold py-3 px-6 rounded-lg transition-all duration-300 transform group-hover:scale-105 mt-auto"
                 >
                   Get Started
                 </button>
@@ -373,7 +373,7 @@ export default function StartupRunwayLanding() {
                 </ul>
                 <button
                   onClick={() => handleWhatsAppClick("Growth")}
-                  className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold py-3 px-6 rounded-lg transition-all duration-300 transform group-hover:scale-105"
+                  className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold py-3 px-6 rounded-lg transition-all duration-300 transform group-hover:scale-105 mt-auto"
                 >
                   Get Started
                 </button>
@@ -413,7 +413,7 @@ export default function StartupRunwayLanding() {
                 </ul>
                 <button
                   onClick={() => handleWhatsAppClick("Scale")}
-                  className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold py-3 px-6 rounded-lg transition-all duration-300 transform group-hover:scale-105"
+                  className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold py-3 px-6 rounded-lg transition-all duration-300 transform group-hover:scale-105 mt-auto"
                 >
                   Get Started
                 </button>
@@ -454,7 +454,7 @@ export default function StartupRunwayLanding() {
                 </ul>
                 <button
                   onClick={() => handleWhatsAppClick("Enterprise")}
-                  className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold py-3 px-6 rounded-lg transition-all duration-300 transform group-hover:scale-105"
+                  className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold py-3 px-6 rounded-lg transition-all duration-300 transform group-hover:scale-105 mt-auto"
                 >
                   Contact Us
                 </button>
