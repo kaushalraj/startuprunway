@@ -750,7 +750,7 @@ export default function StartupRunwayLanding() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto flex flex-col justify-between">
               <div className="bg-slate-900 p-8 rounded-xl border border-slate-700">
                 <div className="flex mb-4">
                   {[...Array(5)].map((_, i) => (
