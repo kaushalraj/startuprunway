@@ -257,7 +257,7 @@ export default function StartupRunwayLanding() {
 	      One-Stop Startup Hub
 	      </h1>
 	      <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-semibold mb-6 text-white leading-snug">
-	      SaaS Enabled & Providing Services at Every Stage
+	      SaaS Enabled & Services for Every Stage of Your Startup 
 	      </h2>
               <p className="text-sm sm:text-base md:text-lg lg:text-xl text-slate-200 mb-6 leading-relaxed" > 
 	      Founders | Entreprenuers | Studentprenuers | Service Partners | Investors
