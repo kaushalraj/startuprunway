@@ -770,7 +770,7 @@ export default function StartupRunwayLanding() {
                 </div>
               </div>
 
-              <div className="bg-slate-900 p-8 rounded-xl border border-slate-700">
+              <div className="bg-slate-900 p-8 rounded-xl border border-slate-700 flex flex-col justify-between h-full">
                 <div className="flex mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 text-amber-400 fill-current" />
@@ -782,7 +782,7 @@ export default function StartupRunwayLanding() {
 		   rural food delivery platform, 'Aahaargo,' bridging the gap between rural communities and modern services. 
 		   Their guidance and belief in our potential have been instrumental in our growth
                 </p>
-                <div>
+                <div className="mt-auto">
                   <div className="font-bold text-white">Vinay Teja Mathe</div>
                   <div className="text-amber-400">CEO & Managing Director, DriftSync Solutions</div>
                 </div>
