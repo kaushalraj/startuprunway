@@ -257,10 +257,13 @@ export default function StartupRunwayLanding() {
 	      One-Stop Startup Hub
 	      </h1>
 	      <h1 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
-	      SaaS & Services at Every Stage
+	      SaaS Enabled & Providing Services at Every Stage
 	      </h1>
-              <p className="text-xl md:text-2xl text-slate-300 mb-8 leading-relaxed">
-	      Founders Students Investors Partners One Platform to Grow 
+              <p className="text-xl md:text-2xl text-slate-300 mb-8 text-white leading-relaxed">
+	      Founders | Entreprenuers | Studentprenuers | Service Partners | Investors
+	      </p>
+	      <p className="text-xl md:text-2xl text-slate-300 mb-8 text-white leading-relaxed">
+	      One Platform to Grow 
 	      </p>
               <p className="text-base md:text-lg text-slate-300 mb-8 leading-relaxed">
 	      <span className="text-yellow-400 font-semibold">Powered by global investors who believe in Indian startups</span>
