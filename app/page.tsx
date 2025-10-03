@@ -253,7 +253,7 @@ export default function StartupRunwayLanding() {
         >
           <div className="container mx-auto px-6 text-center relative z-10">
             <div className="max-w-4xl mx-auto">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
+              <h1 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
 	      One-Stop Startup Hub
 	      </h1>
 	      <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-semibold mb-6 text-white leading-snug">
