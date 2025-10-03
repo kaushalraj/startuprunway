@@ -788,7 +788,7 @@ export default function StartupRunwayLanding() {
                 </div>
               </div>
 
-              <div className="bg-slate-900 p-8 rounded-xl border border-slate-700">
+              <div className="bg-slate-900 p-8 rounded-xl border border-slate-700 flex flex-col justify-between h-full">
                 <div className="flex mb-4">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 text-amber-400 fill-current" />
@@ -807,7 +807,7 @@ export default function StartupRunwayLanding() {
 		a multinational company. 
 		I owe much of my early growth and success to his support and guidance.
                 </p>
-                <div>
+                <div className="mt-auto">
                   <div className="font-bold text-white"></div>
                   <div className="text-amber-400">Godson Gera, Founder & CEO, Lintel India</div>
                 </div>
