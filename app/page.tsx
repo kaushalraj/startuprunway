@@ -256,7 +256,7 @@ export default function StartupRunwayLanding() {
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white leading-tight">
 	      One-Stop Startup Hub
 	      </h1>
-	      <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold mb-6 text-white leading-snug">
+	      <h2 className="text-xl sm:text-2xl md:text-2xl lg:text-3xl font-semibold mb-6 text-white leading-snug">
 	      SaaS Enabled & Providing Services at Every Stage
 	      </h2>
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-slate-300 mb-8 leading-relaxed" > 
