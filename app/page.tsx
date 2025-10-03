@@ -302,7 +302,7 @@ export default function StartupRunwayLanding() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
               {/* Starter Package */}
-              <div className="bg-slate-900 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group relative">
+              <div className="bg-slate-900 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group relative flex flex-col justify-between">
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold mb-2 text-white">Starter</h3>
                   <div className="text-slate-400">One-time</div>
@@ -337,7 +337,7 @@ export default function StartupRunwayLanding() {
               </div>
 
               {/* Growth Package */}
-              <div className="bg-slate-900 p-8 rounded-xl border-2 border-amber-500 transition-all duration-300 group relative">
+              <div className="bg-slate-900 p-8 rounded-xl border-2 border-amber-500 transition-all duration-300 group relative flex flex-col justify-between">
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                   <span className="bg-amber-500 text-slate-900 px-4 py-1 rounded-full text-sm font-bold">POPULAR</span>
                 </div>
@@ -380,7 +380,7 @@ export default function StartupRunwayLanding() {
               </div>
 
               {/* Scale Package */}
-              <div className="bg-slate-900 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group relative">
+              <div className="bg-slate-900 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group relative flex flex-col justify-between">
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold mb-2 text-white">Scale</h3>
                   <div className="text-slate-400">6-month engagement</div>
@@ -420,7 +420,7 @@ export default function StartupRunwayLanding() {
               </div>
 
               {/* Enterprise Package */}
-              <div className="bg-slate-900 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group relative">
+              <div className="bg-slate-900 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300 group relative flex flex-col justify-between">
                 <div className="text-center mb-6">
                   <h3 className="text-2xl font-bold mb-2 text-white">Enterprise</h3>
                   <div className="text-3xl font-bold text-amber-400 mb-2">Custom</div>
