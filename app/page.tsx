@@ -764,7 +764,7 @@ export default function StartupRunwayLanding() {
 		   ensuring that we were prepared for production and scale.
 		   His guidance and expertise were instrumental in turning our concept into a fully functional business.
                 </p>
-                <div>
+                <div className="font-bold text-white mt-auto">
                   <div className="font-bold text-white">Jagadish M</div>
                   <div className="text-amber-400">MD, Frutera Bevarages, Prakasam (DT), Andhra Pradesh</div>
                 </div>
