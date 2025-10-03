@@ -1,7 +1,8 @@
 "use client"
 
 import type React from "react"
-
+import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { createClient } from "@/lib/supabase/client"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -10,8 +11,6 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
 import Link from "next/link"
-import { useRouter } from "next/navigation"
-import { useState } from "react"
 import { Building2 } from "lucide-react"
 
 export default function CustomerRegisterPage() {
@@ -56,7 +55,8 @@ export default function CustomerRegisterPage() {
         password: formData.password,
         options: {
           emailRedirectTo:
-            process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL || `${window.location.origin}/dashboard/customer`,
+            process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ||
+            `${window.location.origin}/auth/customer/magic-link`,
           data: {
             full_name: formData.fullName,
             user_type: "customer",
@@ -66,23 +66,11 @@ export default function CustomerRegisterPage() {
 
       if (authError) throw authError
 
-      if (authData.user && authData.session) {
-        // User is confirmed, create customer record
-        const { error: customerError } = await supabase.from("customers").insert({
-          user_id: authData.user.id,
-          business_stage: formData.businessStage,
-          industry: formData.industry,
-          funding_requirements: formData.fundingRequirements,
-          business_description: formData.businessDescription,
-          growth_plan_package: formData.growthPlanPackage,
-        })
+      // Save formData temporarily in localStorage to use after email confirmation
+      localStorage.setItem("customerFormData", JSON.stringify(formData))
 
-        if (customerError) throw customerError
-        router.push("/dashboard/customer")
-      } else {
-        // Email confirmation required
-        router.push("/auth/check-email")
-      }
+      // Redirect user to check email page
+      router.push("/auth/check-email")
     } catch (error: unknown) {
       setError(error instanceof Error ? error.message : "An error occurred")
     } finally {
@@ -106,167 +94,8 @@ export default function CustomerRegisterPage() {
           </CardHeader>
           <CardContent>
             <form onSubmit={handleRegister} className="space-y-4">
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="fullName" className="text-white">
-                    Full Name
-                  </Label>
-                  <Input
-                    id="fullName"
-                    value={formData.fullName}
-                    onChange={(e) => handleInputChange("fullName", e.target.value)}
-                    className="bg-slate-700 border-slate-600 text-white"
-                    required
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email" className="text-white">
-                    Email
-                  </Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => handleInputChange("email", e.target.value)}
-                    className="bg-slate-700 border-slate-600 text-white"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="password" className="text-white">
-                    Password
-                  </Label>
-                  <Input
-                    id="password"
-                    type="password"
-                    value={formData.password}
-                    onChange={(e) => handleInputChange("password", e.target.value)}
-                    className="bg-slate-700 border-slate-600 text-white"
-                    required
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="confirmPassword" className="text-white">
-                    Confirm Password
-                  </Label>
-                  <Input
-                    id="confirmPassword"
-                    type="password"
-                    value={formData.confirmPassword}
-                    onChange={(e) => handleInputChange("confirmPassword", e.target.value)}
-                    className="bg-slate-700 border-slate-600 text-white"
-                    required
-                  />
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="companyName" className="text-white">
-                    Company Name
-                  </Label>
-                  <Input
-                    id="companyName"
-                    value={formData.companyName}
-                    onChange={(e) => handleInputChange("companyName", e.target.value)}
-                    className="bg-slate-700 border-slate-600 text-white"
-                    required
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="phone" className="text-white">
-                    Phone
-                  </Label>
-                  <Input
-                    id="phone"
-                    value={formData.phone}
-                    onChange={(e) => handleInputChange("phone", e.target.value)}
-                    className="bg-slate-700 border-slate-600 text-white"
-                  />
-                </div>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label className="text-white">Business Stage</Label>
-                  <Select onValueChange={(value) => handleInputChange("businessStage", value)}>
-                    <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
-                      <SelectValue placeholder="Select stage" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-slate-700 border-slate-600">
-                      <SelectItem value="idea">Idea Stage</SelectItem>
-                      <SelectItem value="mvp">MVP Development</SelectItem>
-                      <SelectItem value="early">Early Stage</SelectItem>
-                      <SelectItem value="growth">Growth Stage</SelectItem>
-                      <SelectItem value="scale">Scale Stage</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div className="space-y-2">
-                  <Label className="text-white">Industry</Label>
-                  <Select onValueChange={(value) => handleInputChange("industry", value)}>
-                    <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
-                      <SelectValue placeholder="Select industry" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-slate-700 border-slate-600">
-                      <SelectItem value="fintech">FinTech</SelectItem>
-                      <SelectItem value="healthtech">HealthTech</SelectItem>
-                      <SelectItem value="edtech">EdTech</SelectItem>
-                      <SelectItem value="ecommerce">E-commerce</SelectItem>
-                      <SelectItem value="saas">SaaS</SelectItem>
-                      <SelectItem value="cleantech">CleanTech</SelectItem>
-                      <SelectItem value="Software">Software</SelectItem>                      
-                      <SelectItem value="other">Other</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <Label className="text-white">Growth Plan Package</Label>
-                <Select onValueChange={(value) => handleInputChange("growthPlanPackage", value)}>
-                  <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
-                    <SelectValue placeholder="Select package" />
-                  </SelectTrigger>
-                  <SelectContent className="bg-slate-700 border-slate-600">
-                    <SelectItem value="starter">Starter</SelectItem>
-                    <SelectItem value="growth">Growth</SelectItem>
-                    <SelectItem value="scale">Scale</SelectItem>
-                    <SelectItem value="custom">Custom Service</SelectItem>
-                    <SelectItem value="enterprise">Enterprise - Custom</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="fundingRequirements" className="text-white">
-                  Funding Requirements
-                </Label>
-                <Input
-                  id="fundingRequirements"
-                  placeholder="e.g., Rs800K funding"
-                  value={formData.fundingRequirements}
-                  onChange={(e) => handleInputChange("fundingRequirements", e.target.value)}
-                  className="bg-slate-700 border-slate-600 text-white"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="businessDescription" className="text-white">
-                  Business Description
-                </Label>
-                <Textarea
-                  id="businessDescription"
-                  placeholder="Briefly describe your business idea or current startup"
-                  value={formData.businessDescription}
-                  onChange={(e) => handleInputChange("businessDescription", e.target.value)}
-                  className="bg-slate-700 border-slate-600 text-white min-h-[100px]"
-                  required
-                />
-              </div>
+              {/* Form fields (fullName, email, password, companyName, etc.) */}
+              {/* ...keep your existing inputs and selects here... */}
 
               {error && (
                 <div className="text-red-400 text-sm bg-red-900/20 p-3 rounded-lg border border-red-800">{error}</div>
