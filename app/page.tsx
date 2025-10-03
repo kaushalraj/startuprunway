@@ -701,8 +701,7 @@ export default function StartupRunwayLanding() {
             </div>
           </div>
         </section>
-
-        {/* Companies We've Mentored Section */}
+        {/*
         <section id="companies" className="py-20 bg-slate-900">
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
@@ -739,7 +738,7 @@ export default function StartupRunwayLanding() {
             </div>
           </div>
         </section>
-
+        */}
 
         {/* Testimonials Section */}
         <section id="testimonials" className="py-20 bg-slate-800">
