@@ -808,8 +808,8 @@ export default function StartupRunwayLanding() {
 		I owe much of my early growth and success to his support and guidance.
                 </p>
                 <div className="mt-auto">
-                  <div className="font-bold text-white"></div>
-                  <div className="text-amber-400">Godson Gera, Founder & CEO, Lintel India</div>
+                  <div className="font-bold text-white">Godson Gera</div>
+                  <div className="text-amber-400">Founder & CEO, Lintel India</div>
                 </div>
               </div>
             </div>
