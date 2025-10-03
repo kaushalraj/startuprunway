@@ -865,6 +865,7 @@ export default function StartupRunwayLanding() {
                     <Mail className="w-6 h-6 text-amber-400 mr-4" />
                     <div>
                       <div className="text-white font-medium">Email</div>
+                      <div className="text-slate-300">contact@startuprunway.in</div>
                       <div className="text-slate-300">info@startuprunway.in</div>
                     </div>
                   </div>
