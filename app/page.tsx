@@ -237,7 +237,7 @@ export default function StartupRunwayLanding() {
           <div className="relative group">
             <button
               onClick={() => (window.location.href = "/auth/customer/register")}
-              className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-slate-900 p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 group"
+              className="bg-gradient-to-r from-[#25D366]-500 to-[#25D366]-600 hover:from-[#25D366]-600 hover:to-[#25D366]-700 text-slate-900 p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 group"
             >
               <MessageCircle className="w-6 h-6 style={{ color: '#25D366' }}" />
             </button>
