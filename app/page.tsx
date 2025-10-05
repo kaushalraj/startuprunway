@@ -285,7 +285,7 @@ export default function StartupRunwayLanding() {
 
 <footer className="mt-12">
   <div className="container mx-auto text-center">
-    <p className="text-sm md:text-base text-gray-400">
+    <p className="text-sm md:text-base text-white ">
       Founders | Entrepreneurs | Studentpreneurs | Service Partners | Investors
     </p>
     <p className="text-xs text-gray-500 mt-2">
