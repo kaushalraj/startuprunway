@@ -241,7 +241,7 @@ export default function StartupRunwayLanding() {
             >
               <MessageCircle className="w-6 h-6" />
             </button>
-            <div className="absolute bottom-full right-100 mb-2 px-3 py-2 bg-slate-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-[9999]">
+            <div className="absolute right-100 mb-2 px-3 py-2 bg-slate-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-[9999]">
               Join StartupRunway
             </div>
           </div>
