@@ -262,10 +262,6 @@ export default function StartupRunwayLanding() {
 	      <p className="text-xl md:text-2xl text-white text-slate-300 mb-8 leading-relaxed">
 	      Empowering Indian Startups to Launch, Scale, and Succeed 
 	      </p>
-	      {/*              <p className="text-base md:text-lg text-white text-slate-400 mb-8 leading-relaxed" >
-	      Founders | Entreprenuers | Studentprenuers | Service Partners | Investors
-	      </p>
-	     */}
 	      <p className="text-sm text-white sm:text-base md:text-lg lg:text-xl mb-8 leading-relaxed">
 	      Innovation Meets Business Management, All in One Platform  
 	      </p>
@@ -283,7 +279,7 @@ export default function StartupRunwayLanding() {
               </button>
             </div>
 
-<footer className="mt-12">
+<footer className="mt-6">
   <div className="container mx-auto text-center">
     <p className="text-sm md:text-base text-white ">
       Founders | Entrepreneurs | Studentpreneurs | Service Partners | Investors
