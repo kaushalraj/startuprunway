@@ -266,7 +266,7 @@ export default function StartupRunwayLanding() {
 	      Founders | Entreprenuers | Studentprenuers | Service Partners | Investors
 	      </p>
 	      <p className="text-lg text-white sm:text-lg md:text-xl lg:text-2xl mb-8 leading-relaxed">
-	      End-to-End Innovation and Startup Management in One Platform 
+	      Innovation and Management in One Platform 
 	      </p>
               <p className="text-base md:text-lg text-slate-300 mb-8 leading-relaxed">
 	      <span className="text-yellow-400 font-semibold">Powered by global investors who believe in Indian startups</span>
