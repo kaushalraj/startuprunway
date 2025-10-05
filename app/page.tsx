@@ -265,7 +265,7 @@ export default function StartupRunwayLanding() {
               <p className="text-base md:text-lg text-white text-slate-400 mb-8 leading-relaxed" >
 	      Founders | Entreprenuers | Studentprenuers | Service Partners | Investors
 	      </p>
-	      <p className="text-lg text-white sm:text-lg md:text-xl lg:text-2xl mb-8 leading-relaxed">
+	      <p className="text-sm text-white sm:text-base md:text-lg lg:text-xl mb-8 leading-relaxed">
 	      Innovation Meets Business Management, All in One Platform  
 	      </p>
               <p className="text-base md:text-lg text-slate-300 mb-8 leading-relaxed">
