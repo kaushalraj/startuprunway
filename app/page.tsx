@@ -241,7 +241,7 @@ export default function StartupRunwayLanding() {
             >
               <MessageCircle className="w-6 h-6 style={{ color: '#25D366' }}" />
             </button>
-            <div className="absolute right-100 mb-2 px-3 py-2 bg-slate-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+            <div className="absolute right-10 mb-2 px-3 py-2 bg-slate-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
               Join StartupRunway
             </div>
           </div>
@@ -279,7 +279,7 @@ export default function StartupRunwayLanding() {
               </button>
             </div>
 
-<footer className="mt-6">
+<footer className="mt-12">
   <div className="container mx-auto text-center">
     <p className="text-sm md:text-base text-white ">
       Founders | Entrepreneurs | Studentpreneurs | Service Partners | Investors
