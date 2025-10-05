@@ -283,7 +283,7 @@ export default function StartupRunwayLanding() {
               </button>
             </div>
 
-<footer className="bg-gray-900 py-6 mt-12">
+<footer className="mt-12">
   <div className="container mx-auto text-center">
     <p className="text-sm md:text-base text-gray-400">
       Founders | Entrepreneurs | Studentpreneurs | Service Partners | Investors
