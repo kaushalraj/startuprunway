@@ -266,7 +266,7 @@ export default function StartupRunwayLanding() {
 	      Innovation Meets Business Management, All in One Platform  
 	      </p>
               <p className="text-base md:text-lg text-slate-300 mb-8 leading-relaxed">
-	      <span className="text-yellow-400 ">Powered by global investors who believe in Indian startups</span>
+	      <span className="text-yellow-400 hover:from-amber-600 hover:to-amber-700 hover:from-amber-600 hover:to-amber-700">Powered by global investors who believe in Indian startups</span>
               </p>
 	      <p className="text-base md:text-lg text-slate-300 mb-8 leading-relaxed">
               <span className="text-yellow-400 ">Your incredible idea might be next. Are you ready?</span>
