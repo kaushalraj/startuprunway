@@ -214,6 +214,8 @@ export default function StartupRunwayLanding() {
                         <div className="text-xs text-slate-500">Access partner portal</div>
                       </div>
                     </a>
+
+		    {/*
                     <div className="border-t border-slate-200 mt-2 pt-2">
                       <a
                         href="/admin/login"
@@ -223,6 +225,7 @@ export default function StartupRunwayLanding() {
                         Admin Access
                       </a>
                     </div>
+		   */}
                   </div>
                 )}
               </div>
