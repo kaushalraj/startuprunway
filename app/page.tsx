@@ -262,7 +262,7 @@ export default function StartupRunwayLanding() {
               <p className="text-base md:text-lg text-white text-slate-400 mb-8 leading-relaxed" >
 	      Founders | Entreprenuers | Studentprenuers | Service Partners | Investors
 	      </p>
-	      <p className="text-lg text-white sm:text-lg md:text-xl lg:text-2xl text-slate-300 mb-8 leading-relaxed">
+	      <p className="text-lg text-white sm:text-lg md:text-xl lg:text-2xl mb-8 leading-relaxed">
 	      One Platform to Grow 
 	      </p>
               <p className="text-base md:text-lg text-slate-300 mb-8 leading-relaxed">
@@ -275,7 +275,7 @@ export default function StartupRunwayLanding() {
                 onClick={() => scrollToSection("services")}
                 className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
-                Get Started
+                Start Your Journey
               </button>
             </div>
           </div>
