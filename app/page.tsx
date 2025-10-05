@@ -265,10 +265,10 @@ export default function StartupRunwayLanding() {
 	      <p className="text-sm text-white sm:text-base md:text-lg lg:text-xl mb-8 leading-relaxed">
 	      Innovation Meets Business Management, All in One Platform  
 	      </p>
-              <p className="text-base md:text-lg text-slate-300 mb-8 leading-relaxed">
+              <p className="text-base md:text-xl text-slate-300 mb-8 leading-relaxed">
 	      <span className="text-yellow-400 font-semibold">Powered by global investors who believe in Indian startups</span>
               </p>
-	      <p className="text-base md:text-lg text-slate-300 mb-8 leading-relaxed">
+	      <p className="text-base md:text-xl text-slate-300 mb-8 leading-relaxed">
               <span className="text-yellow-400 font-semibold">Your incredible idea might be next. Are you ready?</span>
               </p>
               <button
