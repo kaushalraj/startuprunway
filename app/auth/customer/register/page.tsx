@@ -1,18 +1,30 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { createClient } from "@/lib/supabase/client"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Textarea } from "@/components/ui/textarea"
-import Link from "next/link"
-import { useRouter } from "next/navigation"
-import { useState } from "react"
-import { Building2 } from "lucide-react"
+import { createClient } from "@/lib/supabase/client";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { Building2 } from "lucide-react";
 
 export default function CustomerRegisterPage() {
   const [formData, setFormData] = useState({
@@ -27,79 +39,82 @@ export default function CustomerRegisterPage() {
     fundingRequirements: "",
     businessDescription: "",
     growthPlanPackage: "",
-  })
-  const [error, setError] = useState<string | null>(null)
-  const [isLoading, setIsLoading] = useState(false)
-  const router = useRouter()
+  });
+  const [error, setError] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }))
-  }
+    setFormData((prev) => ({ ...prev, [field]: value }));
+  };
 
   const handleRegister = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsLoading(true)
-    setError(null)
+    e.preventDefault();
+    setIsLoading(true);
+    setError(null);
 
     if (formData.password !== formData.confirmPassword) {
-      setError("Passwords do not match")
-      setIsLoading(false)
-      return
+      setError("Passwords do not match");
+      setIsLoading(false);
+      return;
     }
 
-    const supabase = createClient()
+    const supabase = createClient();
 
     try {
       // Sign up the user
-const { data: authData, error: authError } = await supabase.auth.signUp({
-  email: formData.email,
-  password: formData.password,
-  options: {
-    emailRedirectTo:
-      process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ||
-      `${window.location.origin}/dashboard/customer`,
-    data: {
-      full_name: formData.fullName,
-      user_type: "customer",
-      company_name: formData.companyName,
-      phone: formData.phone,
-      business_stage: formData.businessStage,
-      industry: formData.industry,
-      funding_requirements: formData.fundingRequirements,
-      business_description: formData.businessDescription,
-      growth_plan_package: formData.growthPlanPackage,
-    },
-  },
-});
+      const { data: authData, error: authError } = await supabase.auth.signUp({
+        email: formData.email,
+        password: formData.password,
+	role: "customer",
+        phone: formData.phone,
+        options: {
+          emailRedirectTo:
+            process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ||
+            `${window.location.origin}/dashboard/customer`,
+          data: {
+            full_name: formData.fullName,
+            user_type: "customer",
+            company_name: formData.companyName,
+            phone: formData.phone,
+            business_stage: formData.businessStage,
+            industry: formData.industry,
+            funding_requirements: formData.fundingRequirements,
+            business_description: formData.businessDescription,
+            growth_plan_package: formData.growthPlanPackage,
+          },
+        },
+      });
 
-
-      if (authError) throw authError
+      if (authError) throw authError;
 
       if (authData.user && authData.session) {
         // User is confirmed, create customer record
-        const { error: customerError } = await supabase.from("customers").insert({
-          user_id: authData.user.id,
-          business_stage: formData.businessStage,
-          industry: formData.industry,
-          funding_requirements: formData.fundingRequirements,
-          business_description: formData.businessDescription,
-          growth_plan_package: formData.growthPlanPackage,
-        })
-       
-	// user is confirmed, create 
-        
-	if (customerError) throw customerError
-        router.push("/dashboard/customer")
+        const { error: customerError } = await supabase
+          .from("customers")
+          .insert({
+            user_id: authData.user.id,
+            business_stage: formData.businessStage,
+            industry: formData.industry,
+            funding_requirements: formData.fundingRequirements,
+            business_description: formData.businessDescription,
+            growth_plan_package: formData.growthPlanPackage,
+          });
+
+        // user is confirmed, create
+
+        if (customerError) throw customerError;
+        router.push("/dashboard/customer");
       } else {
         // Email confirmation required
-        router.push("/auth/check-email")
+        router.push("/auth/check-email");
       }
     } catch (error: unknown) {
-      setError(error instanceof Error ? error.message : "An error occurred")
+      setError(error instanceof Error ? error.message : "An error occurred");
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
+  };
 
   return (
     <div className="min-h-screen bg-slate-900 flex items-center justify-center p-6">
@@ -108,9 +123,13 @@ const { data: authData, error: authError } = await supabase.auth.signUp({
           <CardHeader className="text-center">
             <div className="flex items-center justify-center mb-4">
               <Building2 className="w-8 h-8 text-amber-400 mr-2" />
-              <span className="text-2xl font-bold text-white">StartupRunway</span>
+              <span className="text-2xl font-bold text-white">
+                StartupRunway
+              </span>
             </div>
-            <CardTitle className="text-2xl text-white">Customer Registration</CardTitle>
+            <CardTitle className="text-2xl text-white">
+              Customer Registration
+            </CardTitle>
             <CardDescription className="text-slate-300">
               Join StartupRunway and accelerate your startup journey
             </CardDescription>
@@ -125,7 +144,9 @@ const { data: authData, error: authError } = await supabase.auth.signUp({
                   <Input
                     id="fullName"
                     value={formData.fullName}
-                    onChange={(e) => handleInputChange("fullName", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("fullName", e.target.value)
+                    }
                     className="bg-slate-700 border-slate-600 text-white"
                     required
                   />
@@ -154,7 +175,9 @@ const { data: authData, error: authError } = await supabase.auth.signUp({
                     id="password"
                     type="password"
                     value={formData.password}
-                    onChange={(e) => handleInputChange("password", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("password", e.target.value)
+                    }
                     className="bg-slate-700 border-slate-600 text-white"
                     required
                   />
@@ -167,7 +190,9 @@ const { data: authData, error: authError } = await supabase.auth.signUp({
                     id="confirmPassword"
                     type="password"
                     value={formData.confirmPassword}
-                    onChange={(e) => handleInputChange("confirmPassword", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("confirmPassword", e.target.value)
+                    }
                     className="bg-slate-700 border-slate-600 text-white"
                     required
                   />
@@ -182,7 +207,9 @@ const { data: authData, error: authError } = await supabase.auth.signUp({
                   <Input
                     id="companyName"
                     value={formData.companyName}
-                    onChange={(e) => handleInputChange("companyName", e.target.value)}
+                    onChange={(e) =>
+                      handleInputChange("companyName", e.target.value)
+                    }
                     className="bg-slate-700 border-slate-600 text-white"
                     required
                   />
@@ -203,7 +230,11 @@ const { data: authData, error: authError } = await supabase.auth.signUp({
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label className="text-white">Business Stage</Label>
-                  <Select onValueChange={(value) => handleInputChange("businessStage", value)}>
+                  <Select
+                    onValueChange={(value) =>
+                      handleInputChange("businessStage", value)
+                    }
+                  >
                     <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
                       <SelectValue placeholder="Select stage" />
                     </SelectTrigger>
@@ -218,7 +249,11 @@ const { data: authData, error: authError } = await supabase.auth.signUp({
                 </div>
                 <div className="space-y-2">
                   <Label className="text-white">Industry</Label>
-                  <Select onValueChange={(value) => handleInputChange("industry", value)}>
+                  <Select
+                    onValueChange={(value) =>
+                      handleInputChange("industry", value)
+                    }
+                  >
                     <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
                       <SelectValue placeholder="Select industry" />
                     </SelectTrigger>
@@ -229,7 +264,7 @@ const { data: authData, error: authError } = await supabase.auth.signUp({
                       <SelectItem value="ecommerce">E-commerce</SelectItem>
                       <SelectItem value="saas">SaaS</SelectItem>
                       <SelectItem value="cleantech">CleanTech</SelectItem>
-                      <SelectItem value="Software">Software</SelectItem>                      
+                      <SelectItem value="Software">Software</SelectItem>
                       <SelectItem value="other">Other</SelectItem>
                     </SelectContent>
                   </Select>
@@ -238,7 +273,11 @@ const { data: authData, error: authError } = await supabase.auth.signUp({
 
               <div className="space-y-2">
                 <Label className="text-white">Growth Plan Package</Label>
-                <Select onValueChange={(value) => handleInputChange("growthPlanPackage", value)}>
+                <Select
+                  onValueChange={(value) =>
+                    handleInputChange("growthPlanPackage", value)
+                  }
+                >
                   <SelectTrigger className="bg-slate-700 border-slate-600 text-white">
                     <SelectValue placeholder="Select package" />
                   </SelectTrigger>
@@ -247,7 +286,9 @@ const { data: authData, error: authError } = await supabase.auth.signUp({
                     <SelectItem value="growth">Growth</SelectItem>
                     <SelectItem value="scale">Scale</SelectItem>
                     <SelectItem value="custom">Custom Service</SelectItem>
-                    <SelectItem value="enterprise">Enterprise - Custom</SelectItem>
+                    <SelectItem value="enterprise">
+                      Enterprise - Custom
+                    </SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -260,7 +301,9 @@ const { data: authData, error: authError } = await supabase.auth.signUp({
                   id="fundingRequirements"
                   placeholder="e.g,. Seed Funding"
                   value={formData.fundingRequirements}
-                  onChange={(e) => handleInputChange("fundingRequirements", e.target.value)}
+                  onChange={(e) =>
+                    handleInputChange("fundingRequirements", e.target.value)
+                  }
                   className="bg-slate-700 border-slate-600 text-white"
                 />
               </div>
@@ -273,14 +316,18 @@ const { data: authData, error: authError } = await supabase.auth.signUp({
                   id="businessDescription"
                   placeholder="Briefly describe your business idea or current startup"
                   value={formData.businessDescription}
-                  onChange={(e) => handleInputChange("businessDescription", e.target.value)}
+                  onChange={(e) =>
+                    handleInputChange("businessDescription", e.target.value)
+                  }
                   className="bg-slate-700 border-slate-600 text-white min-h-[100px]"
                   required
                 />
               </div>
 
               {error && (
-                <div className="text-red-400 text-sm bg-red-900/20 p-3 rounded-lg border border-red-800">{error}</div>
+                <div className="text-red-400 text-sm bg-red-900/20 p-3 rounded-lg border border-red-800">
+                  {error}
+                </div>
               )}
 
               <Button
@@ -295,7 +342,10 @@ const { data: authData, error: authError } = await supabase.auth.signUp({
             <div className="mt-6 text-center">
               <p className="text-slate-300 text-sm">
                 Already have an account?{" "}
-                <Link href="/auth/customer/login" className="text-amber-400 hover:text-amber-300 font-medium">
+                <Link
+                  href="/auth/customer/login"
+                  className="text-amber-400 hover:text-amber-300 font-medium"
+                >
                   Sign in here
                 </Link>
               </p>
@@ -304,5 +354,5 @@ const { data: authData, error: authError } = await supabase.auth.signUp({
         </Card>
       </div>
     </div>
-  )
+  );
 }
