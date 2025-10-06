@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "Startup Runway - The Launchpad for Your Business Success",
   description:
     "From idea to execution, we help entrepreneurs build, brand, and scale their businesses. Professional business consultancy and startup support platform.",
-  generator: "v0.app",
+  generator: "StartupRunway Team",
 }
 
 export default function RootLayout({

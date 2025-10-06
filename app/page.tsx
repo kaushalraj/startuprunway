@@ -137,6 +137,7 @@ export default function StartupRunwayLanding() {
         {/* Header */}
         <header className="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800">
           <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+            {/* Logo */}
             <div
               className="flex items-center cursor-pointer"
               onClick={() => {
@@ -152,6 +153,7 @@ export default function StartupRunwayLanding() {
                 StartupRunway
               </span>
             </div>
+            {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
               <button
                 onClick={() => {
@@ -259,10 +261,14 @@ export default function StartupRunwayLanding() {
           <div className="relative group">
             <button
               onClick={() => (window.location.href = "/auth/customer/register")}
-	      className="rounded-full hover:scale-110 transition-transform"
+              className="rounded-full hover:scale-110 transition-transform"
             >
-	      <img src="/images/whatsapp-icon.png" alt="WhatsApp" className="w-16 h-16" />
-	      {/* <MessageCircle className="w-6 h-6" /> */}
+              <img
+                src="/images/whatsapp-icon.png"
+                alt="WhatsApp"
+                className="w-16 h-16"
+              />
+              {/* <MessageCircle className="w-6 h-6" /> */}
             </button>
             <div className="absolute right-100 mb-2 px-3 py-2 bg-slate-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
               Join StartupRunway
@@ -309,7 +315,7 @@ export default function StartupRunwayLanding() {
             <footer className="mt-12">
               <div className="container mx-auto text-center">
                 <p className="text-sm md:text-base text-white ">
-                  Founders | Entrepreneurs | Service Partners | Studentprenuers
+                  Founders | Entrepreneurs | Service Partners | Studentpreneurs
                   | Investors
                 </p>
                 <p className="text-xs text-gray-500 mt-2">
@@ -1124,10 +1130,10 @@ export default function StartupRunwayLanding() {
         </section>
       </div>
       {/* Noupe Chatbot Script */}
-       <Script
-       	src="https://www.noupe.com/embed/01997896505278e59e770cc4f49a1de9b374.js"
-       	strategy="lazyOnload"
-       />
+      <Script
+        src="https://www.noupe.com/embed/01997896505278e59e770cc4f49a1de9b374.js"
+        strategy="lazyOnload"
+      />
     </div>
   );
 }
