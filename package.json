@@ -62,7 +62,7 @@
     "tailwindcss-animate": "^1.0.7",
     "vaul": "latest",
     "zod": "3.25.67",
-    "react-tsparticles": "^3.9.1",
+    "react-tsparticles": "^2.12.2",
     "tsparticles": "^3.9.1"
   },
   "devDependencies": {
