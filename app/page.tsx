@@ -306,7 +306,7 @@ export default function StartupRunwayLanding() {
         <div className="fixed bottom-24 right-6 z-50">
           <div className="relative group">
             <button
-              onClick={() => (window.location.href = "/auth/customer/register")}
+              onClick={() => handleWhatsAppClick()}
               className="rounded-full hover:scale-110 transition-transform"
             >
               <img
