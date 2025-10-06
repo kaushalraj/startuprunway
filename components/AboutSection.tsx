@@ -156,7 +156,7 @@ export default function AboutSection() {
           <div className="text-center">
             <h2 className="text-2xl font-bold text-white mb-4">Ready to Start Your Journey?</h2>
             <p className="text-slate-300 mb-8">Let's discuss how we can help turn your business idea into reality.</p>
-            <Link href="/">
+            <Link href="/auth/customer/register">
               <Button className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-semibold px-8 py-3">
                 Get Started Today
               </Button>
