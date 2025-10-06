@@ -6,12 +6,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-#noupe-chatbot {
-  position: fixed !important;
-  bottom: 1rem !important;
-  right: 1rem !important;
-  z-index: 9999 !important;
-}
+
 
 :root {
   /* Updated background colors to navy blue theme */
