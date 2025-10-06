@@ -259,7 +259,7 @@ export default function StartupRunwayLanding() {
           <div className="relative group">
             <button
               onClick={() => (window.location.href = "/auth/customer/register")}
-              className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-slate-900 p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 group"
+	      className="rounded-full hover:scale-110 transition-transform"
             >
 	      <img src="/images/whatsapp-icon.png" alt="WhatsApp" className="w-16 h-16" />
 	      {/* <MessageCircle className="w-6 h-6" /> */}
