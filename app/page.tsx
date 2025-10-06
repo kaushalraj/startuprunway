@@ -238,22 +238,64 @@ export default function StartupRunwayLanding() {
                         </div>
                       </div>
                     </a>
-
-                    {/*
-                    <div className="border-t border-slate-200 mt-2 pt-2">
-                      <a
-                        href="/admin/login"
-                        className="flex items-center px-4 py-2 text-slate-600 hover:bg-slate-50 hover:text-slate-800 transition-colors text-sm"
-                      >
-                        <div className="w-2 h-2 bg-slate-400 rounded-full mr-3"></div>
-                        Admin Access
-                      </a>
-                    </div>
-		   */}
                   </div>
                 )}
               </div>
             </nav>
+            {/*Mobile Header Start*/}
+            {/* Mobile Hamburger */}
+            <div className="md:hidden">
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="text-white text-2xl"
+              >
+                ☰
+              </button>
+            </div>
+
+            {/* Mobile Menu */}
+            {mobileMenuOpen && (
+              <div className="md:hidden bg-slate-900/95 border-t border-slate-800">
+                <button
+                  onClick={() => {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                    setMobileMenuOpen(false);
+                  }}
+                  className="block w-full text-left px-6 py-3 text-slate-300 hover:text-white border-b border-slate-800"
+                >
+                  Home
+                </button>
+                <button
+                  onClick={() => {
+                    scrollToSection("about");
+                    setMobileMenuOpen(false);
+                  }}
+                  className="block w-full text-left px-6 py-3 text-slate-300 hover:text-white border-b border-slate-800"
+                >
+                  About
+                </button>
+                <button
+                  onClick={() => {
+                    scrollToSection("services");
+                    setMobileMenuOpen(false);
+                  }}
+                  className="block w-full text-left px-6 py-3 text-slate-300 hover:text-white border-b border-slate-800"
+                >
+                  Services
+                </button>
+                <button
+                  onClick={() => {
+                    scrollToSection("contact");
+                    setMobileMenuOpen(false);
+                  }}
+                  className="block w-full text-left px-6 py-3 text-slate-300 hover:text-white"
+                >
+                  Contact
+                </button>
+              </div>
+            )}
+
+            {/*Mobile Header End*/}
           </div>
         </header>
 
