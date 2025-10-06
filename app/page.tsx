@@ -246,7 +246,9 @@ export default function StartupRunwayLanding() {
             {/*Mobile Header Start*/}
             {/* Mobile Hamburger */}
             <div
-              className={'md:hidden bg-slate-900/95 border-t border-slate-800 transition-all duration-300 ${mobileMenuOpen ? "max-h-96" : "max-h-0 overflow-hidden"}'}
+              className={
+                'md:hidden bg-slate-900/95 border-t border-slate-800 transition-all duration-300 ${mobileMenuOpen ? "max-h-96" : "max-h-0 overflow-hidden"}'
+              }
             >
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -257,46 +259,48 @@ export default function StartupRunwayLanding() {
             </div>
 
             {/* Mobile Menu */}
-            {mobileMenuOpen && (
-              <div className="md:hidden bg-slate-900/95 border-t border-slate-800">
-                <button
-                  onClick={() => {
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                    setMobileMenuOpen(false);
-                  }}
-                  className="block w-full text-left px-6 py-3 text-slate-300 hover:text-white border-b border-slate-800"
-                >
-                  Home
-                </button>
-                <button
-                  onClick={() => {
-                    scrollToSection("about");
-                    setMobileMenuOpen(false);
-                  }}
-                  className="block w-full text-left px-6 py-3 text-slate-300 hover:text-white border-b border-slate-800"
-                >
-                  About
-                </button>
-                <button
-                  onClick={() => {
-                    scrollToSection("services");
-                    setMobileMenuOpen(false);
-                  }}
-                  className="block w-full text-left px-6 py-3 text-slate-300 hover:text-white border-b border-slate-800"
-                >
-                  Services
-                </button>
-                <button
-                  onClick={() => {
-                    scrollToSection("contact");
-                    setMobileMenuOpen(false);
-                  }}
-                  className="block w-full text-left px-6 py-3 text-slate-300 hover:text-white"
-                >
-                  Contact
-                </button>
-              </div>
-            )}
+            <div
+              className={`md:hidden bg-slate-900/95 border-t border-slate-800 transition-all duration-300 ease-out overflow-hidden ${
+                mobileMenuOpen ? "max-h-96 py-2" : "max-h-0 py-0"
+              }`}
+            >
+              <button
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                  setMobileMenuOpen(false);
+                }}
+                className="block w-full text-left px-6 py-3 text-slate-300 hover:text-white border-b border-slate-800"
+              >
+                Home
+              </button>
+              <button
+                onClick={() => {
+                  scrollToSection("about");
+                  setMobileMenuOpen(false);
+                }}
+                className="block w-full text-left px-6 py-3 text-slate-300 hover:text-white border-b border-slate-800"
+              >
+                About
+              </button>
+              <button
+                onClick={() => {
+                  scrollToSection("services");
+                  setMobileMenuOpen(false);
+                }}
+                className="block w-full text-left px-6 py-3 text-slate-300 hover:text-white border-b border-slate-800"
+              >
+                Services
+              </button>
+              <button
+                onClick={() => {
+                  scrollToSection("contact");
+                  setMobileMenuOpen(false);
+                }}
+                className="block w-full text-left px-6 py-3 text-slate-300 hover:text-white"
+              >
+                Contact
+              </button>
+            </div>
 
             {/*Mobile Header End*/}
           </div>
