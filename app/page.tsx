@@ -1176,10 +1176,12 @@ export default function StartupRunwayLanding() {
         </section>
       </div>
       {/* Noupe Chatbot Script */}
+      <div id="noupe-chatbot">
       <Script
         src="https://www.noupe.com/embed/01997896505278e59e770cc4f49a1de9b374.js"
         strategy="lazyOnload"
       />
+      </div>
     </div>
   );
 }
