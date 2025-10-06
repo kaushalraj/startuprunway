@@ -265,11 +265,6 @@ export default function StartupRunwayLanding() {
 	      <p className="text-sm text-white sm:text-base md:text-lg lg:text-xl mb-8 leading-relaxed">
 	      Innovation Meets Business Management, All in One Platform  
 	      </p>
-              {/*
-              <p className="text-base md:text-lg text-slate-300 mb-8 leading-relaxed">
-	      <span className="text-yellow-400 md:text-base">Powered by global investors who believe in Indian startups</span>
-              </p>
-	      */}
 	      <p className="text-base md:text-lg text-slate-300 mb-8 leading-relaxed">
               <span className="text-yellow-400 md:text-base">Your incredible idea might be next. Are you ready?</span>
               </p>
@@ -999,10 +994,12 @@ export default function StartupRunwayLanding() {
         </section>
       </div>
       {/* Noupe Chatbot Script */}
+      {/*
        <Script
        	src="https://www.noupe.com/embed/01997896505278e59e770cc4f49a1de9b374.js"
        	strategy="lazyOnload"
-       /> 
+       />
+      */} 
     </div>
   )
 }
