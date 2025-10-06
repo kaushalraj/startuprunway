@@ -51,18 +51,27 @@ export default function CustomerRegisterPage() {
 
     try {
       // Sign up the user
-      const { data: authData, error: authError } = await supabase.auth.signUp({
-        email: formData.email,
-        password: formData.password,
-        options: {
-          emailRedirectTo:
-            process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL || `${window.location.origin}/dashboard/customer`,
-          data: {
-            full_name: formData.fullName,
-            user_type: "customer",
-          },
-        },
-      })
+const { data: authData, error: authError } = await supabase.auth.signUp({
+  email: formData.email,
+  password: formData.password,
+  options: {
+    emailRedirectTo:
+      process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ||
+      `${window.location.origin}/dashboard/customer`,
+    data: {
+      full_name: formData.fullName,
+      user_type: "customer",
+      company_name: formData.companyName,
+      phone: formData.phone,
+      business_stage: formData.businessStage,
+      industry: formData.industry,
+      funding_requirements: formData.fundingRequirements,
+      business_description: formData.businessDescription,
+      growth_plan_package: formData.growthPlanPackage,
+    },
+  },
+});
+
 
       if (authError) throw authError
 
@@ -76,8 +85,10 @@ export default function CustomerRegisterPage() {
           business_description: formData.businessDescription,
           growth_plan_package: formData.growthPlanPackage,
         })
-
-        if (customerError) throw customerError
+       
+	// user is confirmed, create 
+        
+	if (customerError) throw customerError
         router.push("/dashboard/customer")
       } else {
         // Email confirmation required
@@ -247,7 +258,7 @@ export default function CustomerRegisterPage() {
                 </Label>
                 <Input
                   id="fundingRequirements"
-                  placeholder="e.g., Rs800K funding"
+                  placeholder="e.g,. Seed Funding"
                   value={formData.fundingRequirements}
                   onChange={(e) => handleInputChange("fundingRequirements", e.target.value)}
                   className="bg-slate-700 border-slate-600 text-white"
