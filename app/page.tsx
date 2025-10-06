@@ -245,7 +245,9 @@ export default function StartupRunwayLanding() {
             </nav>
             {/*Mobile Header Start*/}
             {/* Mobile Hamburger */}
-            <div className="md:hidden">
+            <div
+              className={`md:hidden bg-slate-900/95 border-t border-slate-800 transition-all duration-300 ${mobileMenuOpen ? "max-h-96" : "max-h-0 overflow-hidden"}`}
+            >
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 className="text-white text-2xl"
