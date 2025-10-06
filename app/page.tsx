@@ -24,6 +24,7 @@ import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
 import BlogSection from "@/components/BlogSection";
 export default function StartupRunwayLanding() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [logoAnimating, setLogoAnimating] = useState(false);
   const [loginDropdownOpen, setLoginDropdownOpen] = useState(false);
 
