@@ -7,6 +7,14 @@ import { Analytics } from "@vercel/analytics/next"
 import { Suspense } from "react"
 import "./globals.css"
 
+#noupe-chatbot {
+  position: fixed !important;  /* makes it stick to viewport */
+  bottom: 1rem !important;     /* distance from bottom */
+  right: 1rem !important;      /* distance from right */
+  z-index: 9999 !important;    /* very high, always on top */
+}
+
+
 const dmSans = DM_Sans({
   subsets: ["latin"],
   variable: "--font-dm-sans",

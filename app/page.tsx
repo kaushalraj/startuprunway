@@ -3,6 +3,8 @@
 import type React from "react";
 import { useState } from "react";
 import Script from "next/script";
+import Particles from "react-tsparticles";
+import { loadFull } from "tsparticles";
 import {
   Building2,
   Users,
@@ -334,6 +336,51 @@ export default function StartupRunwayLanding() {
           id="hero"
           className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800"
         >
+          {/* Particle Background */}
+          <Particles
+            id="tsparticles"
+            init={particlesInit}
+            loaded={particlesLoaded}
+            options={{
+              fpsLimit: 60,
+              background: {
+                color: { value: "#0f172a" }, // dark slate background
+              },
+              interactivity: {
+                events: {
+                  onHover: { enable: true, mode: "repulse" },
+                  onClick: { enable: true, mode: "push" },
+                },
+                modes: {
+                  repulse: { distance: 100, duration: 0.4 },
+                  push: { quantity: 4 },
+                },
+              },
+              particles: {
+                number: { value: 50, density: { enable: true, area: 800 } },
+                color: { value: "#3b82f6" },
+                shape: { type: "circle" },
+                opacity: { value: 0.6 },
+                size: { value: { min: 3, max: 7 } },
+                links: {
+                  enable: true,
+                  distance: 120,
+                  color: "#3b82f6",
+                  opacity: 0.4,
+                  width: 1,
+                },
+                move: {
+                  enable: true,
+                  speed: 1.5,
+                  direction: "none",
+                  outModes: { default: "bounce" },
+                },
+              },
+              detectRetina: true,
+            }}
+            className="absolute inset-0 -z-10"
+          />
+
           <div className="container mx-auto px-6 text-center relative z-10">
             <div className="max-w-4xl mx-auto">
               <h1 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
@@ -1177,10 +1224,10 @@ export default function StartupRunwayLanding() {
       </div>
       {/* Noupe Chatbot Script */}
       <div id="noupe-chatbot">
-      <Script
-        src="https://www.noupe.com/embed/01997896505278e59e770cc4f49a1de9b374.js"
-        strategy="lazyOnload"
-      />
+        <Script
+          src="https://www.noupe.com/embed/01997896505278e59e770cc4f49a1de9b374.js"
+          strategy="lazyOnload"
+        />
       </div>
     </div>
   );
