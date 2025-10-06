@@ -63,7 +63,7 @@
     "vaul": "latest",
     "zod": "3.25.67",
     "react-tsparticles": "^3.10.1",
-    "tsparticles": "^2.10.1"
+    "tsparticles": "^2.12.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.9",
