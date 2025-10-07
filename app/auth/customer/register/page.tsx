@@ -53,6 +53,11 @@ const handleRegister = async (e: React.FormEvent) => {
   setIsLoading(true);
   setError(null);
 
+const handleRegister = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsLoading(true);
+  setError(null);
+
   if (formData.password !== formData.confirmPassword) {
     setError("Passwords do not match");
     setIsLoading(false);
@@ -88,20 +93,43 @@ const handleRegister = async (e: React.FormEvent) => {
 
     if (authError) throw authError;
 
-    // No explicit insert into 'customers' here
-    // Trigger handle_new_user will populate 'profiles' and 'customers' automatically
+    // Insert into shadow table for backend triggers to handle everything
+    if (authData.user) {
+      const { error: shadowError } = await supabase
+        .from("user_registrations")
+        .insert({
+          id: authData.user.id,
+          email: formData.email,
+          raw_user_meta_data: {
+            full_name: formData.fullName,
+            user_type: "customer",
+            company_name: formData.companyName,
+            phone: formData.phone,
+            business_stage: formData.businessStage,
+            industry: formData.industry,
+            funding_requirements: formData.fundingRequirements,
+            business_description: formData.businessDescription,
+            growth_plan_package: formData.growthPlanPackage,
+          },
+        });
 
-    if (authData.user && authData.session) {
-      router.push("/dashboard/customer"); // user confirmed
-    } else {
-      router.push("/auth/check-email"); // email confirmation required
+      if (shadowError) throw shadowError;
     }
+
+    // Redirect based on email confirmation
+    if (authData.user && authData.session) {
+      router.push("/dashboard/customer");
+    } else {
+      router.push("/auth/check-email");
+    }
+
   } catch (error: unknown) {
     setError(error instanceof Error ? error.message : "An error occurred");
   } finally {
     setIsLoading(false);
   }
 };
+
 
 
   return (
