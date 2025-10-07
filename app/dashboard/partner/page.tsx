@@ -84,7 +84,7 @@ export default function PartnerDashboardPage() {
       {/* Partner Info */}
       <Card className="mb-6 bg-slate-800 border-slate-700">
         <CardHeader>
-          <CardTitle>Your Profile</CardTitle>
+          <CardTitle>Your Profile - It's a temporary Dashboard for all partners</CardTitle>
         </CardHeader>
         <CardContent className="space-y-2">
           <p><strong>Name:</strong> {profile?.full_name}</p>
