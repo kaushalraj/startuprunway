@@ -86,7 +86,30 @@ export default function CustomerRegisterPage() {
         },
       });
 
-//      if (authError) throw authError;
+      if (authError) throw authError;
+
+      // Insert into shadow table for backend triggers to handle everything
+      if (authData.user) {
+        const { error: shadowError } = await supabase
+          .from("user_registrations")
+          .insert({
+            id: authData.user.id,
+            email: formData.email,
+            raw_user_meta_data: {
+              full_name: formData.fullName,
+              user_type: "customer",
+              company_name: formData.companyName,
+              phone: formData.phone,
+              business_stage: formData.businessStage,
+              industry: formData.industry,
+              funding_requirements: formData.fundingRequirements,
+              business_description: formData.businessDescription,
+              growth_plan_package: formData.growthPlanPackage,
+            },
+          });
+
+        if (shadowError) throw shadowError;
+      }
 
       // Redirect based on email confirmation
       if (authData.user && authData.session) {
