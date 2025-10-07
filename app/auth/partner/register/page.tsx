@@ -61,7 +61,7 @@ export default function PartnerRegisterPage() {
 			company_name: formData.companyName,
 			expertise_areas: formData.expertiseAreas,
 			full_name: formData.fullName,
-            phone: formData.phone,			
+            phone: formData.phone			
           },
         },
       })
