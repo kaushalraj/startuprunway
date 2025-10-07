@@ -86,7 +86,7 @@ export default function CustomerRegisterPage() {
         },
       });
 
-      if (authError) throw authError;
+//      if (authError) throw authError;
 
       // Redirect based on email confirmation
       if (authData.user && authData.session) {
