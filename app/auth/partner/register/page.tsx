@@ -55,7 +55,7 @@ export default function PartnerRegisterPage() {
           emailRedirectTo:
             process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL || `${window.location.origin}/dashboard/partner`,
           data: {
-		    id: authData.id,
+		    id: "",
 			user_type: "partner",
 			partner_type: formData.partnerType,
 			company_name: formData.companyName,
