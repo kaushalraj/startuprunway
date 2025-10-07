@@ -48,73 +48,61 @@ export default function CustomerRegisterPage() {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleRegister = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setError(null);
+const handleRegister = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setIsLoading(true);
+  setError(null);
 
-    if (formData.password !== formData.confirmPassword) {
-      setError("Passwords do not match");
-      setIsLoading(false);
-      return;
-    }
+  if (formData.password !== formData.confirmPassword) {
+    setError("Passwords do not match");
+    setIsLoading(false);
+    return;
+  }
 
-    const supabase = createClient();
+  const supabase = createClient();
 
-    try {
-      // Sign up the user
-      const { data: authData, error: authError } = await supabase.auth.signUp({
-        email: formData.email,
-        password: formData.password,
-	role: "customer",
-        phone: formData.phone,
-        options: {
-          emailRedirectTo:
-            process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ||
-            `${window.location.origin}/dashboard/customer`,
-          data: {
-            full_name: formData.fullName,
-            user_type: "customer",
-            company_name: formData.companyName,
-            phone: formData.phone,
-            business_stage: formData.businessStage,
-            industry: formData.industry,
-            funding_requirements: formData.fundingRequirements,
-            business_description: formData.businessDescription,
-            growth_plan_package: formData.growthPlanPackage,
-          },
+  try {
+    // Sign up the user
+    const { data: authData, error: authError } = await supabase.auth.signUp({
+      email: formData.email,
+      password: formData.password,
+      role: "customer", // optional
+      phone: formData.phone,
+      options: {
+        emailRedirectTo:
+          process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ||
+          `${window.location.origin}/dashboard/customer`,
+        data: {
+          full_name: formData.fullName,
+          user_type: "customer",
+          company_name: formData.companyName,
+          phone: formData.phone,
+          business_stage: formData.businessStage,
+          industry: formData.industry,
+          funding_requirements: formData.fundingRequirements,
+          business_description: formData.businessDescription,
+          growth_plan_package: formData.growthPlanPackage,
         },
-      });
+      },
+    });
 
-      if (authError) throw authError;
+    if (authError) throw authError;
 
-      if (authData.user && authData.session) {
-        // User is confirmed, create customer record
-        const { error: customerError } = await supabase
-          .from("customers")
-          .insert({
-            user_id: authData.user.id,
-            business_stage: formData.businessStage,
-            industry: formData.industry,
-            funding_requirements: formData.fundingRequirements,
-            business_description: formData.businessDescription,
-            growth_plan_package: formData.growthPlanPackage,
-          });
+    // No explicit insert into 'customers' here
+    // Trigger handle_new_user will populate 'profiles' and 'customers' automatically
 
-        // user is confirmed, create
-
-        if (customerError) throw customerError;
-        router.push("/dashboard/customer");
-      } else {
-        // Email confirmation required
-        router.push("/auth/check-email");
-      }
-    } catch (error: unknown) {
-      setError(error instanceof Error ? error.message : "An error occurred");
-    } finally {
-      setIsLoading(false);
+    if (authData.user && authData.session) {
+      router.push("/dashboard/customer"); // user confirmed
+    } else {
+      router.push("/auth/check-email"); // email confirmation required
     }
-  };
+  } catch (error: unknown) {
+    setError(error instanceof Error ? error.message : "An error occurred");
+  } finally {
+    setIsLoading(false);
+  }
+};
+
 
   return (
     <div className="min-h-screen bg-slate-900 flex items-center justify-center p-6">
