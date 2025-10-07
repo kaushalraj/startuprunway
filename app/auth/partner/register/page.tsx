@@ -1,8 +1,11 @@
 "use client";
 
 import type React from "react";
-
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { createClient } from "@/lib/supabase/client";
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -21,9 +24,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
 import { Users } from "lucide-react";
 
 export default function PartnerRegisterPage() {
@@ -59,19 +59,15 @@ export default function PartnerRegisterPage() {
     const supabase = createClient();
 
     try {
-      // Sign up the user
+      // Sign up the user in Supabase Auth
       const { data: authData, error: authError } = await supabase.auth.signUp({
         email: formData.email,
         password: formData.password,
-        role: "partner", // optional
-        phone: formData.phone,
         options: {
           emailRedirectTo:
             process.env.NEXT_PUBLIC_DEV_SUPABASE_REDIRECT_URL ||
             `${window.location.origin}/dashboard/partner`,
           data: {
-            id: authData.user.id,
-            email: formData.email,
             user_type: "partner",
             partner_type: formData.partnerType,
             company_name: formData.companyName,
@@ -84,7 +80,7 @@ export default function PartnerRegisterPage() {
 
       if (authError) throw authError;
 
-      // Insert into shadow table for backend triggers to handle everything
+      // Insert into shadow table so backend triggers handle profiles/customers
       if (authData.user) {
         const { error: shadowError } = await supabase
           .from("user_registrations")
@@ -105,9 +101,12 @@ export default function PartnerRegisterPage() {
 
         if (shadowError) {
           console.error("Insert error:", shadowError.message);
+          setError("Could not complete registration. Please try again.");
+          return;
         }
       }
-      // Redirect based on email confirmation
+
+      // Redirect user depending on confirmation flow
       if (authData.user && authData.session) {
         router.push("/dashboard/partner");
       } else {
@@ -138,6 +137,7 @@ export default function PartnerRegisterPage() {
               Join our partner network and help startups succeed
             </CardDescription>
           </CardHeader>
+
           <CardContent>
             <form onSubmit={handleRegister} className="space-y-4">
               <div className="grid md:grid-cols-2 gap-4">
@@ -243,15 +243,9 @@ export default function PartnerRegisterPage() {
                   </SelectTrigger>
                   <SelectContent className="bg-slate-700 border-slate-600">
                     <SelectItem value="legal">Legal Services</SelectItem>
-                    <SelectItem value="financial">
-                      Financial Services
-                    </SelectItem>
-                    <SelectItem value="technology">
-                      Technology Development
-                    </SelectItem>
-                    <SelectItem value="marketing">
-                      Marketing & Growth
-                    </SelectItem>
+                    <SelectItem value="financial">Financial Services</SelectItem>
+                    <SelectItem value="technology">Technology Development</SelectItem>
+                    <SelectItem value="marketing">Marketing & Growth</SelectItem>
                     <SelectItem value="hr">Human Resources</SelectItem>
                     <SelectItem value="manufacturing">Manufacturing</SelectItem>
                     <SelectItem value="academic">Academic/Research</SelectItem>
