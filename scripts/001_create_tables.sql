@@ -82,6 +82,13 @@ CREATE TABLE IF NOT EXISTS public.project_status (
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
+CREATE TABLE IF NOT EXISTS public.user_registrations (
+    id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
+    email TEXT NOT NULL,
+    raw_user_meta_data JSONB,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
 -- Enable Row Level Security
 ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.customers ENABLE ROW LEVEL SECURITY;
@@ -89,24 +96,51 @@ ALTER TABLE public.partners ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.contact_submissions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.tasks ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.project_status ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.user_registrations ENABLE ROW LEVEL SECURITY;
+
+-- RLS Policies for user_registrations
+DROP POLICY IF EXISTS user_registrations_select_own ON public.user_registrations;
+DROP POLICY IF EXISTS user_registrations_insert_own ON public.user_registrations;
+DROP POLICY IF EXISTS user_registrations_update_own ON public.user_registrations;
+DROP POLICY IF EXISTS user_registrations_delete_own ON public.user_registrations;
+
+CREATE POLICY "user_registrations_select_own" ON public.user_registrations FOR SELECT USING (auth.uid() = id);
+CREATE POLICY "user_registrations_insert_own" ON public.user_registrations FOR INSERT WITH CHECK (auth.uid() = id);
+CREATE POLICY "user_registrations_update_own" ON public.user_registrations FOR UPDATE USING (auth.uid() = id);
+CREATE POLICY "user_registrations_delete_own" ON public.user_registrations FOR DELETE USING (auth.uid() = id);
 
 -- RLS Policies for profiles
+DROP POLICY IF EXISTS profiles_select_own ON public.profiles;
+DROP POLICY IF EXISTS profiles_insert_own ON public.profiles;
+DROP POLICY IF EXISTS profiles_update_own ON public.profiles;
+DROP POLICY IF EXISTS profiles_delete_own ON public.profiles;
+
 CREATE POLICY "profiles_select_own" ON public.profiles FOR SELECT USING (auth.uid() = id);
 CREATE POLICY "profiles_insert_own" ON public.profiles FOR INSERT WITH CHECK (auth.uid() = id);
 CREATE POLICY "profiles_update_own" ON public.profiles FOR UPDATE USING (auth.uid() = id);
 CREATE POLICY "profiles_delete_own" ON public.profiles FOR DELETE USING (auth.uid() = id);
 
 -- RLS Policies for customers
-CREATE POLICY "customers_select_own" ON public.customers FOR SELECT USING (auth.uid() = user_id);
-CREATE POLICY "customers_insert_own" ON public.customers FOR INSERT WITH CHECK (auth.uid() = user_id);
-CREATE POLICY "customers_update_own" ON public.customers FOR UPDATE USING (auth.uid() = user_id);
-CREATE POLICY "customers_delete_own" ON public.customers FOR DELETE USING (auth.uid() = user_id);
+DROP POLICY IF EXISTS customers_select_own ON public.customers;
+DROP POLICY IF EXISTS customers_insert_own ON public.customers;
+DROP POLICY IF EXISTS customers_update_own ON public.customers;
+DROP POLICY IF EXISTS customers_delete_own ON public.customers;
+
+CREATE POLICY "customers_select_own" ON public.customers FOR SELECT USING (auth.uid() = id);
+CREATE POLICY "customers_insert_own" ON public.customers FOR INSERT WITH CHECK (auth.uid() = id);
+CREATE POLICY "customers_update_own" ON public.customers FOR UPDATE USING (auth.uid() = id);
+CREATE POLICY "customers_delete_own" ON public.customers FOR DELETE USING (auth.uid() = id);
 
 -- RLS Policies for partners
-CREATE POLICY "partners_select_own" ON public.partners FOR SELECT USING (auth.uid() = user_id);
-CREATE POLICY "partners_insert_own" ON public.partners FOR INSERT WITH CHECK (auth.uid() = user_id);
-CREATE POLICY "partners_update_own" ON public.partners FOR UPDATE USING (auth.uid() = user_id);
-CREATE POLICY "partners_delete_own" ON public.partners FOR DELETE USING (auth.uid() = user_id);
+DROP POLICY IF EXISTS partners_select_own ON public.partners;
+DROP POLICY IF EXISTS partners_insert_own ON public.partners;
+DROP POLICY IF EXISTS partners_update_own ON public.partners;
+DROP POLICY IF EXISTS partners_delete_own ON public.partners;
+
+CREATE POLICY "partners_select_own" ON public.partners FOR SELECT USING (auth.uid() = id);
+CREATE POLICY "partners_insert_own" ON public.partners FOR INSERT WITH CHECK (auth.uid() = id);
+CREATE POLICY "partners_update_own" ON public.partners FOR UPDATE USING (auth.uid() = id);
+CREATE POLICY "partners_delete_own" ON public.partners FOR DELETE USING (auth.uid() = id);
 
 -- RLS Policies for tasks (customers can see their tasks, partners can see assigned tasks)
 CREATE POLICY "tasks_select_customer" ON public.tasks FOR SELECT USING (
