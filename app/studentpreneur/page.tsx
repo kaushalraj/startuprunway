@@ -126,7 +126,7 @@ function HeroSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-5xl md:text-7xl leading-[1.2] md:leading-[1.3] mb-6 bg-gradient-to-r from-[#ff6b35] via-[#4a90e2] to-[#8b5cf6] bg-clip-text text-transparent"
         >
-          Studentpreneur Program by StartupRunway
+          Studentpreneur Program
         </motion.h1>
 
         <motion.p
@@ -135,7 +135,7 @@ function HeroSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-xl md:text-2xl text-gray-200 mb-4 max-w-3xl mx-auto"
         >
-          Transforming Students Into Startup Founders
+         StartupRunway - Transforming Students Into Startup Founders
         </motion.p>
 
         <motion.p
