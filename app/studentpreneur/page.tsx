@@ -1,44 +1,26 @@
-import React from "react";
-import { ChevronRightIcon, CheckCircleIcon } from "lucide-react";
+import { CheckCircleIcon } from "@heroicons/react/24/solid";
 
 export default function StudentpreneurPage() {
   return (
-    <div className="font-sans text-gray-800">
-
+    <main className="bg-gray-50 text-gray-900">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white py-32 px-6 text-center relative overflow-hidden">
-        <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-          Become a <span className="text-yellow-400">Studentpreneur</span> Before Graduation
-        </h1>
-        <p className="text-lg md:text-2xl mb-10 max-w-3xl mx-auto">
-          StartupRunway University Program equips engineering students with real-world entrepreneurship skills and the opportunity to start a running company while still in college.
+      <section className="relative bg-indigo-700 text-white py-32 px-6 text-center">
+        <h1 className="text-5xl font-bold mb-6">StartupRunway University Program</h1>
+        <p className="text-xl max-w-2xl mx-auto mb-8">
+          Transforming engineering students into entrepreneurs by equipping them with management, financial, legal, technical, and psychological skills, while creating real startups during their final year.
         </p>
         <a
           href="#apply"
-          className="bg-white text-indigo-600 font-semibold py-3 px-8 rounded-full shadow-xl hover:bg-gray-100 transition"
+          className="inline-block bg-white text-indigo-700 font-semibold px-8 py-4 rounded-lg hover:bg-gray-200 transition"
         >
           Apply Now
         </a>
       </section>
 
-      {/* Program Objective */}
-      <section className="py-20 px-6 bg-gray-50">
-        <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-6">Program Objective</h2>
-          <p className="text-lg md:text-xl mb-4">
-            Transform engineering students into entrepreneurs by providing management, finance, legal, technical, and psychological skills while enabling them to create and operate a real startup.
-          </p>
-          <p className="text-indigo-600 font-semibold text-lg">
-            Duration: 2 Years (3rd & 4th Year of Engineering)
-          </p>
-        </div>
-      </section>
-
-      {/* Year 1: Training */}
-      <section className="py-20 px-6">
+      {/* Year 1 – Training & Skill Development */}
+      <section className="py-20 px-6 bg-white text-gray-900">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold mb-12 text-center">Year 1 – Training & Skill Development</h2>
-
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <h3 className="text-2xl font-semibold mb-6">Core Modules</h3>
@@ -81,23 +63,22 @@ export default function StudentpreneurPage() {
         </div>
       </section>
 
-      {/* Year 2: Startup Creation */}
-      <section className="py-20 px-6 bg-gray-50">
+      {/* Year 2 – Startup Creation & Operation */}
+      <section className="py-20 px-6 bg-gray-100 text-gray-900">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold mb-12 text-center">Year 2 – Startup Creation & Operation</h2>
-
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <h3 className="text-2xl font-semibold mb-6">Core Activities</h3>
               <ul className="space-y-4">
                 {[
-                  "Company Formation – Legal incorporation, agreements, shareholder structure",
-                  "Product Development – MVP design, prototype support",
-                  "Operations Management – Running the business, team roles",
-                  "Sales & Marketing – Go-to-market strategy, customer acquisition",
-                  "Financial Operations – Bookkeeping, compliance, investor connections",
-                  "Scaling & Mentorship – Weekly/monthly mentoring sessions",
-                  "Pitch & Demo Days – Access to investors, funding & partnerships"
+                  "Company Formation – Legal incorporation (Pvt Ltd / LLP / Startup India), drafting agreements, shareholder structure",
+                  "Product Development – MVP design & development, technology & prototype support",
+                  "Operations Management – Running the business while studying, building core teams & assigning roles",
+                  "Sales & Marketing – Go-to-market strategy, digital marketing, customer acquisition",
+                  "Financial Operations – Bookkeeping, compliance, taxation, connecting with angel investors / grants",
+                  "Scaling & Mentorship – Weekly/Monthly mentoring sessions, expert guidance from industry professionals",
+                  "Pitch & Demo Days – Students pitch to real investors, access to StartupRunway network"
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-start gap-2">
                     <CheckCircleIcon className="w-5 h-5 text-indigo-600 mt-1" />
@@ -111,9 +92,9 @@ export default function StudentpreneurPage() {
               <h3 className="text-2xl font-semibold mb-6">Outcome by Graduation</h3>
               <ul className="space-y-4">
                 {[
-                  "Students already own and run their startup",
-                  "On graduation day, they take full control of their company",
-                  "They leave college with a running business, not just a degree"
+                  "Students own and run their startup",
+                  "Full control of their company upon graduation",
+                  "Graduate with a running business, not just a degree"
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-start gap-2">
                     <CheckCircleIcon className="w-5 h-5 text-green-500 mt-1" />
@@ -126,11 +107,10 @@ export default function StudentpreneurPage() {
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-20 px-6">
+      {/* Program Benefits */}
+      <section className="py-20 px-6 bg-gray-50 text-gray-900">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-12">Program Benefits</h2>
-
           <div className="grid md:grid-cols-3 gap-8 text-left">
             <div className="p-6 bg-white rounded-xl shadow-lg hover:shadow-2xl transition">
               <h3 className="text-2xl font-semibold mb-4">For Students</h3>
@@ -184,22 +164,18 @@ export default function StudentpreneurPage() {
       </section>
 
       {/* CTA Section */}
-      <section id="apply" className="py-32 px-6 text-center bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6">
-          Ready to Start Your Studentpreneur Journey?
-        </h2>
-        <p className="text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-          Apply now and transform your college years into a real startup success story. Graduate as a CEO of your own company.
+      <section id="apply" className="py-24 px-6 bg-indigo-700 text-white text-center">
+        <h2 className="text-4xl font-bold mb-6">Ready to Become a Studentpreneur?</h2>
+        <p className="mb-8 max-w-2xl mx-auto">
+          Join the StartupRunway University Program and graduate as the founder of your own company with real hands-on experience.
         </p>
         <a
-          href="#"
-          className="bg-white text-indigo-600 font-semibold py-4 px-10 rounded-full shadow-xl hover:bg-gray-100 transition"
+          href="/apply"
+          className="inline-block bg-white text-indigo-700 font-semibold px-10 py-4 rounded-lg hover:bg-gray-200 transition"
         >
-          Join StartupRunway University Program
-          <ChevronRightIcon className="inline w-5 h-5 ml-2" />
+          Apply Now
         </a>
       </section>
-
-    </div>
+    </main>
   );
 }
