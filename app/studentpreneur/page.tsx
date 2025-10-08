@@ -1,215 +1,158 @@
-'use client';
+// studentpreneur.tsx
+import React from "react";
+import { motion } from "framer-motion";
 
-import React from 'react';
+const sectionVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+};
 
-const StudentpreneurPage = () => {
+const Studentpreneur: React.FC = () => {
   return (
-    <div className="font-sans text-gray-900">
+    <div className="w-full min-h-screen bg-gray-50 text-gray-800">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-32 px-6 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
-          StartupRunway University Program
+      <motion.section
+        className="relative bg-blue-600 text-white py-20 px-6 text-center"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={sectionVariants}
+      >
+        <h1 className="text-4xl md:text-6xl font-bold mb-4">
+          StartupRunway Studentpreneur Track
         </h1>
-        <p className="text-lg md:text-xl max-w-2xl mx-auto mb-8">
-          Transforming engineering students into entrepreneurs with real startup experience
+        <p className="text-lg md:text-2xl max-w-3xl mx-auto">
+          Transforming engineering students into real-world entrepreneurs by equipping them
+          with business, technical, and management skills while helping them launch a
+          real company during their final year.
         </p>
-        <a
-          href="#apply"
-          className="bg-white text-indigo-600 font-semibold px-6 py-3 rounded-md shadow hover:bg-gray-100 transition"
+        <motion.a
+          href="#program-details"
+          className="inline-block mt-8 bg-white text-blue-600 font-semibold py-3 px-6 rounded-lg shadow-lg hover:bg-gray-100 transition"
+          whileHover={{ scale: 1.05 }}
         >
-          Apply Now
-        </a>
-      </section>
+          Explore Program
+        </motion.a>
+      </motion.section>
 
-      {/* Program Objective */}
-      <section className="py-20 px-6 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-6">Program Objective</h2>
-          <p className="text-lg mb-4">
-            To transform engineering students into entrepreneurs by equipping them with management, financial, legal, technical, and psychological skills, while also helping them create and operate a real company during their final year of study.
-          </p>
-          <p className="text-lg font-semibold">Program Duration: 2 Years (3rd & 4th Year of Engineering)</p>
-        </div>
-      </section>
-
-      {/* Year 1 – Training & Skill Development */}
-      <section className="py-20 px-6 bg-gradient-to-r from-indigo-50 to-indigo-100">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8">Year 1 – Training & Skill Development</h2>
-          <p className="text-lg mb-12">Focus: Building the entrepreneurial mindset and fundamental skills.</p>
-
-          <div className="space-y-8">
-            {[
-              {
-                title: "Entrepreneurship & Management",
-                desc: "Learn startup fundamentals, business models, and leadership principles."
-              },
-              {
-                title: "Accounting & Financial Skills",
-                desc: "Basics of accounting, budgeting, cash flow management, and funding strategies."
-              },
-              {
-                title: "Legal & Compliance",
-                desc: "Company registration, contracts, IP, taxation, and startup laws."
-              },
-              {
-                title: "People & HR Management",
-                desc: "Hiring, team building, organizational culture, and ESOP fundamentals."
-              },
-              {
-                title: "Technical Skills",
-                desc: "Product design, prototyping, and exposure to emerging tech tools."
-              },
-              {
-                title: "Creative Problem-Solving",
-                desc: "Identifying real-world problems and learning design thinking methods."
-              },
-              {
-                title: "Market Research & Analysis",
-                desc: "Industry studies, competitor benchmarking, and survey techniques."
-              },
-              {
-                title: "Innovation & Patents",
-                desc: "Understanding the patenting process, IP models, and protection strategies."
-              },
-              {
-                title: "Entrepreneurial & Human Psychology",
-                desc: "Founder mindset, stress management, negotiation, and customer psychology."
-              },
-            ].map((item, idx) => (
-              <div key={idx} className="bg-white rounded-lg p-6 shadow hover:shadow-lg transition flex flex-col md:flex-row md:items-start md:space-x-6">
-                <div className="flex-shrink-0 mb-4 md:mb-0">
-                  <span className="text-indigo-600 font-bold text-lg">{idx + 1}.</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                  <p className="text-gray-700">{item.desc}</p>
-                </div>
-              </div>
-            ))}
+      {/* Program Overview */}
+      <motion.section
+        id="program-details"
+        className="py-20 px-6 md:px-20 bg-gray-50"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={sectionVariants}
+      >
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          Program Overview
+        </h2>
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h3 className="text-2xl font-semibold mb-4">Objective</h3>
+            <p className="text-gray-700 mb-6">
+              Equip engineering students with management, financial, legal, technical,
+              and psychological skills to launch and operate a real company.
+            </p>
+            <h3 className="text-2xl font-semibold mb-4">Duration</h3>
+            <p className="text-gray-700">
+              2 Years – 3rd & 4th Year of Engineering
+            </p>
           </div>
-
-          <p className="mt-12 text-lg font-semibold">
-            Outcome by end of 3rd year: Students understand how businesses work, identify real-world problems, and prepare a business plan with a patentable model.
-          </p>
-        </div>
-      </section>
-
-      {/* Year 2 – Startup Creation & Operation */}
-      <section className="py-20 px-6 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8">Year 2 – Startup Creation & Operation</h2>
-          <p className="text-lg mb-12">Focus: Turning ideas into a real startup company.</p>
-
-          <div className="space-y-8">
-            {[
-              {
-                title: "Company Formation",
-                desc: "Legal incorporation (Pvt Ltd / LLP / Startup India), drafting agreements, and shareholder structuring."
-              },
-              {
-                title: "Product Development",
-                desc: "MVP design & development, technology and prototype support."
-              },
-              {
-                title: "Operations Management",
-                desc: "Run the business while studying, build core teams and assign roles."
-              },
-              {
-                title: "Sales & Marketing",
-                desc: "Go-to-market strategy, digital marketing, and customer acquisition."
-              },
-              {
-                title: "Financial Operations",
-                desc: "Bookkeeping, compliance, taxation, and connecting with angel investors/grants."
-              },
-              {
-                title: "Scaling & Mentorship",
-                desc: "Weekly/monthly mentoring sessions with guidance from industry experts."
-              },
-              {
-                title: "Pitch & Demo Days",
-                desc: "Students pitch to real investors and access StartupRunway network for funding & partnerships."
-              },
-            ].map((item, idx) => (
-              <div key={idx} className="bg-white rounded-lg p-6 shadow hover:shadow-lg transition flex flex-col md:flex-row md:items-start md:space-x-6">
-                <div className="flex-shrink-0 mb-4 md:mb-0">
-                  <span className="text-purple-600 font-bold text-lg">{idx + 1}.</span>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                  <p className="text-gray-700">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <p className="mt-12 text-lg font-semibold">
-            Outcome by graduation (end of 4th year): Students already own and run their startup and take full control on graduation day.
-          </p>
-        </div>
-      </section>
-
-      {/* Program Benefits */}
-      <section className="py-20 px-6 bg-gradient-to-r from-purple-50 to-purple-100">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center">Program Benefits</h2>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "For Students",
-                benefits: [
-                  "Graduate with company ownership instead of just a job offer.",
-                  "Gain practical entrepreneurship skills + hands-on startup experience.",
-                  "Stronger resume with lifelong skills."
-                ]
-              },
-              {
-                title: "For Universities",
-                benefits: [
-                  "Position themselves as entrepreneurship-driven institutions.",
-                  "Improve placement records.",
-                  "Build reputation as a startup hub attracting industry partnerships."
-                ]
-              },
-              {
-                title: "For StartupRunway",
-                benefits: [
-                  "Build a pipeline of high-potential startups.",
-                  "Early access to innovative ideas.",
-                  "Long-term relationship with founders from student stage to growth stage."
-                ]
-              }
-            ].map((section, idx) => (
-              <div key={idx} className="bg-white rounded-lg p-6 shadow hover:shadow-lg transition">
-                <h3 className="text-xl font-semibold mb-4">{section.title}</h3>
-                <ul className="list-disc pl-5 space-y-2 text-gray-700">
-                  {section.benefits.map((b, i) => (
-                    <li key={i}>{b}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          <div className="flex justify-center">
+            <img
+              src="/images/studentpreneur-illustration.svg"
+              alt="Studentpreneur Illustration"
+              className="w-full max-w-md rounded-lg shadow-lg"
+            />
           </div>
         </div>
-      </section>
+      </motion.section>
+
+      {/* Skill Development Section */}
+      <motion.section
+        className="py-20 px-6 md:px-20 bg-white"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={sectionVariants}
+      >
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          Year 1 – Training & Skill Development
+        </h2>
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg transition">
+            <h3 className="text-xl font-semibold mb-2">Business & Management</h3>
+            <p>Learn company formation, business plans, and growth strategies.</p>
+          </div>
+          <div className="bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg transition">
+            <h3 className="text-xl font-semibold mb-2">Technical Skills</h3>
+            <p>Hands-on projects on product development, software, and tech tools.</p>
+          </div>
+          <div className="bg-gray-100 p-6 rounded-lg shadow hover:shadow-lg transition">
+            <h3 className="text-xl font-semibold mb-2">Legal & Financial Knowledge</h3>
+            <p>Understand legal compliance, taxation, fundraising, and accounting.</p>
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Real Startup Experience Section */}
+      <motion.section
+        className="py-20 px-6 md:px-20 bg-gray-50"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={sectionVariants}
+      >
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          Year 2 – Startup Launch & Operation
+        </h2>
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="flex flex-col justify-center">
+            <p className="text-gray-700 mb-4">
+              Students get the opportunity to create and operate their own company under
+              mentorship. They work on real-world challenges, partnerships, and funding.
+            </p>
+            <p className="text-gray-700">
+              By the end of Year 2, students will have experience in running a business,
+              solving practical problems, and preparing for long-term growth.
+            </p>
+          </div>
+          <div className="flex justify-center">
+            <img
+              src="/images/startup-experience.svg"
+              alt="Startup Experience Illustration"
+              className="w-full max-w-md rounded-lg shadow-lg"
+            />
+          </div>
+        </div>
+      </motion.section>
 
       {/* Call to Action */}
-      <section id="apply" className="py-20 px-6 bg-indigo-600 text-white text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to become a Studentpreneur?</h2>
-        <p className="mb-8 max-w-xl mx-auto">
-          Join StartupRunway and graduate with your own company in hand, equipped with practical entrepreneurship skills.
+      <motion.section
+        className="py-20 px-6 text-center bg-blue-600 text-white"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={sectionVariants}
+      >
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          Ready to Become a Studentpreneur?
+        </h2>
+        <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+          Join StartupRunway and transform your engineering journey into a real
+          entrepreneurial experience.
         </p>
-        <a
+        <motion.a
           href="/apply"
-          className="bg-white text-indigo-600 font-semibold px-6 py-3 rounded-md shadow hover:bg-gray-100 transition"
+          className="inline-block bg-white text-blue-600 font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-gray-100 transition"
+          whileHover={{ scale: 1.05 }}
         >
           Apply Now
-        </a>
-      </section>
+        </motion.a>
+      </motion.section>
     </div>
   );
 };
 
-export default StudentpreneurPage;
+export default Studentpreneur;
