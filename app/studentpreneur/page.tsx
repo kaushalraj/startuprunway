@@ -126,7 +126,7 @@ function HeroSection() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-5xl md:text-7xl mb-6 bg-gradient-to-r from-[#ff6b35] via-[#4a90e2] to-[#8b5cf6] bg-clip-text text-transparent"
         >
-          Welcome to StartupRunway
+          StartupRunway University Program
         </motion.h1>
 
         <motion.p
@@ -135,7 +135,7 @@ function HeroSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-xl md:text-2xl text-gray-200 mb-4 max-w-3xl mx-auto"
         >
-          Your Launchpad to Startup Success
+          Transforming Students Into Startup Founders
         </motion.p>
 
         <motion.p
@@ -144,7 +144,7 @@ function HeroSection() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-lg text-gray-400 mb-10 max-w-2xl mx-auto"
         >
-          Are you a passionate student with a groundbreaking software idea? It's time to transform that idea into reality. StartupRunway is here to guide you every step of the way.
+          Are you a passionate student with a groundbreaking idea? It's time to transform that idea into reality. StartupRunway is here to guide you every step of the way.
         </motion.p>
 
         <motion.div
