@@ -36,29 +36,60 @@ const StudentpreneurPage = () => {
       <section className="py-20 px-6 bg-gradient-to-r from-indigo-50 to-indigo-100">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Year 1 – Training & Skill Development</h2>
-          <p className="text-lg mb-6">
-            Focus: Building the entrepreneurial mindset and fundamental skills.
-          </p>
+          <p className="text-lg mb-12">Focus: Building the entrepreneurial mindset and fundamental skills.</p>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="space-y-8">
             {[
-              "Entrepreneurship & Management: Startup fundamentals, business models, leadership.",
-              "Accounting & Financial Skills: Basics of accounting, budgeting, cash flow, funding.",
-              "Legal & Compliance: Company registration, contracts, IP, taxation, startup laws.",
-              "People & HR Management: Hiring, team building, organizational culture, ESOPs.",
-              "Technical Skills: Product design, prototyping, emerging tech tools.",
-              "Creative Problem-Solving: Identifying real-world problems, design thinking.",
-              "Market Research & Analysis: Industry studies, competitor benchmarking, surveys.",
-              "Innovation & Patents: Patenting process, IP models, protection strategies.",
-              "Entrepreneurial & Human Psychology: Founder mindset, stress management, negotiation. Employee & customer psychology."
+              {
+                title: "Entrepreneurship & Management",
+                desc: "Learn startup fundamentals, business models, and leadership principles."
+              },
+              {
+                title: "Accounting & Financial Skills",
+                desc: "Basics of accounting, budgeting, cash flow management, and funding strategies."
+              },
+              {
+                title: "Legal & Compliance",
+                desc: "Company registration, contracts, IP, taxation, and startup laws."
+              },
+              {
+                title: "People & HR Management",
+                desc: "Hiring, team building, organizational culture, and ESOP fundamentals."
+              },
+              {
+                title: "Technical Skills",
+                desc: "Product design, prototyping, and exposure to emerging tech tools."
+              },
+              {
+                title: "Creative Problem-Solving",
+                desc: "Identifying real-world problems and learning design thinking methods."
+              },
+              {
+                title: "Market Research & Analysis",
+                desc: "Industry studies, competitor benchmarking, and survey techniques."
+              },
+              {
+                title: "Innovation & Patents",
+                desc: "Understanding the patenting process, IP models, and protection strategies."
+              },
+              {
+                title: "Entrepreneurial & Human Psychology",
+                desc: "Founder mindset, stress management, negotiation, and customer psychology."
+              },
             ].map((item, idx) => (
-              <div key={idx} className="bg-white rounded-lg p-6 shadow hover:shadow-lg transition">
-                <p>{item}</p>
+              <div key={idx} className="bg-white rounded-lg p-6 shadow hover:shadow-lg transition flex flex-col md:flex-row md:items-start md:space-x-6">
+                <div className="flex-shrink-0 mb-4 md:mb-0">
+                  <span className="text-indigo-600 font-bold text-lg">{idx + 1}.</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                  <p className="text-gray-700">{item.desc}</p>
+                </div>
               </div>
             ))}
           </div>
 
-          <p className="mt-8 text-lg font-semibold">
+          <p className="mt-12 text-lg font-semibold">
             Outcome by end of 3rd year: Students understand how businesses work, identify real-world problems, and prepare a business plan with a patentable model.
           </p>
         </div>
@@ -68,64 +99,98 @@ const StudentpreneurPage = () => {
       <section className="py-20 px-6 bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-bold mb-8">Year 2 – Startup Creation & Operation</h2>
-          <p className="text-lg mb-6">
-            Focus: Turning ideas into a real startup company.
-          </p>
+          <p className="text-lg mb-12">Focus: Turning ideas into a real startup company.</p>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="space-y-8">
             {[
-              "Company Formation: Legal incorporation (Pvt Ltd / LLP / Startup India), Drafting agreements, shareholder structure.",
-              "Product Development: MVP design & development, Technology & prototype support.",
-              "Operations Management: Running the business while studying, building core teams & assigning roles.",
-              "Sales & Marketing: Go-to-market strategy, digital marketing, customer acquisition.",
-              "Financial Operations: Bookkeeping, compliance, taxation, connecting with angel investors / grants.",
-              "Scaling & Mentorship: Weekly/Monthly mentoring sessions, expert guidance from industry professionals.",
-              "Pitch & Demo Days: Students pitch to real investors, access to StartupRunway network for funding & partnerships."
+              {
+                title: "Company Formation",
+                desc: "Legal incorporation (Pvt Ltd / LLP / Startup India), drafting agreements, and shareholder structuring."
+              },
+              {
+                title: "Product Development",
+                desc: "MVP design & development, technology and prototype support."
+              },
+              {
+                title: "Operations Management",
+                desc: "Run the business while studying, build core teams and assign roles."
+              },
+              {
+                title: "Sales & Marketing",
+                desc: "Go-to-market strategy, digital marketing, and customer acquisition."
+              },
+              {
+                title: "Financial Operations",
+                desc: "Bookkeeping, compliance, taxation, and connecting with angel investors/grants."
+              },
+              {
+                title: "Scaling & Mentorship",
+                desc: "Weekly/monthly mentoring sessions with guidance from industry experts."
+              },
+              {
+                title: "Pitch & Demo Days",
+                desc: "Students pitch to real investors and access StartupRunway network for funding & partnerships."
+              },
             ].map((item, idx) => (
-              <div key={idx} className="bg-white rounded-lg p-6 shadow hover:shadow-lg transition">
-                <p>{item}</p>
+              <div key={idx} className="bg-white rounded-lg p-6 shadow hover:shadow-lg transition flex flex-col md:flex-row md:items-start md:space-x-6">
+                <div className="flex-shrink-0 mb-4 md:mb-0">
+                  <span className="text-purple-600 font-bold text-lg">{idx + 1}.</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                  <p className="text-gray-700">{item.desc}</p>
+                </div>
               </div>
             ))}
           </div>
 
-          <p className="mt-8 text-lg font-semibold">
+          <p className="mt-12 text-lg font-semibold">
             Outcome by graduation (end of 4th year): Students already own and run their startup and take full control on graduation day.
           </p>
         </div>
       </section>
 
-      {/* Benefits */}
+      {/* Program Benefits */}
       <section className="py-20 px-6 bg-gradient-to-r from-purple-50 to-purple-100">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8">Program Benefits</h2>
+          <h2 className="text-3xl font-bold mb-12 text-center">Program Benefits</h2>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-lg p-6 shadow hover:shadow-lg transition">
-              <h3 className="font-semibold mb-2">For Students</h3>
-              <ul className="list-disc pl-5">
-                <li>Graduate with company ownership instead of just a job offer.</li>
-                <li>Gain practical entrepreneurship skills + hands-on startup experience.</li>
-                <li>Stronger resume with lifelong skills.</li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-lg p-6 shadow hover:shadow-lg transition">
-              <h3 className="font-semibold mb-2">For Universities</h3>
-              <ul className="list-disc pl-5">
-                <li>Position themselves as entrepreneurship-driven institutions.</li>
-                <li>Improve placement records.</li>
-                <li>Build reputation as a startup hub attracting industry partnerships.</li>
-              </ul>
-            </div>
-
-            <div className="bg-white rounded-lg p-6 shadow hover:shadow-lg transition">
-              <h3 className="font-semibold mb-2">For StartupRunway</h3>
-              <ul className="list-disc pl-5">
-                <li>Build a pipeline of high-potential startups.</li>
-                <li>Early access to innovative ideas.</li>
-                <li>Long-term relationship with founders from student stage to growth stage.</li>
-              </ul>
-            </div>
+            {[
+              {
+                title: "For Students",
+                benefits: [
+                  "Graduate with company ownership instead of just a job offer.",
+                  "Gain practical entrepreneurship skills + hands-on startup experience.",
+                  "Stronger resume with lifelong skills."
+                ]
+              },
+              {
+                title: "For Universities",
+                benefits: [
+                  "Position themselves as entrepreneurship-driven institutions.",
+                  "Improve placement records.",
+                  "Build reputation as a startup hub attracting industry partnerships."
+                ]
+              },
+              {
+                title: "For StartupRunway",
+                benefits: [
+                  "Build a pipeline of high-potential startups.",
+                  "Early access to innovative ideas.",
+                  "Long-term relationship with founders from student stage to growth stage."
+                ]
+              }
+            ].map((section, idx) => (
+              <div key={idx} className="bg-white rounded-lg p-6 shadow hover:shadow-lg transition">
+                <h3 className="text-xl font-semibold mb-4">{section.title}</h3>
+                <ul className="list-disc pl-5 space-y-2 text-gray-700">
+                  {section.benefits.map((b, i) => (
+                    <li key={i}>{b}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>
