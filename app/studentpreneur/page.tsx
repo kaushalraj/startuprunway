@@ -595,7 +595,7 @@ function CTASection() {
 // Main App Component
 export default function App() {
   return (
-    <div className="relative min-h-screen bg-[#0a0e27] overflow-x-hidden">
+    <div className="relative bg-[#0f1233] text-white overflow-hidden pt-20">
       <ParticleBackground />
       <Header />
       <div className="relative z-10">
