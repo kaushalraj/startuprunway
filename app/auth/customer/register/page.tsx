@@ -87,7 +87,8 @@ export default function CustomerRegisterPage() {
       });
 
       if (authError) throw authError;
-      {/*
+      
+	  
       // Insert into shadow table for backend triggers to handle everything
       if (authData.user) {
         const { error: shadowError } = await supabase
@@ -110,7 +111,8 @@ export default function CustomerRegisterPage() {
 
         if (shadowError) throw shadowError;
       }
-      */}
+      
+	  
       // Redirect based on email confirmation
       if (authData.user && authData.session) {
         router.push("/dashboard/customer");
