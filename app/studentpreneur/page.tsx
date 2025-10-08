@@ -1,168 +1,148 @@
-"use client";
+'use client';
 
-import React from "react";
-import { motion } from "framer-motion";
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
-import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/autoplay";
-import { Autoplay } from "swiper";
+import React from 'react';
+import Particles from '@tsparticles/react';
+import { loadFull } from 'tsparticles';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/autoplay';
+import SwiperCore, { Autoplay } from 'swiper';
+import styles from './page.module.css'; // optional for extra styling
+
+SwiperCore.use([Autoplay]);
 
 const particlesInit = async (main: any) => {
   await loadFull(main);
 };
 
-const StudentpreneurPage: React.FC = () => {
+const StudentpreneurPage = () => {
   return (
-    <div className="relative w-full min-h-screen bg-white text-gray-800">
+    <div style={{ position: 'relative', overflow: 'hidden' }}>
       {/* Particles Background */}
       <Particles
         id="tsparticles"
         init={particlesInit}
         options={{
-          background: { color: { value: "#FFFFFF" } },
+          background: {
+            color: { value: '#0f172a' }, // dark background matching StartupRunway
+          },
           fpsLimit: 60,
           interactivity: {
-            events: { onHover: { enable: true, mode: "repulse" } },
-            modes: { repulse: { distance: 100 } },
+            events: {
+              onHover: { enable: true, mode: 'repulse' },
+              resize: true,
+            },
           },
           particles: {
-            color: { value: "#1DB954" },
-            links: { color: "#4892DB", distance: 150, enable: true },
-            collisions: { enable: true },
-            move: { enable: true, speed: 2 },
-            number: { density: { enable: true, area: 800 }, value: 50 },
-            opacity: { value: 0.5 },
-            shape: { type: "circle" },
-            size: { value: { min: 2, max: 5 } },
+            color: { value: '#facc15' }, // premium yellow accent
+            links: { enable: true, color: '#facc15', distance: 150 },
+            collisions: { enable: false },
+            move: { enable: true, speed: 2, outModes: 'bounce' },
+            number: { density: { enable: true, area: 800 }, value: 60 },
+            opacity: { value: 0.7 },
+            shape: { type: 'circle' },
+            size: { value: { min: 1, max: 5 } },
           },
-          detectRetina: true,
         }}
-        className="absolute inset-0 -z-10"
       />
 
-      {/* Hero Section */}
-      <section className="text-center py-20 px-4 bg-gradient-to-b from-white to-[#E0F7EC]">
-        <motion.h1
-          initial={{ y: -50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="text-4xl md:text-5xl font-extrabold text-[#1DB954]"
-        >
-          StartupRunway: Transforming Students into Future Tech Leaders
-        </motion.h1>
-        <motion.p
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1.2 }}
-          className="mt-4 text-lg md:text-xl text-[#536F85]"
-        >
-          Are you a passionate student with a groundbreaking software idea?  
-          It's time to transform that idea into reality.
-        </motion.p>
-      </section>
+      {/* Main Content */}
+      <div
+        style={{
+          position: 'relative',
+          zIndex: 10,
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding: '100px 20px 50px 20px',
+          color: '#f1f5f9', // light text
+          textAlign: 'center',
+        }}
+      >
+        <h1 style={{ fontSize: '3rem', fontWeight: 'bold', color: '#facc15' }}>
+          StartupRunway: Transforming Students into Studentpreneurs
+        </h1>
+        <p style={{ fontSize: '1.3rem', margin: '20px 0', color: '#e2e8f0' }}>
+          Turn your innovative ideas into a real software company while still in college. 
+          Learn business, tech, legal, and financial skills in a 2-year program designed 
+          for engineers ready to disrupt the industry!
+        </p>
 
-      {/* Image Slideshow */}
-      <section className="my-12 px-4">
-        <Swiper
-          modules={[Autoplay]}
-          spaceBetween={20}
-          slidesPerView={1}
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
-          loop
-        >
-          <SwiperSlide>
-            <Image
-              src="/images/student1.jpg"
-              alt="Students collaborating"
-              width={1200}
-              height={500}
-              className="rounded-lg shadow-lg object-cover w-full"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              src="/images/student2.jpg"
-              alt="Startup workshop"
-              width={1200}
-              height={500}
-              className="rounded-lg shadow-lg object-cover w-full"
-            />
-          </SwiperSlide>
-          <SwiperSlide>
-            <Image
-              src="/images/student3.jpg"
-              alt="Pitching to investors"
-              width={1200}
-              height={500}
-              className="rounded-lg shadow-lg object-cover w-full"
-            />
-          </SwiperSlide>
-        </Swiper>
-      </section>
-
-      {/* Program Content */}
-      <section className="px-4 md:px-20 py-12">
-        <motion.h2
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="text-3xl font-bold text-[#4892DB] mb-6 text-center"
-        >
-          🧭 Our 2-Year Startup Acceleration Program
-        </motion.h2>
-
-        {/* Year 1 */}
-        <div className="mb-10">
-          <h3 className="text-2xl font-semibold text-[#1DB954] mb-4">
-            Year 1: Laying the Foundation
-          </h3>
-          <ul className="list-disc list-inside space-y-2 text-[#536F85]">
-            <li><strong>Quarter 1:</strong> Ideation & Validation – Refine your idea, conduct market research, develop MVP.</li>
-            <li><strong>Quarter 2:</strong> Legal & Compliance – Company registration, legal structure, regulations.</li>
-            <li><strong>Quarter 3:</strong> Branding & Marketing – Brand identity, marketing strategy, initial campaigns.</li>
-            <li><strong>Quarter 4:</strong> Funding & Networking – Pitch decks, investor connections, secure initial funding.</li>
-          </ul>
+        {/* Swiper Slideshow */}
+        <div style={{ margin: '50px 0' }}>
+          <Swiper
+            spaceBetween={30}
+            slidesPerView={1}
+            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            loop={true}
+          >
+            <SwiperSlide>
+              <img
+                src="/images/student1.jpg"
+                alt="Student Startup 1"
+                style={{ width: '100%', borderRadius: '15px' }}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src="/images/student2.jpg"
+                alt="Student Startup 2"
+                style={{ width: '100%', borderRadius: '15px' }}
+              />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img
+                src="/images/student3.jpg"
+                alt="Student Startup 3"
+                style={{ width: '100%', borderRadius: '15px' }}
+              />
+            </SwiperSlide>
+          </Swiper>
         </div>
 
-        {/* Year 2 */}
-        <div className="mb-10">
-          <h3 className="text-2xl font-semibold text-[#1DB954] mb-4">
-            Year 2: Scaling Up
-          </h3>
-          <ul className="list-disc list-inside space-y-2 text-[#536F85]">
-            <li><strong>Quarter 5:</strong> Product Development – Enhance MVP, add features, iterate.</li>
-            <li><strong>Quarter 6:</strong> Sales & Customer Acquisition – Sales strategy, acquire customers, optimize channels.</li>
-            <li><strong>Quarter 7:</strong> Operations & Team Building – Streamline operations, build team, establish culture.</li>
-            <li><strong>Quarter 8:</strong> Expansion & Growth – Explore markets, scale operations, prepare for funding rounds.</li>
-          </ul>
-        </div>
-
-        {/* Why Choose StartupRunway */}
-        <div className="mb-10 text-center">
-          <h3 className="text-2xl font-bold text-[#4892DB] mb-4">🎯 Why Choose StartupRunway?</h3>
-          <ul className="space-y-2 text-[#536F85] max-w-2xl mx-auto">
-            <li>💡 Expert Guidance – Mentorship from industry leaders.</li>
-            <li>🛠️ Comprehensive Support – From ideation to scaling.</li>
-            <li>🤝 Access to Investors – Connect with those who believe in your vision.</li>
-            <li>🔧 Tailored Solutions – Strategies customized to your needs.</li>
-          </ul>
+        {/* Punchy Highlights */}
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '30px' }}>
+          {[
+            '💡 Generate & validate startup ideas',
+            '📈 Master business & financial skills',
+            '🛠 Build a real product from scratch',
+            '🧑‍🤝‍🧑 Connect with mentors & investors',
+            '🚀 Launch your company before graduation',
+            '🎯 Learn legal, technical & operational strategies',
+          ].map((item, idx) => (
+            <div
+              key={idx}
+              style={{
+                backgroundColor: '#1e293b',
+                color: '#facc15',
+                padding: '20px 25px',
+                borderRadius: '12px',
+                fontWeight: 'bold',
+                minWidth: '220px',
+              }}
+            >
+              {item}
+            </div>
+          ))}
         </div>
 
         {/* Call to Action */}
-        <div className="text-center py-12 bg-gradient-to-r from-[#1DB954] to-[#4892DB] rounded-xl text-white">
-          <h3 className="text-3xl font-bold mb-4">📞 Ready to Take Off?</h3>
-          <p className="mb-6">Don't let your idea stay just an idea. Apply now and let's build the future together.</p>
+        <div style={{ marginTop: '50px' }}>
           <a
             href="/contact"
-            className="px-8 py-4 bg-white text-[#1DB954] font-bold rounded-lg shadow-lg hover:bg-gray-100 transition"
+            style={{
+              backgroundColor: '#facc15',
+              color: '#0f172a',
+              padding: '15px 40px',
+              borderRadius: '10px',
+              fontSize: '1.2rem',
+              fontWeight: 'bold',
+              textDecoration: 'none',
+            }}
           >
-            Contact Us
+            Join the Program & Start Your Journey 🚀
           </a>
         </div>
-      </section>
+      </div>
     </div>
   );
 };
