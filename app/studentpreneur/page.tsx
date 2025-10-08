@@ -1,5 +1,7 @@
 // studentpreneur.tsx
-import React, { useContext, createContext } from 'react';
+'use client'; // ← MUST be at the top of the file
+
+import React, { createContext, useContext, useState } from 'react';
 import { motion } from "framer-motion";
 
 const sectionVariants = {
