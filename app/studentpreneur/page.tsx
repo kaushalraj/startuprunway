@@ -1,5 +1,5 @@
 // studentpreneur.tsx
-import React from "react";
+import React, { useContext, createContext } from 'react';
 import { motion } from "framer-motion";
 
 const sectionVariants = {
@@ -156,3 +156,4 @@ const Studentpreneur: React.FC = () => {
 };
 
 export default Studentpreneur;
+	
