@@ -15,9 +15,6 @@ function Header() {
   );
 }
 
-
-
-
 // Particle Background Component
 function ParticleBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -149,7 +146,7 @@ function HeroSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-xl md:text-2xl text-gray-200 mb-4 max-w-3xl mx-auto"
         >
-         StartupRunway - Transforming Students Into Startup Founders
+         Transforming Students Into Startup Founders
         </motion.p>
 
         <motion.p
