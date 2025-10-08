@@ -3,6 +3,20 @@ import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Rocket, Sparkles, Target, Users, TrendingUp, Lightbulb, CheckCircle2, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
+
+// Header
+function Header() {
+  return (
+    <header className="flex items-center gap-3 px-6 py-4">
+      <Image src="/images/startuprunway-logo.png" alt="StartupRunway Logo" width={50} height={50} />
+      <h1 className="text-2xl md:text-3xl font-bold text-white">StartupRunway</h1>
+    </header>
+  );
+}
+
+
+
 
 // Particle Background Component
 function ParticleBackground() {
@@ -583,7 +597,7 @@ export default function App() {
   return (
     <div className="relative min-h-screen bg-[#0a0e27] overflow-x-hidden">
       <ParticleBackground />
-      
+      <Header />
       <div className="relative z-10">
         <HeroSection />
         <ProgramTimeline />
