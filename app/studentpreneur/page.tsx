@@ -7,13 +7,18 @@ import Image from 'next/image';
 import Link from "next/link";
 
 // Header
+import Image from "next/image";
+import Link from "next/link";
+
 function Header() {
   return (
-    <header className="fixed top-0 left-0 w-full flex items-center gap-3 px-6 py-4 bg-[#0f1233]/90 backdrop-blur-md z-50">
-	<Link href="/" className="flex items-center gap-3 cursor-pointer">
-      <Image src="/images/startuprunway-logo.png" alt="StartupRunway Logo" width={50} height={50} />
-      <h1 className="text-2xl md:text-3xl font-bold text-white">StartupRunway</h1>
-	</Link>
+    <header className="fixed top-0 left-0 w-full flex justify-center z-50 py-4 bg-transparent">
+      <Link href="/" className="flex items-center gap-3 cursor-pointer">
+        <Image src="/logo.png" alt="StartupRunway Logo" width={50} height={50} />
+        <h1 className="text-2xl md:text-3xl font-bold text-white">
+          StartupRunway
+        </h1>
+      </Link>
     </header>
   );
 }
