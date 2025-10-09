@@ -1,83 +1,105 @@
-// CTA Section for Entrepreneurs Page
+'use client';
+import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Rocket, ArrowRight } from 'lucide-react';
+import { Rocket, Sparkles, Target, Users, TrendingUp, Lightbulb, CheckCircle2, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
+import Link from "next/link";
 
-export default function CTASectionEntrepreneurs() {
+// Header
+function Header() {
   return (
-    <section className="py-20 px-4 relative overflow-hidden bg-[#0f1233]">
-      {/* Background Gradient / Blur Shapes */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#ff6b35] via-[#4a90e2] to-[#8b5cf6] opacity-10" />
-
-      <motion.div
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.05, 0.2, 0.05]
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-        className="absolute top-0 right-0 w-96 h-96 bg-[#ff6b35] rounded-full blur-3xl"
-      />
-
-      <motion.div
-        animate={{
-          scale: [1, 1.3, 1],
-          opacity: [0.05, 0.2, 0.05]
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-        className="absolute bottom-0 left-0 w-96 h-96 bg-[#4a90e2] rounded-full blur-3xl"
-      />
-
-      <div className="max-w-4xl mx-auto text-center relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <motion.div
-            animate={{
-              y: [0, -10, 0]
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="inline-block mb-6"
-          >
-            <Rocket className="w-16 h-16 text-[#ff6b35]" />
-          </motion.div>
-
-          <h2 className="text-4xl md:text-5xl mb-6 text-white">
-            Ready to Launch Your Startup?
-          </h2>
-          
-          <p className="text-xl mb-8 text-gray-300 max-w-2xl mx-auto">
-            Don’t let your idea stay just an idea. Apply now and let StartupRunway guide you to success.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-[#ff6b35] text-white hover:bg-[#ff6b35]/90 px-8 py-6 rounded-full group">
-              Apply to StartupRunway
-              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button variant="outline" className="border-2 border-white text-white hover:bg-white/10 px-8 py-6 rounded-full">
-              Schedule a Call
-            </Button>
-          </div>
-
-          <p className="mt-8 text-gray-400 text-sm">
-            Join StartupRunway’s Entrepreneur Network and take your startup from idea to launch.
-          </p>
-        </motion.div>
-      </div>
-    </section>
+    <header className="fixed top-0 left-0 w-full flex justify-center z-50 py-4 bg-transparent">
+      <Link href="/" className="flex items-center gap-3 cursor-pointer">
+        <Image src="/images/startuprunway-logo.png" alt="StartupRunway Logo" width={30} height={30} />
+        <h1 className="text-2xl md:text-3xl font-bold text-white">
+          StartupRunway
+        </h1>
+      </Link>
+    </header>
   );
 }
+
+// Particle Background Component
+function ParticleBackground() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const setCanvasSize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    setCanvasSize();
+    window.addEventListener('resize', setCanvasSize);
+
+    interface Particle {
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      size: number;
+      color: string;
+    }
+
+    const particles: Particle[] = [];
+    const particleCount = 100;
+    const colors = ['#ff6b35', '#4a90e2', '#8b5cf6', '#10b981'];
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.6,
+        vy: (Math.random() - 0.5) * 0.6,
+        size: Math.random() * 2.5 + 1,
+        color: colors[Math.floor(Math.random() * colors.length)]
+      });
+    }
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      particles.forEach((particle, i) => {
+        particle.x += particle.vx;
+        particle.y += particle.vy;
+
+        if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
+        if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+        ctx.fillStyle = particle.color;
+        ctx.globalAlpha = 0.7;
+        ctx.fill();
+
+        particles.forEach((particle2, j) => {
+          if (i === j) return;
+          const dx = particle.x - particle2.x;
+          const dy = particle.y - particle2.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          if (distance < 150) {
+            ctx.beginPath();
+            ctx.moveTo(particle.x, particle.y);
+            ctx.lineTo(particle2.x, particle2.y);
+            ctx.strokeStyle = particle.color;
+            ctx.globalAlpha = (150 - distance) / 150 * 0.3;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        });
+      });
+
+      requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      window.removeEventListener('resize', setCanvasSize);
