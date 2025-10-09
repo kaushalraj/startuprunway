@@ -402,7 +402,7 @@ function ProgramTimeline() {
         >
           <div className="flex items-center gap-3 mb-8">
             <div className="w-12 h-12 rounded-full bg-[#4a90e2] flex items-center justify-center text-white">2</div>
-            <h3 className="text-3xl text-white">Year 2: Scaling Up</h3>
+            <h3 className="text-3xl text-white">Year 2: Startup Execution</h3>
           </div>
           
           <div className="grid md:grid-cols-2 gap-6">
