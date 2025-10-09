@@ -31,13 +31,6 @@ export default function StartupRunwayLanding() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [logoAnimating, setLogoAnimating] = useState(false);
   const [loginDropdownOpen, setLoginDropdownOpen] = useState(false);
-  const menuItems = [
-    { label: "Founders", href: "/founders" },
-    { label: "Entrepreneurs", href: "/entrepreneurs" },
-    { label: "Service Partners", href: "/service-partners" },
-    { label: "Studentpreneurs", href: "/studentpreneur" },
-    { label: "Investors", href: "/investors" },
-  ];
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);

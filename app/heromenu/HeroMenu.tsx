@@ -3,18 +3,19 @@
 
 export default function HeroMenu() {
   const menuItems = [
-    "Founders",
-    "Entrepreneurs",
-    "Service Partners",
-    "Studentpreneurs",
-    "Investors",
+    { label: "Founders", href: "/founders" },
+    { label: "Entrepreneurs", href: "/entrepreneurs" },
+    { label: "Service Partners", href: "/service-partners" },
+    { label: "Studentpreneurs", href: "/studentpreneur" },
+    { label: "Investors", href: "/investors" },
   ];
 
   return (
     <div className="flex flex-wrap justify-center gap-4 py-4">
       {menuItems.map((item) => (
-        <button
-          key={item}
+        <a
+          key={item.label}
+          href={item.href}
           className="
             text-sm md:text-sm 
             font-medium text-gray-300 
@@ -24,8 +25,8 @@ export default function HeroMenu() {
             px-3 py-1.5 rounded-full
           "
         >
-          {item}
-        </button>
+          {item.label}
+        </a>
       ))}
     </div>
   );
