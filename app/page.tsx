@@ -370,7 +370,6 @@ export default function StartupRunwayLanding() {
             </div>
 
             <footer className="mt-12">
-              // Homepage after HeroSection
               {/* Homepage Hero Footer Links */}
               <HeroMenu />
               <p className="text-xs text-gray-500 mt-4 text-center">
