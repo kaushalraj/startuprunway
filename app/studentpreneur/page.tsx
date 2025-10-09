@@ -11,7 +11,7 @@ function Header() {
   return (
     <header className="fixed top-0 left-0 w-full flex justify-center z-50 py-4 bg-transparent">
       <Link href="/" className="flex items-center gap-3 cursor-pointer">
-        <Image src="/logo.png" alt="StartupRunway Logo" width={50} height={50} />
+        <Image src="/images/startuprunway-logo.png" alt="StartupRunway Logo" width={50} height={50} />
         <h1 className="text-2xl md:text-3xl font-bold text-white">
           StartupRunway
         </h1>
