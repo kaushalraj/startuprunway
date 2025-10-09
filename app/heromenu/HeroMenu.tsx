@@ -13,19 +13,19 @@ const HeroMenu = () => {
   ];
 
   return (
-    <div className="flex flex-wrap justify-center gap-6 mt-12">
+    <div className="flex flex-wrap justify-center gap-4 mt-10">
       {menuItems.map((item, idx) => (
         <Link key={idx} href={item.href} passHref>
           <motion.a
-            whileHover={{
-              scale: 1.1,
-              backgroundColor: "#ffffff",
-              color: "#000000",
-              boxShadow: "0 0 15px rgba(255, 255, 255, 0.4)",
-            }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ type: "spring", stiffness: 300, damping: 15 }}
-            className="text-lg md:text-xl px-5 py-2 rounded-full text-gray-300 font-semibold cursor-pointer transition-all duration-300 border border-gray-400 hover:border-white"
+			whileHover={{
+			  scale: 1.1,
+			  background: "linear-gradient(90deg, #ffffff, #f0f0f0)",
+			  color: "#000000",
+			  boxShadow: "0 0 15px rgba(255, 255, 255, 0.4)",
+			}}
+            whileTap={{ scale: 0.97 }}
+            transition={{ type: "spring", stiffness: 250, damping: 18 }}
+            className="text-sm md:text-base lg:text-lg px-4 py-1.5 rounded-full text-gray-300 font-medium cursor-pointer transition-all duration-300 border border-gray-500 hover:border-white"
           >
             {item.label}
           </motion.a>
@@ -34,6 +34,7 @@ const HeroMenu = () => {
     </div>
   );
 };
+
 
 
 export default HeroMenu;
