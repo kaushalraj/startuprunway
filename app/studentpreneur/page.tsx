@@ -233,41 +233,45 @@ function ProgramTimeline() {
   const year1Quarters = [
     {
       quarter: 'Q1',
-      title: 'Ideation & Validation',
+      title: 'Training & Skill Development',
       items: [
-        'Refine your software idea',
-        'Conduct market research',
-        'Develop a Minimum Viable Product (MVP)'
+        'Entrepreneurship & Management',
+        'Accounting & Financial Skills',
+        'Legal & Compliance'
       ],
       icon: Lightbulb,
       color: '#ff6b35'
     },
     {
       quarter: 'Q2',
-      title: 'Legal & Compliance',
+      title: 'Entrepreneurial Psychology',
       items: [
-        'Register your company',
-        'Set up legal structures',
-        'Ensure compliance with regulations'
+        'People & HR Management',
+        'Entrepreneurial & Human Psychology',
+        'Employee & Customer psychology'
       ],
       icon: CheckCircle2,
       color: '#4a90e2'
     },
     {
       quarter: 'Q3',
-      title: 'Branding & Marketing',
+      title: 'Technical Skills',
       items: [
-        'Create a compelling brand identity',
-        'Develop a marketing strategy',
-        'Launch initial marketing campaigns'
+        'Tools & Techniques',
+        'Creative Problem-Solving',
+        'Market Research & Analysis',
+		'Innovation & Patents'
       ],
       icon: Target,
       color: '#8b5cf6'
     },
     {
       quarter: 'Q4',
-      title: 'Funding & Networking',
+      title: 'Startup Foundation',
       items: [
+	    'Real-world problem identification',
+		'business plan',
+		'market research',
         'Prepare pitch decks',
         'Connect with potential investors',
         'Secure initial funding'
@@ -280,6 +284,17 @@ function ProgramTimeline() {
   const year2Quarters = [
     {
       quarter: 'Q5',
+      title: 'Startup Formation',
+      items: [
+        'Company Formation',
+        'Product Development',
+        'Operations Management'
+      ],
+      icon: Lightbulb,
+      color: '#4a90e2'
+    },  
+    {
+      quarter: 'Q6',
       title: 'Product Development',
       items: [
         'Enhance your MVP based on feedback',
@@ -290,7 +305,7 @@ function ProgramTimeline() {
       color: '#4a90e2'
     },
     {
-      quarter: 'Q6',
+      quarter: 'Q7',
       title: 'Sales & Customer Acquisition',
       items: [
         'Develop a sales strategy',
@@ -301,27 +316,17 @@ function ProgramTimeline() {
       color: '#8b5cf6'
     },
     {
-      quarter: 'Q7',
+      quarter: 'Q8',
       title: 'Operations & Team Building',
       items: [
         'Streamline operations',
         'Build a strong team',
-        'Establish company culture'
+        'Company Handover Procedure'
       ],
       icon: CheckCircle2,
       color: '#10b981'
-    },
-    {
-      quarter: 'Q8',
-      title: 'Expansion & Growth',
-      items: [
-        'Explore new markets',
-        'Scale operations',
-        'Prepare for future funding rounds'
-      ],
-      icon: TrendingUp,
-      color: '#ff6b35'
     }
+
   ];
 
   return (
