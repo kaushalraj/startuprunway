@@ -7,9 +7,6 @@ import Image from 'next/image';
 import Link from "next/link";
 
 // Header
-import Image from "next/image";
-import Link from "next/link";
-
 function Header() {
   return (
     <header className="fixed top-0 left-0 w-full flex justify-center z-50 py-4 bg-transparent">
