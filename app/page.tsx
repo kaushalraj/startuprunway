@@ -96,24 +96,6 @@ export default function StartupRunwayLanding() {
     window.open(whatsappUrl, "_blank");
   };
 
-  export default function MenuLinks() {
-    return (
-      <div className="flex flex-wrap justify-center gap-6 mt-16">
-        {menuItems.map((item, idx) => (
-          <Link key={idx} href={item.href} passHref>
-            <motion.a
-              whileHover={{ scale: 1.1, color: "#ff6b35" }}
-              whileTap={{ scale: 0.95 }}
-              className="text-lg md:text-xl text-gray-300 font-semibold cursor-pointer transition-colors duration-300"
-            >
-              {item.label}
-            </motion.a>
-          </Link>
-        ))}
-      </div>
-    );
-  }
-
   const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -388,27 +370,12 @@ export default function StartupRunwayLanding() {
 
             <footer className="mt-12">
               // Homepage after HeroSection
-              <div className="flex flex-wrap justify-center gap-6 mt-16">
-                {[
-                  { name: "Founders", href: "/founders" },
-                  { name: "Entrepreneurs", href: "/entrepreneurs" },
-                  { name: "Service Partners", href: "/service-partners" },
-                  { name: "Studentpreneurs", href: "/studentpreneur" },
-                  { name: "Investors", href: "/investors" },
-                ].map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="text-gray-300 text-lg md:text-xl font-semibold hover:text-[#ff6b35] hover:scale-110 transition-transform duration-300 cursor-pointer"
-                  >
-                    {item.name}
-                  </a>
-                ))}
-                <p className="text-xs text-gray-500 mt-2">
-                  &copy; {new Date().getFullYear()} StartupRunway. All rights
-                  reserved.
-                </p>
-              </div>
+              {/* Homepage Hero Footer Links */}
+              <HeroMenu />
+              <p className="text-xs text-gray-500 mt-4 text-center">
+                &copy; {new Date().getFullYear()} StartupRunway. All rights
+                reserved.
+              </p>
             </footer>
           </div>
         </section>
