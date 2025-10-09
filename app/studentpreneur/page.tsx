@@ -591,7 +591,7 @@ function CTASection() {
           </div>
 
           <p className="mt-8 text-gray-400 text-sm">
-            Join hundreds of student entrepreneurs who are already building the future
+            Connect with StartupRunway’s Student Entrepreneurs Network to shape India’s innovation ecosystem
           </p>
         </motion.div>
       </div>
