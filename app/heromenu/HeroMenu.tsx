@@ -17,7 +17,7 @@ export default function HeroMenu() {
           key={item}
           className="
             text-sm md:text-base 
-            font-medium text-gray-300 
+            font-medium text-gray-100 
             hover:text-white hover:scale-105 
             transition-all duration-200 ease-in-out
             bg-transparent border border-gray-700 hover:border-white
