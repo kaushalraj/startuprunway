@@ -17,9 +17,15 @@ const HeroMenu = () => {
       {menuItems.map((item, idx) => (
         <Link key={idx} href={item.href} passHref>
           <motion.a
-            whileHover={{ scale: 2.0, color: "#ff6b35" }}
+            whileHover={{
+              scale: 1.1,
+              backgroundColor: "#ffffff",
+              color: "#000000",
+              boxShadow: "0 0 15px rgba(255, 255, 255, 0.4)",
+            }}
             whileTap={{ scale: 0.95 }}
-            className="text-lg md:text-xl text-gray-300 cursor-pointer transition-colors duration-300"
+            transition={{ type: "spring", stiffness: 300, damping: 15 }}
+            className="text-lg md:text-xl px-5 py-2 rounded-full text-gray-300 font-semibold cursor-pointer transition-all duration-300 border border-gray-400 hover:border-white"
           >
             {item.label}
           </motion.a>
@@ -28,5 +34,6 @@ const HeroMenu = () => {
     </div>
   );
 };
+
 
 export default HeroMenu;
