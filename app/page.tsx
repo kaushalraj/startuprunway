@@ -3,6 +3,8 @@
 import type React from "react";
 import { useState } from "react";
 import Script from "next/script";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 import {
   Building2,
@@ -28,6 +30,13 @@ export default function StartupRunwayLanding() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [logoAnimating, setLogoAnimating] = useState(false);
   const [loginDropdownOpen, setLoginDropdownOpen] = useState(false);
+  const menuItems = [
+    { label: "Founders", href: "/founders" },
+    { label: "Entrepreneurs", href: "/entrepreneurs" },
+    { label: "Service Partners", href: "/service-partners" },
+    { label: "Studentpreneurs", href: "/studentpreneur" },
+    { label: "Investors", href: "/investors" },
+  ];
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -86,6 +95,24 @@ export default function StartupRunwayLanding() {
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
     window.open(whatsappUrl, "_blank");
   };
+
+  export default function MenuLinks() {
+    return (
+      <div className="flex flex-wrap justify-center gap-6 mt-16">
+        {menuItems.map((item, idx) => (
+          <Link key={idx} href={item.href} passHref>
+            <motion.a
+              whileHover={{ scale: 1.1, color: "#ff6b35" }}
+              whileTap={{ scale: 0.95 }}
+              className="text-lg md:text-xl text-gray-300 font-semibold cursor-pointer transition-colors duration-300"
+            >
+              {item.label}
+            </motion.a>
+          </Link>
+        ))}
+      </div>
+    );
+  }
 
   const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -335,7 +362,6 @@ export default function StartupRunwayLanding() {
           id="hero"
           className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800"
         >
-
           <div className="container mx-auto px-6 text-center relative z-10">
             <div className="max-w-4xl mx-auto">
               <h1 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
@@ -361,11 +387,23 @@ export default function StartupRunwayLanding() {
             </div>
 
             <footer className="mt-12">
-              <div className="container mx-auto text-center">
-                <p className="text-sm md:text-base text-white ">
-                  Founders | Entrepreneurs | Service Partners | Studentpreneurs
-                  | Investors
-                </p>
+              // Homepage after HeroSection
+              <div className="flex flex-wrap justify-center gap-6 mt-16">
+                {[
+                  { name: "Founders", href: "/founders" },
+                  { name: "Entrepreneurs", href: "/entrepreneurs" },
+                  { name: "Service Partners", href: "/service-partners" },
+                  { name: "Studentpreneurs", href: "/studentpreneur" },
+                  { name: "Investors", href: "/investors" },
+                ].map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    className="text-gray-300 text-lg md:text-xl font-semibold hover:text-[#ff6b35] hover:scale-110 transition-transform duration-300 cursor-pointer"
+                  >
+                    {item.name}
+                  </a>
+                ))}
                 <p className="text-xs text-gray-500 mt-2">
                   &copy; {new Date().getFullYear()} StartupRunway. All rights
                   reserved.
