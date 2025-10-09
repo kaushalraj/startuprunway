@@ -17,9 +17,9 @@ const HeroMenu = () => {
       {menuItems.map((item, idx) => (
         <Link key={idx} href={item.href} passHref>
           <motion.a
-            whileHover={{ scale: 1.1, color: "#ff6b35" }}
+            whileHover={{ scale: 2.0, color: "#ff6b35" }}
             whileTap={{ scale: 0.95 }}
-            className="text-lg md:text-xl text-gray-300 font-semibold cursor-pointer transition-colors duration-300"
+            className="text-lg md:text-xl text-gray-300 cursor-pointer transition-colors duration-300"
           >
             {item.label}
           </motion.a>
