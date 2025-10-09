@@ -5,7 +5,7 @@ import { useState } from "react";
 import Script from "next/script";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import HeroMenu from "@/HeroMenu";
+import HeroMenu from "./heromenu/HeroMenu";
 
 import {
   Building2,
