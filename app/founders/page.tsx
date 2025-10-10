@@ -1,218 +1,151 @@
-"use client";
+'use client';
 
-import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
-import StartupRunwayLogo from "@/public/images/startuprunway-logo.png"; // replace with actual path
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import StartupRunwayLogo from '@/public/startuprunway-logo.png';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
-export default function EntrepreneursPage() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+type SectionProps = {
+  title: string;
+  children: React.ReactNode;
+};
 
-  // Neural Pulse Network Background Animation
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
-
-    const nodeCount = 80;
-    const nodes: { x: number; y: number; vx: number; vy: number }[] = [];
-
-    // Initialize nodes
-    for (let i = 0; i < nodeCount; i++) {
-      nodes.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.5,
-        vy: (Math.random() - 0.5) * 0.5,
-      });
-    }
-
-    const colors = ["#1DB954", "#4892DB", "#8B5CF6"];
-
-    function draw() {
-      if (!ctx) return;
-      ctx.clearRect(0, 0, width, height);
-
-      // Draw lines
-      for (let i = 0; i < nodeCount; i++) {
-        for (let j = i + 1; j < nodeCount; j++) {
-          const dx = nodes[i].x - nodes[j].x;
-          const dy = nodes[i].y - nodes[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 150) {
-            ctx.strokeStyle = `rgba(255,255,255,${1 - dist / 150})`;
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(nodes[i].x, nodes[i].y);
-            ctx.lineTo(nodes[j].x, nodes[j].y);
-            ctx.stroke();
-          }
-        }
-      }
-
-      // Draw nodes
-      nodes.forEach((node) => {
-        const color = colors[Math.floor(Math.random() * colors.length)];
-        ctx.fillStyle = color;
-        ctx.beginPath();
-        ctx.arc(node.x, node.y, 3, 0, Math.PI * 2);
-        ctx.fill();
-
-        // Move nodes
-        node.x += node.vx;
-        node.y += node.vy;
-
-        if (node.x < 0 || node.x > width) node.vx *= -1;
-        if (node.y < 0 || node.y > height) node.vy *= -1;
-      });
-
-      requestAnimationFrame(draw);
-    }
-
-    draw();
-
-    const handleResize = () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
+const CollapsibleSection = ({ title, children }: SectionProps) => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="relative w-full min-h-screen overflow-hidden text-white">
-      {/* Canvas Background */}
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 w-full h-full bg-black"
-      />
+    <div className="border border-gray-300 rounded-lg mb-4">
+      <button
+        className="w-full flex justify-between items-center p-4 bg-gray-100 hover:bg-gray-200 rounded-t-lg"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <span className="text-lg font-semibold">{title}</span>
+        {isOpen ? <ChevronUp /> : <ChevronDown />}
+      </button>
+      {isOpen && <div className="p-4 bg-white">{children}</div>}
+    </div>
+  );
+};
 
-      {/* Header */}
-
+export default function FoundersPage() {
+  return (
+    <div className="min-h-screen bg-gradient-to-r from-indigo-50 via-white to-indigo-50 relative">
       {/* Header */}
       <header className="fixed top-0 left-0 w-full z-10 flex items-center justify-center py-4 bg-black bg-opacity-40 backdrop-blur-md">
-        <Link href="/" className="flex items-center gap-3 cursor-pointer">
-          <Image
-            src={StartupRunwayLogo}
-            alt="StartupRunway Logo"
-            className="h-12 w-auto"
-          />
-          <span className="text-white text-2xl font-bold tracking-wide transition duration-300 hover:text-green-400 hover:drop-shadow-[0_0_8px_rgba(29,185,84,0.8)]">
-            StartupRunway
-          </span>
-        </Link>
+        <Image src={StartupRunwayLogo} alt="StartupRunway Logo" className="h-12 w-auto mr-2" />
+        <span className="text-white text-2xl font-bold">StartupRunway</span>
       </header>
 
-      {/* Hero Section */}
-      <section className="relative z-10 flex flex-col items-center justify-center text-center px-6 py-36">
-        <h1 className="text-5xl md:text-6xl font-bold mb-6">
-          Empowering Founders to Build the Future
-        </h1>
-        <p className="max-w-3xl text-lg md:text-xl mb-8">
-          StartupRunway isn’t just a consultancy — it’s an innovation hub
-          combining business, technology, and automation.
-        </p>
-        <div className="flex flex-col md:flex-row gap-4">
-          <motion.a
-            href="#contact"
-            className="px-8 py-4 bg-gradient-to-r from-green-500 to-blue-500 rounded-full font-semibold shadow-lg hover:scale-105 transition-transform"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Schedule a Strategy Call
-          </motion.a>
-          <motion.a
-            href="#partnerships"
-            className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full font-semibold shadow-lg hover:scale-105 transition-transform"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Explore Partnership Programs
-          </motion.a>
-        </div>
-      </section>
+      {/* Page Content */}
+      <main className="pt-24 max-w-5xl mx-auto px-4 space-y-6">
+        {/* Hero Section */}
+        <section className="text-center space-y-4">
+          <h1 className="text-4xl font-extrabold text-indigo-900">Empowering Founders to Build, Automate & Scale</h1>
+          <p className="text-lg text-gray-700">
+            From Idea to Execution — We Make Startups Succeed. StartupRunway is India’s Startup Innovation Hub,
+            built for founders, by founders. We combine business strategy, SaaS automation, AI cloud infrastructure,
+            and growth consulting to help startups scale smarter and faster.
+          </p>
+        </section>
 
-      {/* Value / Services Section */}
-      <section
-        id="services"
-        className="relative z-10 px-6 py-24 max-w-6xl mx-auto"
-      >
-        <h2 className="text-4xl font-bold text-center mb-12">What We Do</h2>
-        <div className="grid md:grid-cols-3 gap-10">
-          {/* Business Strategy */}
-          <motion.div
-            className="bg-white bg-opacity-10 rounded-2xl p-8 text-center backdrop-blur-md shadow-lg hover:scale-105 transition-transform border-l-4 border-green-400"
-            whileHover={{ scale: 1.05 }}
-          >
-            <h3 className="text-2xl font-semibold mb-4">
-              Business Strategy & Startup Consulting
-            </h3>
-            <ul className="text-left list-disc list-inside space-y-2">
-              <li>Market research & startup validation</li>
-              <li>Go-to-market & investor strategy</li>
-              <li>Business model & financial planning</li>
-              <li>Pitch deck & funding preparation</li>
+        {/* Founder Offerings */}
+        <section>
+          <h2 className="text-3xl font-bold text-indigo-800 mb-4">Founder Offerings</h2>
+
+          <CollapsibleSection title="Business Strategy & Startup Consulting">
+            <ul className="list-disc list-inside space-y-1 text-gray-700">
+              <li>Market Research & Validation</li>
+              <li>Business Model & Financial Planning</li>
+              <li>Go-to-Market Strategy & Brand Positioning</li>
+              <li>Investor Pitch & Fundraising Preparation</li>
             </ul>
-          </motion.div>
+          </CollapsibleSection>
 
-          {/* AI & Cloud */}
-          <motion.div
-            className="bg-white bg-opacity-10 rounded-2xl p-8 text-center backdrop-blur-md shadow-lg hover:scale-105 transition-transform border-l-4 border-blue-400"
-            whileHover={{ scale: 1.05 }}
-          >
-            <h3 className="text-2xl font-semibold mb-4">
-              AI & Cloud Empowerment
-            </h3>
-            <ul className="text-left list-disc list-inside space-y-2">
-              <li>GPU-powered AI compute via Neev Cloud</li>
-              <li>AI model hosting & fine-tuning</li>
-              <li>Pay-per-use scalable cloud infrastructure</li>
-              <li>Data compliance & privacy within India</li>
+          <CollapsibleSection title="Product & Technology Development">
+            <ul className="list-disc list-inside space-y-1 text-gray-700">
+              <li>MVP & Prototype Development</li>
+              <li>AI, SaaS & Cloud-based Product Design</li>
+              <li>Architecture, Automation & Cloud Integration</li>
+              <li>Product Lifecycle Management & Scaling</li>
             </ul>
-          </motion.div>
+          </CollapsibleSection>
 
-          {/* Automation */}
-          <motion.div
-            className="bg-white bg-opacity-10 rounded-2xl p-8 text-center backdrop-blur-md shadow-lg hover:scale-105 transition-transform border-l-4 border-purple-400"
-            whileHover={{ scale: 1.05 }}
-          >
-            <h3 className="text-2xl font-semibold mb-4">
-              Seamless Business Automation
-            </h3>
-            <ul className="text-left list-disc list-inside space-y-2">
-              <li>StartupRunway SaaS automation workflows</li>
-              <li>Zoho pre-integrated CRM, Books, Projects</li>
-              <li>Custom business process flows</li>
-              <li>Operations, HR, CRM & finance automation</li>
+          <CollapsibleSection title="Seamless Business Automation Workflows">
+            <ul className="list-disc list-inside space-y-1 text-gray-700">
+              <li>Zoho Integration: CRM, Books, Projects, Recruit, People</li>
+              <li>StartupRunway Automation Suite: Teams, Leads, Clients, Projects, Investors</li>
+              <li>Custom Workflow Automations for founders & startup teams</li>
             </ul>
-          </motion.div>
-        </div>
-      </section>
+            <p className="mt-2 italic text-gray-600">“Operate your startup like a scaled company — right from day one.”</p>
+          </CollapsibleSection>
 
-      {/* Footer CTA */}
-      <section className="relative z-10 text-center py-24 bg-gradient-to-r from-green-700 via-blue-700 to-purple-700">
-        <h2 className="text-4xl font-bold mb-6">
-          Ready to Launch Your Startup?
-        </h2>
-        <p className="max-w-2xl mx-auto mb-8">
-          Join StartupRunway and Neev Cloud to experience the future of
-          AI-powered startup execution in India.
-        </p>
-        <motion.a
-          href="#contact"
-          className="px-10 py-4 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full text-lg font-semibold shadow-lg hover:scale-105 transition-transform"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Join as Founder Partner
-        </motion.a>
-      </section>
+          <CollapsibleSection title="AI & Cloud Infrastructure">
+            <table className="w-full border border-gray-300 text-left text-gray-700 mb-2">
+              <thead className="bg-gray-100">
+                <tr>
+                  <th className="p-2 border-b">Partner</th>
+                  <th className="p-2 border-b">Offerings for Founders</th>
+                  <th className="p-2 border-b">Benefits</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b">
+                  <td className="p-2 font-semibold">Neev Cloud</td>
+                  <td className="p-2">GPU-powered AI compute, AI/ML model hosting, India-compliant data residency</td>
+                  <td className="p-2">Cost-efficient, pay-per-use, AI-ready</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-2 font-semibold">AWS / GCP / Azure</td>
+                  <td className="p-2">Cloud credits, hybrid & multi-cloud deployment, AI/ML accelerator programs</td>
+                  <td className="p-2">Global scalability, enterprise-grade reliability</td>
+                </tr>
+                <tr>
+                  <td className="p-2 font-semibold">StartupRunway Tech Team</td>
+                  <td className="p-2">Migration, deployment, architecture guidance</td>
+                  <td className="p-2">End-to-end AI & cloud support for startups</td>
+                </tr>
+              </tbody>
+            </table>
+          </CollapsibleSection>
+
+          <CollapsibleSection title="SaaS & Technology Partnerships">
+            <ul className="list-disc list-inside space-y-1 text-gray-700">
+              <li>Zoho: Pre-configured modules for CRM, HR, Finance, Projects</li>
+              <li>StartupRunway SaaS Platform: Connected workflows for operations, finance, HR, marketing, investor relations</li>
+              <li>Future Partners: AWS, GCP, Azure, AI accelerators</li>
+            </ul>
+          </CollapsibleSection>
+
+          <CollapsibleSection title="Joint Ventures & Partner Ecosystem">
+            <ul className="list-disc list-inside space-y-1 text-gray-700">
+              <li>Co-creation opportunities for AI, SaaS, and cloud-based products</li>
+              <li>Mentorship, technical support, and business advisory</li>
+              <li>Localized pricing & operational support for Indian startups</li>
+              <li>Collaboration with global cloud providers and SaaS platforms</li>
+            </ul>
+          </CollapsibleSection>
+
+          <CollapsibleSection title="AI & Founder Empowerment Programs">
+            <ul className="list-disc list-inside space-y-1 text-gray-700">
+              <li>AI Infrastructure Accelerator — Subsidized compute + mentoring via Neev Cloud</li>
+              <li>Startup Cloud Credit Program — Cloud + SaaS bundled credits for new founders</li>
+              <li>AI Product LaunchPad — MVP + AI model integration bootcamp</li>
+              <li>Automation Ready Program — Business workflow setup on StartupRunway SaaS platform</li>
+              <li>Hybrid Cloud Enablement — Multi-cloud deployment across AWS, Azure, GCP, and Neev</li>
+            </ul>
+          </CollapsibleSection>
+
+          <CollapsibleSection title="Premium Services & Value Additions">
+            <ul className="list-disc list-inside space-y-1 text-gray-700">
+              <li>End-to-End Execution: Strategy → MVP → fundraising → AI deployment → scaling</li>
+              <li>Joint Ventures & Co-creation with SaaS, AI, and cloud partners</li>
+              <li>Localized AI Cloud PaaS: Low latency, India-compliant data, cost-effective infra</li>
+              <li>Business Automation: Workflow automation for finance, HR, CRM, operations</li>
+              <li>Credits & Subsidies: AI/Cloud credits, mentoring, accelerator programs</li>
+            </ul>
+          </CollapsibleSection>
+        </section>
+      </main>
     </div>
   );
 }
