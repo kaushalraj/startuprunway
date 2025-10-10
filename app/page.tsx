@@ -369,10 +369,6 @@ export default function StartupRunwayLanding() {
             <footer className="mt-12">
               {/* Homepage Hero Footer Links */}
               <HeroMenu />
-              <p className="text-xs text-gray-500 mt-4 text-center">
-                &copy; {new Date().getFullYear()} StartupRunway. All rights
-                reserved.
-              </p>
             </footer>
           </div>
         </section>
