@@ -6,6 +6,10 @@ import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from 'next/link';
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
+
 // ---------- Header ----------
 function Header() {
   return (

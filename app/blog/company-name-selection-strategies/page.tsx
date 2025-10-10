@@ -5,6 +5,10 @@ import { Card, CardContent } from "@/components/ui/card"
 import { ArrowLeft, Calendar, Clock, User, CheckCircle, Lightbulb, Target, TrendingUp } from "lucide-react"
 import Link from "next/link"
 
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default function CompanyNameStrategiesPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-navy-900">
