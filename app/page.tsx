@@ -6,7 +6,7 @@ import { useState } from "react";
 import Script from "next/script";
 import Link from "next/link";
 import HeroMenu from "@/app//heromenu/HeroMenu";
-
+import ActiveNeuralBackground from "@components/ActiveNeuralBackground";
 import {
   Building2,
   Users,
