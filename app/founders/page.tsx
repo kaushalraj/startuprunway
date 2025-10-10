@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import StartupRunwayLogo from '@/public/startuprunway-logo.png';
+import StartupRunwayLogo from '@/public/images/startuprunway-logo.png';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 
 type SectionProps = {
