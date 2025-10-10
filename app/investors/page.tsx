@@ -332,7 +332,6 @@ export default function FoundersPage() {
       <div className="relative z-10">
         <HeroSection />
         <FounderValueSections />
-        <FoundersInvestorConnect />
         <WhyChooseUs />
       </div>
     </div>
