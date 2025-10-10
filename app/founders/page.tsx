@@ -106,12 +106,12 @@ function NeuralRaysBackground() {
 /* ------------------------------ HERO SECTION ------------------------------ */
 function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 py-32 text-center">
+    <section className="relative min-h-screen flex items-center justify-center px-4 py-16 text-center">
       <div className="max-w-5xl mx-auto z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8] }}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#ff6b35]/10 border border-[#ff6b35]/30 mb-6"
         >
           <Sparkles className="w-4 h-4 text-[#ff6b35]" />
