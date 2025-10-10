@@ -3,8 +3,10 @@ import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { Rocket, Sparkles, Target, Users, TrendingUp, Lightbulb, CheckCircle2, ArrowRight } from 'lucide-react';
 import {
+  Rocket,
+  Sparkles,
+  ArrowRight,
   CheckCircle2,
   Lightbulb,
   TrendingUp,
