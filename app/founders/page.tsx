@@ -1,234 +1,225 @@
 'use client';
+
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, Layers, Cpu, Cloud, Zap, Users, Settings } from 'lucide-react';
 import Image from 'next/image';
-import Link from 'next/link';
+import StartupRunwayLogo from '@/public/startuprunway-logo.png'; // Update path accordingly
 
-// Smooth Particle Background
-function ParticleBackground() {
+export default function EntrepreneursPage() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  // Neural Pulse Network Animation
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const setCanvas = () => {
+    let animationFrameId: number;
+    const nodes: { x: number; y: number; vx: number; vy: number; radius: number }[] = [];
+    const nodeCount = 100;
+
+    const colors = ['#1DB954', '#4892DB', '#8B5CF6'];
+
+    const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
-    setCanvas();
-    window.addEventListener('resize', setCanvas);
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
 
-    const particles = Array.from({ length: 80 }).map(() => ({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4,
-      size: Math.random() * 2 + 1,
-      color: ['#1DB954', '#4892DB', '#8B5CF6'][Math.floor(Math.random() * 3)]
-    }));
+    for (let i = 0; i < nodeCount; i++) {
+      nodes.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.7,
+        vy: (Math.random() - 0.5) * 0.7,
+        radius: Math.random() * 2 + 1,
+      });
+    }
 
     const draw = () => {
+      if (!ctx) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (let p of particles) {
-        p.x += p.vx;
-        p.y += p.vy;
-        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
 
+      // Draw nodes
+      nodes.forEach((node) => {
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = p.color;
-        ctx.globalAlpha = 0.6;
+        const gradient = ctx.createRadialGradient(
+          node.x,
+          node.y,
+          0,
+          node.x,
+          node.y,
+          node.radius * 4
+        );
+        gradient.addColorStop(0, colors[Math.floor(Math.random() * colors.length)]);
+        gradient.addColorStop(1, 'transparent');
+        ctx.fillStyle = gradient;
+        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
         ctx.fill();
+      });
+
+      // Draw connections
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const dx = nodes[i].x - nodes[j].x;
+          const dy = nodes[i].y - nodes[j].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          if (distance < 150) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(137, 92, 246, ${1 - distance / 150})`; // Violet accent with fading
+            ctx.lineWidth = 0.5;
+            ctx.moveTo(nodes[i].x, nodes[i].y);
+            ctx.lineTo(nodes[j].x, nodes[j].y);
+            ctx.stroke();
+          }
+        }
       }
-      requestAnimationFrame(draw);
+
+      // Update positions
+      nodes.forEach((node) => {
+        node.x += node.vx;
+        node.y += node.vy;
+        if (node.x < 0 || node.x > canvas.width) node.vx *= -1;
+        if (node.y < 0 || node.y > canvas.height) node.vy *= -1;
+      });
+
+      animationFrameId = requestAnimationFrame(draw);
     };
+
     draw();
-    return () => window.removeEventListener('resize', setCanvas);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener('resize', resizeCanvas);
+    };
   }, []);
-  return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-0" />;
-}
 
-// Hero Section
-function Hero() {
-  return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 py-24 text-center">
-      <div className="z-10 max-w-5xl mx-auto">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-[#1DB954] via-[#4892DB] to-[#8B5CF6] bg-clip-text text-transparent"
-        >
-          Empowering Founders to Build, Automate & Scale
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9 }}
-          className="mt-6 text-xl md:text-2xl text-gray-300"
-        >
-          StartupRunway isn’t just consultancy — it’s an innovation hub driving India’s next-gen startups.
-        </motion.p>
-        <Link
-          href="/contact"
-          className="inline-block mt-10 bg-[#1DB954] text-white px-8 py-4 rounded-full hover:bg-[#17a44d] transition"
-        >
-          Get Started
-        </Link>
-      </div>
-    </section>
-  );
-}
-
-// Core Services
-function CoreServices() {
-  const services = [
-    {
-      icon: Layers,
-      title: 'Business Strategy & Consulting',
-      description:
-        'From validation to go-to-market plans, we design strategies that attract investors and accelerate growth.'
-    },
-    {
-      icon: Cpu,
-      title: 'Product & Technology Development',
-      description:
-        'End-to-end SaaS, AI & MVP development with automation, scalability, and rapid deployment in mind.'
-    },
-    {
-      icon: Settings,
-      title: 'Seamless Business Automation Workflows',
-      description:
-        'Operate your startup with the StartupRunway SaaS Platform — automating HR, CRM, finance & project workflows.'
-    },
-    {
-      icon: Cloud,
-      title: 'AI Cloud Infrastructure with Neev Cloud',
-      description:
-        'Access GPU-powered AI compute, pay-per-use scalability, and India-based data compliance through Neev Cloud.'
-    },
-    {
-      icon: Users,
-      title: 'Partnership Ecosystem',
-      description:
-        'Integrated with Zoho, AWS, Azure, and GCP — providing credits, tools, and automation support to every founder.'
-    }
-  ];
+  // Framer Motion Variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  };
 
   return (
-    <section className="relative py-20 px-6 z-10 bg-[#0A0E27]/70">
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-semibold mb-10 text-white">
-          End-to-End Solutions for Visionary Founders
-        </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((srv, i) => {
-            const Icon = srv.icon;
-            return (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-[#131a3a] border border-white/10 p-8 rounded-2xl hover:border-[#1DB954]/40 hover:shadow-xl hover:shadow-[#1DB954]/10 transition-all"
-              >
-                <Icon className="w-10 h-10 text-[#1DB954] mb-4 mx-auto" />
-                <h3 className="text-xl font-semibold text-white mb-3">{srv.title}</h3>
-                <p className="text-gray-400 text-sm">{srv.description}</p>
-              </motion.div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
+    <div className="relative w-full h-full text-white font-sans overflow-x-hidden">
+      {/* Canvas Background */}
+      <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full -z-10" />
 
-// AI Startup Growth
-function AIStartups() {
-  return (
-    <section className="relative py-24 px-6 bg-[#0A0E27] z-10">
-      <div className="max-w-5xl mx-auto text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-5xl font-semibold mb-6 bg-gradient-to-r from-[#1DB954] to-[#4892DB] bg-clip-text text-transparent"
-        >
-          Powering India’s AI Startup Revolution
-        </motion.h2>
-        <p className="text-lg text-gray-400 max-w-3xl mx-auto mb-12">
-          Through our partnership with Neev Cloud, StartupRunway provides an integrated ecosystem for AI founders —
-          from infrastructure to funding, with automation and compliance built-in.
+      {/* Header */}
+      <header className="flex flex-col items-center justify-center py-8">
+        <Image src={StartupRunwayLogo} alt="StartupRunway Logo" className="w-36 h-auto" />
+        <h1 className="text-4xl md:text-5xl font-bold mt-4 text-center">
+          Empowering Entrepreneurs to Innovate & Scale
+        </h1>
+      </header>
+
+      {/* Hero Section */}
+      <motion.section
+        className="text-center px-4 md:px-20 py-16"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeInUp}
+      >
+        <p className="text-lg md:text-xl max-w-3xl mx-auto mb-6">
+          StartupRunway isn’t just another consultancy — we combine business strategy, SaaS automation, AI
+          infrastructure, and growth consulting to help entrepreneurs turn ideas into scalable startups.
         </p>
-
-        <div className="grid md:grid-cols-2 gap-8 text-left">
-          {[
-            'GPU-powered compute for AI/ML model training',
-            'Localized data compliance & privacy within India',
-            'Cloud credits & advisory support',
-            'Seamless AI model deployment pipelines',
-            'Cost-optimized infra — up to 40% savings',
-            'StartupRunway SaaS integration for automated workflows'
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              className="flex items-start gap-3"
-            >
-              <CheckCircle2 className="w-5 h-5 text-[#1DB954] mt-1" />
-              <p className="text-gray-300">{item}</p>
-            </motion.div>
-          ))}
+        <div className="flex flex-col md:flex-row justify-center gap-6 mt-4">
+          <button className="bg-[#1DB954] hover:bg-[#17a44a] text-white px-6 py-3 rounded-lg font-medium transition">
+            Schedule a Strategy Call
+          </button>
+          <button className="bg-[#4892DB] hover:bg-[#3b7cc9] text-white px-6 py-3 rounded-lg font-medium transition">
+            Explore Partnership Programs
+          </button>
         </div>
-      </div>
-    </section>
-  );
-}
+      </motion.section>
 
-// CTA Section
-function CTA() {
-  return (
-    <section className="relative py-24 text-center z-10">
-      <div className="max-w-4xl mx-auto px-4">
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-5xl text-white font-bold mb-6"
+      {/* Value Sections */}
+      <section className="px-6 md:px-20 py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        {/* Business Strategy */}
+        <motion.div
+          className="bg-gradient-to-r from-[#1DB954]/30 via-[#1DB954]/20 to-[#1DB954]/10 p-6 rounded-xl shadow-lg"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
         >
+          <h2 className="text-2xl font-semibold mb-4">Business Strategy & Consulting</h2>
+          <p>Market validation, GTM roadmap, investor strategy, and funding prep for entrepreneurs.</p>
+        </motion.div>
+
+        {/* AI & Cloud */}
+        <motion.div
+          className="bg-gradient-to-r from-[#4892DB]/30 via-[#4892DB]/20 to-[#4892DB]/10 p-6 rounded-xl shadow-lg"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+        >
+          <h2 className="text-2xl font-semibold mb-4">AI & Cloud Empowerment</h2>
+          <p>
+            GPU-powered AI infrastructure with Neev Cloud + StartupRunway AI Labs to accelerate product and
+            model deployment.
+          </p>
+        </motion.div>
+
+        {/* SaaS Automation */}
+        <motion.div
+          className="bg-gradient-to-r from-[#8B5CF6]/30 via-[#8B5CF6]/20 to-[#8B5CF6]/10 p-6 rounded-xl shadow-lg"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+        >
+          <h2 className="text-2xl font-semibold mb-4">Seamless Business Automation</h2>
+          <p>
+            Automate operations, CRM, HR, finance, and projects with StartupRunway SaaS Platform — no coding
+            required.
+          </p>
+        </motion.div>
+
+        {/* Product & Legal */}
+        <motion.div
+          className="bg-gradient-to-r from-[#1DB954]/20 via-[#4892DB]/20 to-[#8B5CF6]/20 p-6 rounded-xl shadow-lg"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+        >
+          <h2 className="text-2xl font-semibold mb-4">Product & Legal Support</h2>
+          <p>
+            End-to-end product lifecycle, compliance, and funding support to ensure smooth entrepreneurial
+            growth.
+          </p>
+        </motion.div>
+      </section>
+
+      {/* CTA Footer */}
+      <motion.section
+        className="bg-gradient-to-r from-[#1DB954]/20 via-[#4892DB]/20 to-[#8B5CF6]/20 p-12 text-center rounded-xl mx-6 md:mx-20 mb-12"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2 }}
+      >
+        <h2 className="text-3xl md:text-4xl font-bold mb-6">
           Partner. Automate. Scale.
-        </motion.h2>
-        <p className="text-gray-300 text-lg mb-10">
-          Join StartupRunway and Neev Cloud to accelerate your AI-powered startup journey — with automation, innovation, and collaboration.
+        </h2>
+        <p className="mb-6">
+          StartupRunway unites business consulting, SaaS automation, and AI infrastructure to help entrepreneurs launch smarter and scale faster.
         </p>
-        <Link
-          href="/contact"
-          className="bg-[#1DB954] text-white px-10 py-4 rounded-full text-lg hover:bg-[#17a44d] transition"
-        >
-          Join StartupRunway
-        </Link>
-      </div>
-    </section>
-  );
-}
-
-// Main Page Component
-export default function FoundersPage() {
-  return (
-    <main className="relative min-h-screen bg-[#0A0E27] overflow-x-hidden">
-      <ParticleBackground />
-      <div className="relative z-10">
-        <Hero />
-        <CoreServices />
-        <AIStartups />
-        <CTA />
-      </div>
-    </main>
+        <div className="flex flex-col md:flex-row justify-center gap-6 mt-4">
+          <button className="bg-[#1DB954] hover:bg-[#17a44a] text-white px-6 py-3 rounded-lg font-medium transition">
+            Join as Entrepreneur Partner
+          </button>
+          <button className="bg-[#4892DB] hover:bg-[#3b7cc9] text-white px-6 py-3 rounded-lg font-medium transition">
+            Launch Your Startup
+          </button>
+        </div>
+      </motion.section>
+    </div>
   );
 }
