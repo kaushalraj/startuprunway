@@ -85,15 +85,6 @@ function HeroSection() {
     <section className="relative min-h-screen flex items-center justify-center px-4 py-32 text-center">
       <div className="max-w-5xl mx-auto z-10">
       <div className="max-w-5xl mx-auto text-center relative z-10 pb-2 overflow-visible ">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#ff6b35]/10 border border-[#ff6b35]/30 mb-6"
-        >
-          <Sparkles className="w-4 h-4 text-[#ff6b35]" />
-          <span className="text-gray-300">For Founders</span>
-        </motion.div>
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
