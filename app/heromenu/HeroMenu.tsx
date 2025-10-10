@@ -12,29 +12,17 @@ export default function HeroMenu() {
 
   return (
     <div className="flex flex-wrap justify-center gap-4 py-4">
+      {" "}
       {menuItems.map((item) => (
         <a
           key={item.label}
           href={item.href}
-          className="
-        relative overflow-hidden
-        text-sm md:text-sm font-medium text-gray-300
-        px-3 py-1.5 rounded-full
-        bg-gray-800
-        border border-gray-700
-        hover:text-white
-        transition-all duration-300 ease-in-out
-      "
+          className=" text-sm md:text-sm font-medium text-gray-300 hover:text-white hover:scale-105 transition-all duration-200 ease-in-out bg-transparent border border-gray-700 hover:border-white px-3 py-1.5 rounded-full "
         >
-          {/* Shine effect */}
-          <span
-            className="absolute inset-0 bg-gradient-to-r from-white/30 via-white/60 to-white/30 
-                       transform -translate-x-full rotate-12 
-                       group-hover:translate-x-0 transition-transform duration-500"
-          ></span>
-          <span className="relative">{item.label}</span>
+          {" "}
+          {item.label}{" "}
         </a>
-      ))}
+      ))}{" "}
     </div>
   );
 }
