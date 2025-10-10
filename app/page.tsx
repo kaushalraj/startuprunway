@@ -6,6 +6,7 @@ import Script from "next/script";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import HeroMenu from "./heromenu/HeroMenu";
+import HeroSection from "./HeroSection";
 
 import {
   Building2,
@@ -88,6 +89,10 @@ export default function StartupRunwayLanding() {
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
     window.open(whatsappUrl, "_blank");
+  };
+
+  export default function HomePage() {
+  return <HeroSection />;
   };
 
   const handleContactSubmit = async (e: React.FormEvent) => {
@@ -323,7 +328,7 @@ export default function StartupRunwayLanding() {
             <div className="absolute right-100 mb-2 px-3 py-2 bg-slate-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
               Join StartupRunway
             </div>
-          </div>
+          </div>	
         </div>
 
         {loginDropdownOpen && (
