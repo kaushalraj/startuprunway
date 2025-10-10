@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import StartupRunwayLogo from "@/public/images/startuprunway-logo.png"; // replace with actual path
 
 export default function EntrepreneursPage() {
@@ -93,17 +94,19 @@ export default function EntrepreneursPage() {
       />
 
       {/* Header */}
+
+      {/* Header */}
       <header className="fixed top-0 left-0 w-full z-10 flex items-center justify-center py-4 bg-black bg-opacity-40 backdrop-blur-md">
-        <div className="flex items-center gap-3">
+        <Link href="/" className="flex items-center gap-3 cursor-pointer">
           <Image
             src={StartupRunwayLogo}
             alt="StartupRunway Logo"
-            className="h-12 w-auto cursor-pointer"
+            className="h-12 w-auto"
           />
-          <span className="text-white text-2xl font-bold tracking-wide">
+          <span className="text-white text-2xl font-bold tracking-wide transition duration-300 hover:text-green-400 hover:drop-shadow-[0_0_8px_rgba(29,185,84,0.8)]">
             StartupRunway
           </span>
-        </div>
+        </Link>
       </header>
 
       {/* Hero Section */}
