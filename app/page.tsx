@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import Script from "next/script";
 import Link from "next/link";
-import HeroMenu from "./heromenu/HeroMenu";
+import HeroMenu from "@/app//heromenu/HeroMenu";
 
 import {
   Building2,
@@ -28,6 +28,9 @@ import {
 import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
 import BlogSection from "@/components/BlogSection";
+
+export const dynamic = "force-dynamic";
+
 export default function StartupRunwayLanding() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [logoAnimating, setLogoAnimating] = useState(false);
