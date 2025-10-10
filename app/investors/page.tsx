@@ -213,21 +213,21 @@ function FoundersInvestorConnect() {
       name: "AIHealth Diagnostics",
       sector: "Healthcare AI",
       description: "Predictive diagnostics platform using GPU-powered models for early disease detection.",
-      funding: "₹1.5 Cr Seed Round",
+{/*   funding: "₹1.5 Cr Seed Round", */}
       status: "Open for Investment"
     },
     {
       name: "AgriNeural Systems",
       sector: "AgriTech AI",
       description: "Precision farming platform using computer vision for yield forecasting and irrigation control.",
-      funding: "₹80 Lakh Pre-Seed",
+{/*   funding: "₹80 Lakh Pre-Seed", */}
       status: "Active"
     },
     {
       name: "FinPulse Analytics",
       sector: "FinTech",
       description: "AI-based financial behavior analytics for micro-lending institutions.",
-      funding: "₹2 Cr Angel Round",
+{/*   funding: "₹2 Cr Angel Round", */}
       status: "Funded"
     }
   ];
@@ -245,7 +245,7 @@ function FoundersInvestorConnect() {
 
         <p className="text-lg text-gray-300 max-w-3xl mx-auto mb-10">
           StartupRunway bridges Founders and Investors through real-time SaaS transparency.
-          Our AI-driven dashboards empower investors to analyze metrics, view MVP progress, and invest confidently.
+          Our AI-driven dashboards empower investors to analyze metrics, monitor progress from dayone, view MVP progress, and invest confidently.
         </p>
 
         <div className="grid md:grid-cols-3 gap-8">
