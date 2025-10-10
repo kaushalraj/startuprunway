@@ -59,7 +59,7 @@ function NeuralRaysBackground() {
           ctx.lineTo(x, y + offset);
         }
         ctx.strokeStyle = `hsla(${180 + i * 20}, 70%, 60%, 0.08)`;
-        ctx.lineWidth = 2.5;
+        ctx.lineWidth = 4.0;
         ctx.stroke();
       }
 
