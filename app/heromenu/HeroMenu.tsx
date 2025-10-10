@@ -5,8 +5,8 @@ export default function HeroMenu() {
   const menuItems = [
     { label: "Founders", href: "/founders" },
     { label: "Entrepreneurs", href: "/entrepreneurs" },
+	{ label: "Studentpreneurs", href: "/studentpreneur" },
     { label: "Service Partners", href: "/service-partners" },
-    { label: "Studentpreneurs", href: "/studentpreneur" },
     { label: "Investors", href: "/investors" },
   ];
 
