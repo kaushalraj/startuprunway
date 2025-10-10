@@ -1,8 +1,7 @@
 "use client";
 
-
-import type React from "react";
 import { motion } from "framer-motion";
+import type React from "react";
 import { useState } from "react";
 import Script from "next/script";
 import Link from "next/link";
@@ -30,7 +29,6 @@ import ServicesSection from "@/components/ServicesSection";
 import BlogSection from "@/components/BlogSection";
 
 export const dynamic = "force-dynamic";
-export const revalidate = 0;
 
 export default function StartupRunwayLanding() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
