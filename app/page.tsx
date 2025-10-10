@@ -143,7 +143,6 @@ export default function StartupRunwayLanding() {
   return (
     <div className="min-h-screen bg-slate-900 text-white overflow-x-hidden">
       <div className="w-full">
-      <ActiveNeuralBackground />
         {/* Header */}
         <header className="fixed top-0 left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800">
           <div className="container mx-auto px-6 py-4 flex items-center justify-between">
@@ -343,6 +342,7 @@ export default function StartupRunwayLanding() {
           id="hero"
           className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800"
         >
+	<ActiveNeuralBackground />
           <div className="container mx-auto px-6 text-center relative z-10">
             <div className="max-w-4xl mx-auto">
               <h1 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
