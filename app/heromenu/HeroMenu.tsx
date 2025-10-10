@@ -13,23 +13,22 @@ export default function HeroMenu() {
   return (
     <div className="flex flex-wrap justify-center gap-4 py-4">
       {menuItems.map((item) => (
-        <a
-          key={item.label}
-          href={item.href}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
           className="
-      text-sm md:text-sm 
-      font-medium text-gray-200 
-      hover:text-white 
-      transition-all duration-300 ease-in-out
-      px-4 py-2 rounded-full
-      border border-gray-600/30 
-      bg-white/5 backdrop-blur-md
-      shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1),0_2px_10px_rgba(0,0,0,0.3)]
-      hover:bg-white/10 hover:border-white/50 hover:scale-105
-    "
+    inline-flex items-center gap-2 px-4 py-2 rounded-full
+    bg-white/10 border border-white/20
+    backdrop-blur-md
+    shadow-[inset_0_1px_0_0_rgba(255,255,255,0.3),0_2px_8px_rgba(0,0,0,0.25)]
+    hover:bg-white/20 hover:border-white/30
+    transition-all duration-300
+  "
         >
-          {item.label}
-        </a>
+          <Sparkles className="w-4 h-4 text-[#ff6b35]" />
+          <span className="text-gray-100">For Founders</span>
+        </motion.div>
       ))}
     </div>
   );
