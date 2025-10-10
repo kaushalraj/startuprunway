@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import StartupRunwayLogo from '@/public/startuprunway-logo.png'; // Update path accordingly
+import StartupRunwayLogo from '@/public/images/startuprunway-logo.png'; // Update path accordingly
 
 export default function EntrepreneursPage() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
