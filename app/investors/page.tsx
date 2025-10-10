@@ -90,7 +90,7 @@ function HeroSection() {
         transition={{ duration: 1, delay: 0.2 }}
         className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-[#1DB954] via-[#4892DB] to-[#8b5cf6] bg-clip-text text-transparent"
       >
-        Empowering Founders to Build, Automate & Scale
+        Empowering Investors to Discover, Fund & Scale the Next Generation of Startups
       </motion.h1>
 
       <motion.p
