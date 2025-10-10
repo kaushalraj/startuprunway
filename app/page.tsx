@@ -1,9 +1,10 @@
 "use client";
 
+
 import type React from "react";
+import { motion } from "framer-motion";
 import { useState } from "react";
 import Script from "next/script";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import HeroMenu from "./heromenu/HeroMenu";
 
