@@ -115,7 +115,7 @@ function HeroSection() {
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#ff6b35]/10 border border-[#ff6b35]/30 mb-6"
         >
           <Sparkles className="w-4 h-4 text-[#ff6b35]" />
-          <span className="text-gray-300">For Student Entrepreneurs</span>
+          <span className="text-gray-300">For Founders</span>
         </motion.div>
 
         <motion.h1
