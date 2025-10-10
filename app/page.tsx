@@ -6,7 +6,6 @@ import Script from "next/script";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import HeroMenu from "./heromenu/HeroMenu";
-import HeroSection from "./HeroSection";
 
 import {
   Building2,
@@ -91,9 +90,6 @@ export default function StartupRunwayLanding() {
     window.open(whatsappUrl, "_blank");
   };
 
-  export default function HomePage() {
-  return <HeroSection />;
-  };
 
   const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
