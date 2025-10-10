@@ -117,15 +117,6 @@ function HeroSection() {
           <Sparkles className="w-4 h-4 text-[#ff6b35]" />
           <span className="text-gray-300">For Student Entrepreneurs</span>
         </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-5xl md:text-7xl leading-[1.2] md:leading-[1.3] mb-6 bg-gradient-to-r from-[#ff6b35] via-[#4a90e2] to-[#8b5cf6] bg-clip-text text-transparent"
-        >
-          Studentpreneur Program
-        </motion.h1>
       </div>
       <div className="max-w-5xl mx-auto z-10">
         <motion.h1
