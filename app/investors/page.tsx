@@ -213,21 +213,18 @@ function FoundersInvestorConnect() {
       name: "AIHealth Diagnostics",
       sector: "Healthcare AI",
       description: "Predictive diagnostics platform using GPU-powered models for early disease detection.",
-{/*   funding: "₹1.5 Cr Seed Round", */}
       status: "Open for Investment"
     },
     {
       name: "AgriNeural Systems",
       sector: "AgriTech AI",
       description: "Precision farming platform using computer vision for yield forecasting and irrigation control.",
-{/*   funding: "₹80 Lakh Pre-Seed", */}
       status: "Active"
     },
     {
       name: "FinPulse Analytics",
       sector: "FinTech",
       description: "AI-based financial behavior analytics for micro-lending institutions.",
-{/*   funding: "₹2 Cr Angel Round", */}
       status: "Funded"
     }
   ];
