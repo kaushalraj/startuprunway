@@ -2,6 +2,7 @@
 "use client";
 
 import React, { useState } from "react";
+import ActiveNeuralBackground from "@/components/ActiveNeuralBackground";
 
 interface ServiceProvider {
   id: number;
@@ -273,7 +274,8 @@ const ServiceProvidersPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-16 px-4 md:px-16">
+    <div className="relative min-h-screen bg-gradient-to-r from-blue-800 via-purple-800 to-pink-800">
+	 <ActiveNeuralBackground /> 
       <header className="mb-12 text-center">
         <h1 className="text-4xl font-bold text-gray-800">
           StartupRunway Service Providers

@@ -91,12 +91,13 @@ CREATE TABLE IF NOT EXISTS public.user_registrations (
 
 -- Enable Row Level Security
 ALTER TABLE public.profiles ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.user_registrations ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.customers ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.partners ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.contact_submissions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.tasks ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.project_status ENABLE ROW LEVEL SECURITY;
-ALTER TABLE public.user_registrations ENABLE ROW LEVEL SECURITY;
+
 
 -- RLS Policies for user_registrations
 DROP POLICY IF EXISTS user_registrations_select_own ON public.user_registrations;
