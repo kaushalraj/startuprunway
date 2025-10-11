@@ -1,4 +1,3 @@
-// app/service-providers/page.tsx
 "use client";
 
 import React from "react";
@@ -165,14 +164,13 @@ const serviceProviders: ServiceProvider[] = [
   },
 ];
 
+
 const ServiceProvidersPage: React.FC = () => {
   return (
     <div className="relative min-h-screen bg-gradient-to-r from-blue-800 via-purple-800 to-pink-800 overflow-x-hidden">
-      {/* Animated background */}
       <ActiveNeuralBackground />
 
       <div className="relative z-10 px-4 md:px-16 py-16 text-white">
-        {/* Header */}
         <header className="mb-12 text-center">
           <h1 className="text-4xl md:text-5xl font-bold">
             StartupRunway Service Providers
@@ -183,28 +181,29 @@ const ServiceProvidersPage: React.FC = () => {
           </p>
         </header>
 
-        {/* Grid */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {/* Professional List */}
+        <div className="flex flex-col space-y-6">
           {serviceProviders.map((provider) => (
             <div
               key={provider.id}
-              className="bg-white bg-opacity-30 backdrop-blur-md rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300"
+              className="flex flex-col md:flex-row items-start md:items-center bg-white bg-opacity-10 border border-white/20 rounded-xl p-6 hover:bg-white/20 transition duration-300"
             >
-              <h2 className="text-2xl font-semibold text-white">
-                {provider.name}
-              </h2>
-              <p className="mt-2 text-gray-100">{provider.description}</p>
-
-              <div className="mt-4">
-                <h3 className="font-semibold text-white">Contribution:</h3>
-                <p className="text-gray-100">{provider.contribution}</p>
+              <div className="flex-1">
+                <h2 className="text-xl md:text-2xl font-semibold text-white">
+                  {provider.name}
+                </h2>
+                <p className="mt-1 text-gray-200">{provider.description}</p>
               </div>
 
-              <div className="mt-4">
-                <h3 className="font-semibold text-white">
-                  Revenue Opportunity:
-                </h3>
-                <p className="text-gray-100">{provider.value}</p>
+              <div className="mt-4 md:mt-0 md:ml-8 flex-1">
+                <p className="text-gray-300">
+                  <span className="font-semibold text-white">Contribution: </span>
+                  {provider.contribution}
+                </p>
+                <p className="mt-2 text-gray-300">
+                  <span className="font-semibold text-white">Revenue Opportunity: </span>
+                  {provider.value}
+                </p>
               </div>
             </div>
           ))}
