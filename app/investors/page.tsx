@@ -81,7 +81,7 @@ function HeroSection() {
         transition={{ duration: 1 }}
         className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#1DB954]/10 border border-[#1DB954]/30 mb-6"
       >
-        <span className="text-gray-300">For Founders</span>
+        <span className="text-gray-300">For Investors</span>
       </motion.div>
 
       <motion.h1
@@ -99,7 +99,7 @@ function HeroSection() {
         transition={{ duration: 1, delay: 0.4 }}
         className="text-xl text-gray-300 max-w-3xl mx-auto mb-10"
       >
-        StartupRunway isn’t just a consultancy — it’s India’s Innovation Hub for Founders.
+        StartupRunway it’s India’s Innovation Hub for Founders.
         Build confidently with our integrated ecosystem combining strategy, SaaS automation, AI cloud infrastructure, and investor access.
       </motion.p>
 
