@@ -102,8 +102,8 @@ function HeroSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-lg md:text-xl text-gray-300 mb-8"
         >
-          Collaborate. Empower. Grow.  
-          Join India's most vibrant ecosystem empowering startups with real-world expertise.
+          <p>Collaborate. Empower. Grow.  </p>
+          <p>Join India's most vibrant ecosystem empowering startups with real-world expertise.</p>
         </motion.p>
 
         <Button className="bg-[#ff6b35] hover:bg-[#ff6b35]/90 text-white px-8 py-6 rounded-full group">
