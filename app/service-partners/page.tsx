@@ -76,12 +76,12 @@ function ParticleBackground() {
 function HeroSection() {
   return (
 	<section className="relative min-h-screen py-16 flex items-center justify-center px-4 text-center">
-      <div className="max-w-4xl py-4 mx-auto z-10">
+      <div className="max-w-4xl mx-auto z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="inline-flex items-center gap-2 px-4 py-6 rounded-full bg-[#4a90e2]/10 border border-[#4a90e2]/30 mb-6"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#4a90e2]/10 border border-[#4a90e2]/30 mb-6"
         >
           <HeartHandshake className="w-4 h-4 text-[#4a90e2]" />
           <span className="text-gray-300">For Business Enablers & Experts</span>
