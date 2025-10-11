@@ -75,7 +75,7 @@ function ParticleBackground() {
 // Hero Section
 function HeroSection() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 text-center">
+    <section className="relative min-h-screen py-4 flex flex-col items-center justify-center px-4 text-center">
       <div className="max-w-4xl mx-auto z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
