@@ -13,8 +13,8 @@ function Header() {
   return (
     <header className="fixed top-0 left-0 w-full flex justify-center z-50 py-4 bg-transparent">
       <Link href="/" className="flex items-center gap-3 cursor-pointer">
-        <Image src="/images/startuprunway-logo.png" alt="StartupRunway Logo" width={30} height={30} />
-        <h1 className="text-2xl md:text-3xl font-bold text-white">
+        <Image src="/images/startuprunway-logo.png" alt="StartupRunway Logo" width={32} height={32} />
+        <h1 className="text-2xl md:text-3xl font-bold text-white tracking-wide">
           StartupRunway
         </h1>
       </Link>
@@ -75,7 +75,7 @@ function ParticleBackground() {
 // Hero Section
 function HeroSection() {
   return (
-    <section className="relative min-h-screen py-4 flex flex-col items-center justify-center px-4 text-center">
+	<section className="relative min-h-screen py-16 flex items-center justify-center px-4 text-center">
       <div className="max-w-4xl py-4 mx-auto z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
