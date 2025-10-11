@@ -188,21 +188,23 @@ const ServiceProvidersPage: React.FC = () => {
           {serviceProviders.map((provider) => (
             <div
               key={provider.id}
-              className="bg-white bg-opacity-10 backdrop-blur-md rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300"
+              className="bg-white bg-opacity-30 backdrop-blur-md rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300"
             >
               <h2 className="text-2xl font-semibold text-white">
                 {provider.name}
               </h2>
-              <p className="mt-2 text-gray-200">{provider.description}</p>
+              <p className="mt-2 text-gray-100">{provider.description}</p>
 
               <div className="mt-4">
                 <h3 className="font-semibold text-white">Contribution:</h3>
-                <p className="text-gray-200">{provider.contribution}</p>
+                <p className="text-gray-100">{provider.contribution}</p>
               </div>
 
               <div className="mt-4">
-                <h3 className="font-semibold text-white">Revenue Opportunity:</h3>
-                <p className="text-gray-200">{provider.value}</p>
+                <h3 className="font-semibold text-white">
+                  Revenue Opportunity:
+                </h3>
+                <p className="text-gray-100">{provider.value}</p>
               </div>
             </div>
           ))}
