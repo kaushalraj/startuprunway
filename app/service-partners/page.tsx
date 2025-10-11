@@ -152,7 +152,7 @@ const ServiceProvidersPage: React.FC = () => {
           {serviceProviders.map((provider) => (
             <div
               key={provider.id}
-              className="flex flex-col md:flex-row items-start md:items-center bg-white bg-opacity-30 border border-white/20 rounded-xl p-6 hover:bg-white/20 transition duration-300"
+              className="flex flex-col md:flex-row items-start md:items-center bg-gray-900 bg-opacity-30 border border-white/20 rounded-xl p-6 hover:bg-white/20 transition duration-300"
             >
               <div className="flex-1">
                 <h2 className="text-xl md:text-2xl font-semibold text-white">
