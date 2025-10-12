@@ -23,7 +23,7 @@ export default function TrustPolicyPage() {
             Building an Ecosystem of Integrity
           </h1>
 
-          <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl py-6 text-gray-400 max-w-2xl mx-auto">
             Your data, ideas, and innovations are safe with us.  
             We safeguard every interaction across StartupRunway’s growing ecosystem.
           </p>
