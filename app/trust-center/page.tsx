@@ -19,7 +19,7 @@ export default function TrustPolicyPage() {
             <span className="text-sm text-gray-300">StartupRunway Trust & Transparency Policy</span>
           </div>
 
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#ff6b35] via-[#4a90e2] to-[#8b5cf6] bg-clip-text text-transparent">
+          <h1 className="inline-block text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#ff6b35] via-[#4a90e2] to-[#8b5cf6] bg-clip-text text-transparent">
             Building an Ecosystem of Integrity
           </h1>
 
