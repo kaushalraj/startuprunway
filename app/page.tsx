@@ -772,34 +772,24 @@ export default function StartupRunwayLanding() {
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#1db954]">
-                Technology Partners
+                Made in India. Built for Global Scale
               </h2>
               <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-                Trusted partnerships with global technology leaders driving
-                innovation
+                A powerful alliance of StartupRunway, Neev Cloud, and Zoho, Creating the tech backbone for India’s new generation of innovators and entrepreneurs
               </p>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 max-w-6xl mx-auto">
               {[
-			    { src: "/images/partners/zoho-logo.png", alt: "Zoho" },
-				{
-                  src: "/images/partners/startuprunway-logo.png",
-                  alt: "StartupRunway",
-                },
-				{
+                               {
                   src: "/images/partners/neevcloud-logo.png",
                   alt: "Neev Cloud",
                 },
-                { src: "/images/partners/aws-logo.png", alt: "AWS" },
+                { src: "/images/partners/zoho-logo.png", alt: "Zoho" },
                 {
-                  src: "/images/partners/google-cloud-logo.png",
-                  alt: "Google Cloud",
+                  src: "/images/partners/startuprunway-logo.png",
+                  alt: "StartupRunway",
                 },
-                {
-                  src: "/images/partners/microsoft-azure-logo.png",
-                  alt: "Microsoft Azure",
-                },          
               ].map((partner, index) => (
                 <div
                   key={index}
