@@ -770,11 +770,8 @@ export default function StartupRunwayLanding() {
     {/* Heading */}
     <div className="mb-16">
       <h2 className="text-4xl md:text-5xl font-bold mb-6 text-amber-400">
-        Empowering Indian Innovation, Powering Global Impact
+        Made in India, Powering Global Impact
       </h2>
-      <p className="text-lg text-slate-300 max-w-3xl mx-auto">
-        Made in India, for the World
-      </p>
 	  <p className="text-lg text-slate-300 max-w-3xl mx-auto">
 	  Empowering Startups with Seamless AI Cloud, SaaS, and Automation Infrastructure.
 	  </p>
