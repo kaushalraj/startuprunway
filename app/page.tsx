@@ -988,7 +988,7 @@ export default function StartupRunwayLanding() {
                   onClick={() => scrollToSection("contact")}
                   className="bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
                 >
-                  Start Your Journey
+                  Explore & Get Your Free Consultation
                 </button>
                 <button
                   onClick={() => handleWhatsAppClick()}
