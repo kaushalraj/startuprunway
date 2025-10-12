@@ -93,7 +93,6 @@ export default function StartupRunwayLanding() {
     window.open(whatsappUrl, "_blank");
   };
 
-
   const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -327,7 +326,7 @@ export default function StartupRunwayLanding() {
             <div className="absolute right-100 mb-2 px-3 py-2 bg-slate-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
               Join StartupRunway
             </div>
-          </div>	
+          </div>
         </div>
 
         {loginDropdownOpen && (
@@ -342,7 +341,7 @@ export default function StartupRunwayLanding() {
           id="hero"
           className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800"
         >
-	<ActiveNeuralBackground />
+          <ActiveNeuralBackground />
           <div className="container mx-auto px-6 text-center relative z-10">
             <div className="max-w-4xl mx-auto">
               <h1 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
@@ -766,68 +765,61 @@ export default function StartupRunwayLanding() {
         </section>
 
         {/* Technology Partners Section */}
-        <section id="partners" className="py-20 bg-slate-800">
+        <section
+          id="partners"
+          className="py-20 bg-slate-900/80 backdrop-blur-sm"
+        >
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-amber-400">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#1db954]">
                 Technology Partners
               </h2>
               <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-                Trusted partnerships with industry-leading technology providers
+                Trusted partnerships with global technology leaders driving
+                innovation
               </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 max-w-6xl mx-auto">
-              <div className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex flex-col items-center justify-center group">
-                <img
-                  src="/aws-logo.png"
-                  alt="AWS"
-                  className="w-full h-full object-contain transition-transform group-hover:scale-200"
-                />
-              </div>
-
-              <div className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex flex-col items-center justify-center group">
-                <img
-                  src="/images/partners/google-cloud-logo.png"
-                  alt="Google Cloud"
-                  className="w-full h-full object-contain transition-transform group-hover:scale-105"
-                />
-              </div>
-
-              <div className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex flex-col items-center justify-center group">
-                <img
-                  src="/microsoft-azure-logo.jpg"
-                  alt="Microsoft Azure"
-                  className="w-full h-full object-contain transition-transform group-hover:scale-105"
-                />
-              </div>
-
-              <div className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex flex-col items-center justify-center group">
-                <img
-                  src="/stripe-logo.png"
-                  alt="Stripe"
-                  className="w-full h-full object-contain transition-transform group-hover:scale-105"
-                />
-              </div>
-
-              <div className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex flex-col items-center justify-center group">
-                <img
-                  src="/salesforce-logo.png"
-                  alt="Salesforce"
-                  className="w-full h-full object-contain transition-transform group-hover:scale-105"
-                />
-              </div>
-
-              <div className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex flex-col items-center justify-center group">
-                <img
-                  src="/hubspot-logo.png"
-                  alt="HubSpot"
-                  className="w-full h-full object-contain transition-transform group-hover:scale-105"
-                />
-              </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 max-w-6xl mx-auto">
+              {[
+                { src: "/images/partners/aws-logo.png", alt: "AWS" },
+                {
+                  src: "/images/partners/google-cloud-logo.png",
+                  alt: "Google Cloud",
+                },
+                {
+                  src: "/images/partners/microsoft-azure-logo.png",
+                  alt: "Microsoft Azure",
+                },
+                {
+                  src: "/images/partners/neevcloud-logo.png",
+                  alt: "Neev Cloud",
+                },
+                { src: "/images/partners/zoho-logo.png", alt: "Zoho" },
+                {
+                  src: "/images/partners/startuprunway-logo.png",
+                  alt: "StartupRunway",
+                },
+              ].map((partner, index) => (
+                <div
+                  key={index}
+                  className="bg-slate-800/40 backdrop-blur-md rounded-xl border border-slate-700 
+                     hover:border-[#1db954] hover:shadow-lg hover:shadow-[#1db954]/20 
+                     transition-all duration-500 flex items-center justify-center group 
+                     p-6 aspect-[4/3]"
+                >
+                  <img
+                    src={partner.src}
+                    alt={partner.alt}
+                    className="w-3/4 h-auto object-contain transition-transform duration-500 
+                       group-hover:scale-110 group-hover:brightness-110"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </section>
+
         {/*
         <section id="companies" className="py-20 bg-slate-900">
           <div className="container mx-auto px-6">
