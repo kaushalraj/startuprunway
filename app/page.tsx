@@ -802,7 +802,7 @@ export default function StartupRunwayLanding() {
                   className="bg-slate-800/40 backdrop-blur-md rounded-xl border border-slate-700 
                      hover:border-[#1db954] hover:shadow-lg hover:shadow-[#1db954]/20 
                      transition-all duration-500 flex items-center justify-center group 
-                     p-6 aspect-[4/3]"
+                     aspect-[4/3]"
                 >
                   <img
                     src={partner.src}
