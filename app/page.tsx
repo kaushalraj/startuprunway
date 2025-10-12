@@ -782,7 +782,7 @@ export default function StartupRunwayLanding() {
                 <img
                   src="/aws-logo.png"
                   alt="AWS"
-                  className="w-full h-full object-contain transition-transform group-hover:scale-105"
+                  className="w-full h-full object-contain transition-transform group-hover:scale-200"
                 />
               </div>
 
