@@ -5,6 +5,7 @@ import { Rocket, Sparkles, Target, Users, TrendingUp, Lightbulb, CheckCircle2, A
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Link from "next/link";
+import Footer from "@/components/Footer";
 
 export const dynamic = "force-dynamic";
 
@@ -612,6 +613,7 @@ export default function App() {
         <ProgramTimeline />
         <WhyChooseUs />
         <CTASection />
+		<Footer />
       </div>
     </div>
   );
