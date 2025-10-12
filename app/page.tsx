@@ -1159,12 +1159,15 @@ export default function StartupRunwayLanding() {
         </section>
       </div>
       {/* Noupe Chatbot Script */}
-      <div id="noupe-chatbot">
-        <Script
-          src="https://www.noupe.com/embed/01997896505278e59e770cc4f49a1de9b374.js"
-          strategy="lazyOnload"
-        />
-      </div>
+<div
+  id="noupe-chatbot"
+  className="fixed bottom-6 right-6 z-50 w-[360px] h-[480px] max-w-[90vw] max-h-[80vh] rounded-2xl overflow-hidden shadow-2xl border border-slate-700"
+>
+  <Script
+    src="https://www.noupe.com/embed/01997896505278e59e770cc4f49a1de9b374.js"
+    strategy="lazyOnload"
+  />
+</div>
     </div>
   );
 }
