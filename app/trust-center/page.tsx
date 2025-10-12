@@ -18,11 +18,9 @@ export default function TrustPolicyPage() {
             <ShieldCheck className="w-4 h-4 text-[#4a90e2]" />
             <span className="text-sm text-gray-300">StartupRunway Trust & Transparency Policy</span>
           </div>
-
-          <h1 className="inline-block text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-[#ff6b35] via-[#4a90e2] to-[#8b5cf6] bg-clip-text text-transparent">
-            Building an Ecosystem of Integrity
-          </h1>
-
+		  <h2 className="inline-block text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#4a90e2] to-[#8b5cf6] bg-clip-text text-transparent leading-tight pb-1">
+			Building an Ecosystem of Integrity
+		  </h2>
           <p className="text-lg md:text-xl py-6 text-gray-400 max-w-2xl mx-auto">
             Your data, ideas, and innovations are safe with us.  
             We safeguard every interaction across StartupRunway’s growing ecosystem.
