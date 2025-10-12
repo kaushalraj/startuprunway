@@ -363,7 +363,7 @@ export default function StartupRunwayLanding() {
                 onClick={() => scrollToSection("services")}
                 className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
-                Start Your Journey
+                Get Your Free Consultation
               </button>
             </div>
 
@@ -988,7 +988,7 @@ export default function StartupRunwayLanding() {
                   onClick={() => scrollToSection("contact")}
                   className="bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
                 >
-                  Explore & Get Your Free Consultation
+                  Get Your Free Consultation
                 </button>
                 <button
                   onClick={() => handleWhatsAppClick()}
