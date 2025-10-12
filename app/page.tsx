@@ -784,11 +784,13 @@ export default function StartupRunwayLanding() {
                {
                   src: "/images/partners/neevcloud-logo.png",
                   alt: "Neev Cloud",
+				  className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
                 },
                 { src: "/images/partners/zoho-logo.png", alt: "Zoho" },
                 {
                   src: "/images/partners/startuprunway-logo.png",
                   alt: "StartupRunway",
+				  className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
                 },
               ].map((partner, index) => (
                 <div
