@@ -779,9 +779,9 @@ export default function StartupRunwayLanding() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 max-w-6xl mx-auto">
+            <div className=""w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"">
               {[
-                               {
+                {
                   src: "/images/partners/neevcloud-logo.png",
                   alt: "Neev Cloud",
                 },
