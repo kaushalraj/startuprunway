@@ -391,7 +391,7 @@ export default function StartupRunwayLanding() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -30 }}
-                  transition={{ duration: 0.8 }}
+                  transition={{ duration: 3.0 }}
                 >
                   <h1 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
                     {heroMessages[currentHeroIndex].title}
