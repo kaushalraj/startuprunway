@@ -765,67 +765,51 @@ export default function StartupRunwayLanding() {
         </section>
 
         {/* Technology Partners Section */}
-<section id="partners" className="py-20 bg-slate-800">
-  <div className="max-w-6xl mx-auto px-6 text-center">
-    {/* Heading */}
-    <div className="mb-16">
-      <h2 className="text-4xl md:text-5xl font-bold mb-6 text-amber-400">
-        Made in India, Powering Global Impact
-      </h2>
-	  <p className="text-lg text-slate-300 max-w-3xl mx-auto">
-	  Empowering Startups with Seamless AI Cloud, SaaS, and Automation Infrastructure.
-	  </p>
-    </div>
+        <section id="partners" className="py-20 bg-slate-800">
+          <div className="max-w-6xl mx-auto px-6 text-center">
+            {/* Heading */}
+            <div className="mb-16">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-amber-400">
+                Made in India, Powering Global Impact
+              </h2>
+              <p className="text-lg text-slate-300 max-w-3xl mx-auto">
+                Empowering Startups with Seamless AI Cloud, SaaS, and Automation
+                Infrastructure.
+              </p>
+            </div>
 
-    {/* Partner Logos */}
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10 justify-items-center items-center">
-      {/* Neev Cloud */}
-      <div className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex items-center justify-center group w-40 h-24">
-        <img
-          src="/images/partners/neevcloud-logo.png"
-          alt="Neev Cloud"
-          className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
-        />
-      </div>
+            {/* Partner Logos */}
 
-      {/* Zoho */}
-      <div className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex items-center justify-center group w-40 h-24">
-        <img
-          src="/images/partners/zoho-logo.png"
-          alt="Zoho"
-          className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
-        />
-      </div>
+            {/* Zoho */}
+            <div className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex items-center justify-center group w-40 h-24">
+              <img
+                src="/images/partners/zoho-logo.png"
+                alt="Zoho"
+                className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+              />
+            </div>
 
-      {/* AWS */}
-      <div className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex items-center justify-center group w-40 h-24">
-        <img
-          src="/images/partners/aws-logo.png"
-          alt="AWS"
-          className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
-        />
-      </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10 justify-items-center items-center">
+              {/* StartupRunway */}
+              <div className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex items-center justify-center group w-40 h-24">
+                <img
+                  src="/images/partners/startuprunway-logo.png"
+                  alt="Neev Cloud"
+                  className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+                />
+              </div>
 
-      {/* Google Cloud */}
-      <div className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex items-center justify-center group w-40 h-24">
-        <img
-          src="/images/partners/google-cloud-logo.png"
-          alt="Google Cloud"
-          className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
-        />
-      </div>
-
-      {/* Microsoft Azure */}
-      <div className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex items-center justify-center group w-40 h-24">
-        <img
-          src="/images/partners/azure-logo.png"
-          alt="Microsoft Azure"
-          className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
-        />
-      </div>
-    </div>
-  </div>
-</section>
+              {/* Neev Cloud */}
+              <div className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex items-center justify-center group w-40 h-24">
+                <img
+                  src="/images/partners/neevcloud-logo.png"
+                  alt="Neev Cloud"
+                  className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/*
         <section id="companies" className="py-20 bg-slate-900">
