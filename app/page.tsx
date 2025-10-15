@@ -50,7 +50,8 @@ const heroMessages = [
     subtitle: "Transforming Students Into Startup Founders",
   },
   {
-    title: "Service Partners Network: Connecting Service Partners with Next-Gen Startups",
+    title:
+      "Service Partners Network: Connecting Service Partners with Next-Gen Startups",
     subtitle:
       "Join StartupRunway’s partner network to power India’s growing startup ecosystem",
   },
@@ -401,7 +402,11 @@ export default function StartupRunwayLanding() {
                   </p>
                 </motion.div>
               </AnimatePresence>
-
+              <p className="text-base md:text-lg text-slate-300 mb-8 leading-relaxed">
+                <span className="text-yellow-400 md:text-base">
+                  Your incredible idea might be next. Are you ready?
+                </span>
+              </p>
               <button
                 onClick={() => scrollToSection("services")}
                 className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
