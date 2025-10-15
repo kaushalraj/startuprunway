@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import type React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Script from "next/script";
 import Link from "next/link";
 import HeroMenu from "@/app//heromenu/HeroMenu";
@@ -30,10 +30,51 @@ import BlogSection from "@/components/BlogSection";
 
 export const dynamic = "force-dynamic";
 
+const heroMessages = [
+  {
+    title: "Empowering Indian Startups to Launch, Scale, and Succeed",
+    subtitle: "Innovation Meets Business Management, All in One Platform",
+  },
+  {
+    title: "Empowering Founders to Build, Automate & Scale",
+    subtitle:
+      "StartupRunway empowers founders ideation to scaling with strategy, SaaS, and AI tools to build faster and smarter",
+  },
+  {
+    title: "Fueling Entrepreneurs with Growth Momentum",
+    subtitle:
+      "Strategic mentorship, business setup, and funding pathways — all under one ecosystem.",
+  },
+  {
+    title: "Studentpreneur Program",
+    subtitle: "Transforming Students Into Startup Founders",
+  },
+  {
+    title: "Connecting Service Partners with Next-Gen Startups",
+    subtitle:
+      "Join StartupRunway’s partner network to power India’s growing startup ecosystem",
+  },
+  {
+    title: "Enabling Investors to Discover the Next Unicorn",
+    subtitle:
+      "Access vetted startups, curated deal flow, and investment-ready founders across India",
+  },
+];
+
 export default function StartupRunwayLanding() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [logoAnimating, setLogoAnimating] = useState(false);
   const [loginDropdownOpen, setLoginDropdownOpen] = useState(false);
+
+  const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentHeroIndex((prev) => (prev + 1) % heroMessages.length);
+    }, 5000); // change every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -344,20 +385,23 @@ export default function StartupRunwayLanding() {
           <ActiveNeuralBackground />
           <div className="container mx-auto px-6 text-center relative z-10">
             <div className="max-w-4xl mx-auto">
-              <h1 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
-                One-Stop Startup Ecosystem
-              </h1>
-              <p className="text-xl md:text-2xl text-white text-slate-300 mb-8 leading-relaxed">
-                Empowering Indian Startups to Launch, Scale, and Succeed
-              </p>
-              <p className="text-sm text-white sm:text-base md:text-lg lg:text-xl mb-8 leading-relaxed">
-                Innovation Meets Business Management, All in One Platform
-              </p>
-              <p className="text-base md:text-lg text-slate-300 mb-8 leading-relaxed">
-                <span className="text-yellow-400 md:text-base">
-                  Your incredible idea might be next. Are you ready?
-                </span>
-              </p>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentHeroIndex}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -30 }}
+                  transition={{ duration: 0.8 }}
+                >
+                  <h1 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
+                    {heroMessages[currentHeroIndex].title}
+                  </h1>
+                  <p className="text-xl md:text-2xl text-white text-slate-300 mb-8 leading-relaxed">
+                    {heroMessages[currentHeroIndex].subtitle}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+
               <button
                 onClick={() => scrollToSection("services")}
                 className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
@@ -677,11 +721,6 @@ export default function StartupRunwayLanding() {
                   <li>Online Payment Gateways</li>
                   <li>Legal Advocates & Consultants</li>
                 </ul>
-                {/*
-        	<button className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-3 px-6 rounded-lg transition-all duration-300">
-          	Connect with Experts
-        	</button>
-	        */}
               </div>
 
               {/* Marketing & Growth */}
@@ -695,12 +734,6 @@ export default function StartupRunwayLanding() {
                   <li>Branding & Design Agencies</li>
                   <li>Offline Digital Marketing</li>
                 </ul>
-
-                {/*
-        	<button className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-3 px-6 rounded-lg transition-all duration-300">
-          	Find Growth Partners
-        	</button>
-                */}
               </div>
 
               {/* Technology & Operations */}
@@ -715,12 +748,6 @@ export default function StartupRunwayLanding() {
                   <li>Interior Designers & Office Setup</li>
                   <li>Facility Services</li>
                 </ul>
-
-                {/*
-        	<button className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-3 px-6 rounded-lg transition-all duration-300">
-          	Explore Operational Services
-        	</button>
-                */}
               </div>
 
               {/* E-Centers & Researchers */}
@@ -732,11 +759,6 @@ export default function StartupRunwayLanding() {
                   <li>E-Centers</li>
                   <li>University R&D Centers</li>
                 </ul>
-                {/*
-	        <button className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-3 px-6 rounded-lg transition-all duration-300">
-        	  Join Our Network
-	        </button>
-	       */}
               </div>
 
               {/* Ecosystem & Networking */}
@@ -749,11 +771,6 @@ export default function StartupRunwayLanding() {
                   <li>Startup Networks & Communities</li>
                   <li>Mentorship & Advisory Programs</li>
                 </ul>
-                {/*
-	        <button className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold py-3 px-6 rounded-lg transition-all duration-300">
-        	  Join Our Network
-	        </button>
-	       */}
               </div>
             </div>
           </div>
@@ -779,72 +796,37 @@ export default function StartupRunwayLanding() {
             </div>
 
             {/* Partner Logos */}
-            <div className="flex justify-center items-center gap-12 flex-wrap">
-              {[
-                { src: "/images/partners/zoho-logo.png", alt: "Zoho" },
-                {
-                  src: "/images/partners/startuprunway-logo.png",
-                  alt: "StartupRunway",
-                },
-                {
-                  src: "/images/partners/neevcloud-logo.png",
-                  alt: "Neev Cloud",
-                },
-              ].map((partner) => (
-                <div
-                  key={partner.alt}
-                  className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 
-                 transition-all duration-300 flex items-center justify-center group"
-                >
-                  <img
-                    src={partner.src}
-                    alt={partner.alt}
-                    className="max-w-[200px] h-auto transition-transform duration-300 group-hover:scale-110"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
 
-        {/*
-        <section id="companies" className="py-20 bg-slate-900">
-          <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-amber-400">Companies We've Mentored</h2>
-              <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-                Proud to have supported these innovative startups on their journey to success
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              <div className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300">
-                <h3 className="text-2xl font-bold mb-4 text-white">TechFlow Solutions</h3>
-                <p className="text-slate-300 mb-4 leading-relaxed">
-                  B2B SaaS platform that achieved $2M ARR within 18 months of launch.
-                </p>
-                <div className="text-amber-400 font-medium">Series A: $5M raised</div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10 justify-items-center">
+              {/* Zoho */}
+              <div className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex items-center justify-center group w-40 h-24">
+                <img
+                  src="/images/partners/zoho-logo.png"
+                  alt="Zoho"
+                  className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+                />
               </div>
 
-              <div className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300">
-                <h3 className="text-2xl font-bold mb-4 text-white">GreenEnergy Innovations</h3>
-                <p className="text-slate-300 mb-4 leading-relaxed">
-                  Clean tech startup revolutionizing solar energy storage solutions.
-                </p>
-                <div className="text-amber-400 font-medium">Seed: $3M raised</div>
+              {/* StartupRunway */}
+              <div className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex items-center justify-center group w-40 h-24">
+                <img
+                  src="/images/partners/startuprunway-logo.png"
+                  alt="StarupRunway India Private Limited"
+                  className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+                />
               </div>
 
-              <div className="bg-slate-800 p-8 rounded-xl border border-slate-700 hover:border-amber-500 transition-all duration-300">
-                <h3 className="text-2xl font-bold mb-4 text-white">HealthTech Connect</h3>
-                <p className="text-slate-300 mb-4 leading-relaxed">
-                  Digital health platform connecting patients with specialized care providers.
-                </p>
-                <div className="text-amber-400 font-medium">Series B: $12M raised</div>
+              {/* Neev Cloud */}
+              <div className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex items-center justify-center group w-40 h-24">
+                <img
+                  src="/images/partners/neevcloud-logo.png"
+                  alt="Neev Cloud"
+                  className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+                />
               </div>
             </div>
           </div>
         </section>
-        */}
 
         {/* Testimonials Section */}
         <section id="testimonials" className="py-20 bg-slate-800">
@@ -1144,7 +1126,11 @@ export default function StartupRunwayLanding() {
                   </button>
                   {submitMessage && (
                     <p
-                      className={`text-center ${submitMessage.includes("Thank you") ? "text-green-400" : "text-red-400"}`}
+                      className={`text-center ${
+                        submitMessage.includes("Thank you")
+                          ? "text-green-400"
+                          : "text-red-400"
+                      }`}
                     >
                       {submitMessage}
                     </p>
