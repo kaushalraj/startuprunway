@@ -780,23 +780,21 @@ export default function StartupRunwayLanding() {
 
             {/* Partner Logos */}
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-10 justify-items-center">
-			
-            {/* Zoho */
-            <div className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex items-center justify-center group w-40 h-24">
-              <img
-                src="/images/partners/zoho-logo.png"
-                alt="Zoho"
-                className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
-              />
-            </div>
-			
-			
+            <div className="flex justify-center items-center gap-10 flex-wrap">
+              {/* Zoho */}
+              <div className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex items-center justify-center group w-40 h-24">
+                <img
+                  src="/images/partners/zoho-logo.png"
+                  alt="Zoho"
+                  className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+                />
+              </div>
+
               {/* StartupRunway */}
               <div className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex items-center justify-center group w-40 h-24">
                 <img
                   src="/images/partners/startuprunway-logo.png"
-                  alt="StarupRunway India Private Limited"
+                  alt="StartupRunway"
                   className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
@@ -809,9 +807,7 @@ export default function StartupRunwayLanding() {
                   className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
-			  
             </div>
-			
           </div>
         </section>
 
