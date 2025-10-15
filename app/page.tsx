@@ -804,7 +804,7 @@ export default function StartupRunwayLanding() {
                 <img
                   src="/images/partners/neevcloud-logo.png"
                   alt="Neev Cloud"
-                  className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
+                  className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex  items-center justify-center group w-56 h-32"
                 />
               </div>
             </div>
