@@ -51,7 +51,7 @@ const heroMessages = [
   },
   {
     title:
-      "Service Partners Network: Connecting Service Partners with Next-Gen Startups",
+      "Service Partners Network: Connecting with Next-Gen Startups",
     subtitle:
       "Join StartupRunway’s partner network to power India’s growing startup ecosystem",
   },
