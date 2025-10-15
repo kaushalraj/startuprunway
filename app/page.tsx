@@ -72,7 +72,7 @@ export default function StartupRunwayLanding() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentHeroIndex((prev) => (prev + 1) % heroMessages.length);
-    }, 5000); // change every 5 seconds
+    }, 7000); // change every 7 seconds
 
     return () => clearInterval(interval);
   }, []);
@@ -392,7 +392,7 @@ export default function StartupRunwayLanding() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -30 }}
-                  transition={{ duration: 5.0 }}
+                  transition={{ duration: 7.0 }}
                 >
                   <h1 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
                     {heroMessages[currentHeroIndex].title}
