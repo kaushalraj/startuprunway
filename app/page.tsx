@@ -32,30 +32,30 @@ export const dynamic = "force-dynamic";
 
 const heroMessages = [
   {
-    title: "Empowering Indian Startups to Launch, Scale, and Succeed",
+    title: "One-Stop Startup Hub",
     subtitle: "Innovation Meets Business Management, All in One Platform",
   },
   {
-    title: "Empowering Founders to Build, Automate & Scale",
+    title: "Founders : Empowering to Build, Automate & Scale",
     subtitle:
-      "StartupRunway empowers founders ideation to scaling with strategy, SaaS, and AI tools to build faster and smarter",
+      "From ideation to scaling with strategy, SaaS, and AI tools to build smarter",
   },
   {
-    title: "Fueling Entrepreneurs with Growth Momentum",
+    title: "Entrepreneurs: Fueling with Growth Momentum",
     subtitle:
-      "Strategic mentorship, business setup, and funding pathways — all under one ecosystem.",
+      "Mentorship, business setup, and funding pathways — all under one ecosystem.",
   },
   {
-    title: "Studentpreneur Program",
+    title: "Students: Studentpreneur University Program",
     subtitle: "Transforming Students Into Startup Founders",
   },
   {
-    title: "Connecting Service Partners with Next-Gen Startups",
+    title: "Service Partners Network: Connecting Service Partners with Next-Gen Startups",
     subtitle:
       "Join StartupRunway’s partner network to power India’s growing startup ecosystem",
   },
   {
-    title: "Enabling Investors to Discover the Next Unicorn",
+    title: "Investors: Enabling Investors to Discover the Next Unicorn",
     subtitle:
       "Access vetted startups, curated deal flow, and investment-ready founders across India",
   },
