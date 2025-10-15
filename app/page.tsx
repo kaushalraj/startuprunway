@@ -779,34 +779,30 @@ export default function StartupRunwayLanding() {
             </div>
 
             {/* Partner Logos */}
-
-            <div className="flex justify-center items-center gap-10 flex-wrap">
-              {/* Zoho */}
-              <div className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex items-center justify-center group w-40 h-24">
-                <img
-                  src="/images/partners/zoho-logo.png"
-                  alt="Zoho"
-                  className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
-                />
-              </div>
-
-              {/* StartupRunway */}
-              <div className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex items-center justify-center group w-40 h-24">
-                <img
-                  src="/images/partners/startuprunway-logo.png"
-                  alt="StartupRunway"
-                  className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
-                />
-              </div>
-
-              {/* Neev Cloud */}
-              <div className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex items-center justify-center group w-40 h-24">
-                <img
-                  src="/images/partners/neevcloud-logo.png"
-                  alt="Neev Cloud"
-                  className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 transition-all duration-300 flex  items-center justify-center group w-56 h-32"
-                />
-              </div>
+            <div className="flex justify-center items-center gap-12 flex-wrap">
+              {[
+                { src: "/images/partners/zoho-logo.png", alt: "Zoho" },
+                {
+                  src: "/images/partners/startuprunway-logo.png",
+                  alt: "StartupRunway",
+                },
+                {
+                  src: "/images/partners/neevcloud-logo.png",
+                  alt: "Neev Cloud",
+                },
+              ].map((partner) => (
+                <div
+                  key={partner.alt}
+                  className="bg-slate-900 p-6 rounded-lg border border-slate-700 hover:border-amber-500 
+                 transition-all duration-300 flex items-center justify-center group"
+                >
+                  <img
+                    src={partner.src}
+                    alt={partner.alt}
+                    className="max-w-[200px] h-auto transition-transform duration-300 group-hover:scale-110"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </section>
