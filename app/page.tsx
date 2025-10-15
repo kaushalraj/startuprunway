@@ -36,7 +36,7 @@ const heroMessages = [
     subtitle: "Innovation Meets Business Management, All in One Platform",
   },
   {
-    title: "Founders : Empowering to Build, Automate & Scale",
+    title: "Founders: Empowering to Build, Automate & Scale",
     subtitle:
       "From ideation to scaling with strategy, SaaS, and AI tools to build smarter",
   },
@@ -53,7 +53,7 @@ const heroMessages = [
     title:
       "Service Partners Network: Connecting with Next-Gen Startups",
     subtitle:
-      "Join StartupRunway’s partner network to power India’s growing startup ecosystem",
+      "Join StartupRunway’s service partner network to power India’s growing startup ecosystem",
   },
   {
     title: "Investors: Enabling Investors to Discover the Next Unicorn",
@@ -70,12 +70,16 @@ export default function StartupRunwayLanding() {
   const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
 
   useEffect(() => {
+    let index = 0;
     const interval = setInterval(() => {
-      setCurrentHeroIndex((prev) => (prev + 1) % heroMessages.length);
-    }, 7000); // change every 7 seconds
+      index = (index + 1) % heroMessages.length;
+      setCurrentHeroIndex(index);
+    }, 7000);
 
     return () => clearInterval(interval);
   }, []);
+
+
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
