@@ -93,7 +93,7 @@ export default function ServicePartnerPage() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-[#ff6b35] via-[#4a90e2] to-[#8b5cf6] bg-clip-text text-transparent"
         >
-          StartupRunway Service Partners Network
+          Service Partners Network
         </motion.h1>
         <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
           Join our ecosystem and provide essential services to startups while
