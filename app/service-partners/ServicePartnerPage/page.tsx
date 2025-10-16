@@ -115,7 +115,7 @@ export default function ServicePartnerPage() {
       {/* Who Can Join */}
       <section className="mb-16">
         <h2 className="text-2xl font-semibold mb-4">Who Can Join?</h2>
-        <p className="text-gray-700 mb-4">
+        <p className="mb-4">
           Any firm providing professional services relevant to startups can join:
         </p>
         <ul className="list-disc list-inside space-y-2">
