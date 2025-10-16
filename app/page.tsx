@@ -32,27 +32,27 @@ export const dynamic = "force-dynamic";
 
 const heroMessages = [
   {
-    title: "One-Stop Startup Hub & Ecosystem",
+    title: "One-Stop Ecosystem & Startup Hub",
     subtitle: "Innovation Meets Business Management, All in One Platform",
   },
   {
-    title: "For Founders: Build, Automate & Scale",
+    title: "Founders: Build, Automate & Scale",
     subtitle: "From idea to growth — execute smarter with StartupRunway",
   },
   {
-    title: "For Entrepreneurs: Accelerate Your Growth",
+    title: "Entrepreneurs: Accelerate Growth",
     subtitle: "Mentorship, setup, and funding — your growth partner",
   },
   {
-    title: "For Students: Become a Studentpreneur",
+    title: "Students: Become a Studentpreneur",
     subtitle: "Join and Transform from Job Seeker to Job Creator",
   },
   {
-    title: "For Service Partners: Connect & Collaborate",
+    title: "Service Partners: Connect & Collaborate",
     subtitle: "Join India’s startup ecosystem and power the next generation",
   },
   {
-    title: "For Investors: Discover the Next Unicorn",
+    title: "Investors: Discover the Next-Gen Unicorn",
     subtitle: "Access vetted startups and investment-ready opportunities",
   },
 ];
