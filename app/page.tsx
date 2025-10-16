@@ -67,17 +67,17 @@ export default function StartupRunwayLanding() {
   const [logoAnimating, setLogoAnimating] = useState(false);
   const [loginDropdownOpen, setLoginDropdownOpen] = useState(false);
 
-  const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
+const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
 
-  useEffect(() => {
-    let index = 0;
-    const interval = setInterval(() => {
-      index = (index + 1) % heroMessages.length;
-      setCurrentHeroIndex(index);
-    }, 7000);
+useEffect(() => {
+  let index = 0;
+  const interval = setInterval(() => {
+    index = (index + 1) % heroMessages.length;
+    setCurrentHeroIndex(index);
+  }, 7000);
 
-    return () => clearInterval(interval);
-  }, []);
+  return () => clearInterval(interval);
+}, []);
 
 
 
