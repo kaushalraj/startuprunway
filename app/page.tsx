@@ -50,8 +50,7 @@ const heroMessages = [
     subtitle: "Transforming Students Into Startup Founders",
   },
   {
-    title:
-      "Service Partners Network: Connecting with Next-Gen Startups",
+    title: "Service Partners Network: Connecting with Next-Gen Startups",
     subtitle:
       "Join StartupRunway’s service partner network to power India’s growing startup ecosystem",
   },
@@ -67,31 +66,25 @@ export default function StartupRunwayLanding() {
   const [logoAnimating, setLogoAnimating] = useState(false);
   const [loginDropdownOpen, setLoginDropdownOpen] = useState(false);
 
-const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
-const intervalRef = React.useRef<NodeJS.Timeout | null>(null);
+  const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const intervalRef = React.useRef<NodeJS.Timeout | null>(null);
 
-useEffect(() => {
-  // Clear any previous interval before setting a new one
-  if (intervalRef.current) {
-    clearInterval(intervalRef.current);
-  }
+  useEffect(() => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
 
-  let index = 0;
+    let index = 0;
+    intervalRef.current = setInterval(() => {
+      if (!isPaused) {
+        index = (index + 1) % heroMessages.length;
+        setCurrentHeroIndex(index);
+      }
+    }, 5000);
 
-  intervalRef.current = setInterval(() => {
-    index = (index + 1) % heroMessages.length;
-    setCurrentHeroIndex(index);
-  }, 5000);
-
-  // Cleanup on unmount or re-render
-  return () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-  };
-}, []);
-
-
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [isPaused]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -398,6 +391,8 @@ useEffect(() => {
         <section
           id="hero"
           className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
         >
           <ActiveNeuralBackground />
           <div className="container mx-auto px-6 text-center relative z-10">
@@ -408,21 +403,17 @@ useEffect(() => {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -30 }}
-                  transition={{ duration: 7.0 }}
+                  transition={{ duration: 0.8 }}
                 >
                   <h1 className="text-3xl md:text-5xl font-bold mb-6 text-white leading-tight">
                     {heroMessages[currentHeroIndex].title}
                   </h1>
-                  <p className="text-xl md:text-2xl text-white text-slate-300 mb-8 leading-relaxed">
+                  <p className="text-xl md:text-2xl text-slate-300 mb-8 leading-relaxed">
                     {heroMessages[currentHeroIndex].subtitle}
                   </p>
                 </motion.div>
               </AnimatePresence>
-              <p className="text-base md:text-lg text-slate-300 mb-8 leading-relaxed">
-                <span className="text-yellow-400 md:text-base">
-                  Your incredible idea might be next. Are you ready?
-                </span>
-              </p>
+
               <button
                 onClick={() => scrollToSection("services")}
                 className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-900 font-bold py-4 px-8 rounded-lg text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
