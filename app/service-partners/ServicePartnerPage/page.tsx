@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 // Particle Background
 function ParticleBackground() {
