@@ -140,6 +140,210 @@ function HeroSection() {
   );
 }
 
+// Service Partners Example Type
+
+export default function PartnerExamples() {
+  const [showExamples, setShowExamples] = useState(false);
+
+  const partnerExamples = [
+    {
+      category: "Software Development & IT Services",
+      firms: [
+        { name: "CodeCraft Technologies", city: "Bangalore" },
+        { name: "TechVedika Software", city: "Hyderabad" },
+        { name: "Inflexion Analytics", city: "Chennai" },
+        { name: "SreeTech Digital", city: "Vijayawada, Andhra Pradesh" },
+        { name: "CloudWeave Systems", city: "Warangal, Telangana" },
+      ],
+    },
+    {
+      category: "Cloud, DevOps & Infrastructure",
+      firms: [
+        { name: "NeevCloud Technologies", city: "Bangalore" },
+        { name: "CloudZenix Solutions", city: "Hyderabad" },
+        { name: "InfraScale Labs", city: "Chennai" },
+        { name: "SkyReach IT", city: "Visakhapatnam, Andhra Pradesh" },
+        { name: "BlueWave CloudOps", city: "Telangana" },
+      ],
+    },
+    {
+      category: "AI, ML & Data Science",
+      firms: [
+        { name: "Tredence Analytics", city: "Bangalore" },
+        { name: "Innominds Software", city: "Hyderabad" },
+        { name: "LatentView Analytics", city: "Chennai" },
+        { name: "Aibridge Technologies", city: "Telangana" },
+        { name: "DataLyse AI Labs", city: "Andhra Pradesh" },
+      ],
+    },
+    {
+      category: "UI/UX Design & Creative Studios",
+      firms: [
+        { name: "Pixel6 Studio", city: "Bangalore" },
+        { name: "DesignQube", city: "Chennai" },
+        { name: "BrandStory", city: "Hyderabad" },
+        { name: "CreativeCurve Labs", city: "Telangana" },
+        { name: "DoodleHaus", city: "Vijayawada, Andhra Pradesh" },
+      ],
+    },
+    {
+      category: "Digital Marketing & Growth",
+      firms: [
+        { name: "GrowthHack Digital", city: "Bangalore" },
+        { name: "EchoVibe Media", city: "Chennai" },
+        { name: "SocialNest Marketing", city: "Telangana" },
+        { name: "DigitalOz Media", city: "Hyderabad" },
+        { name: "BrandNova360", city: "Andhra Pradesh" },
+      ],
+    },
+    {
+      category: "Cybersecurity & Compliance",
+      firms: [
+        { name: "Krish TechnoLabs", city: "Hyderabad" },
+        { name: "FortiEdge Consulting", city: "Chennai" },
+        { name: "CyberSentinel Systems", city: "Telangana" },
+        { name: "SecuraNova", city: "Bangalore" },
+        { name: "SecureLayer Infotech", city: "Vijayawada, Andhra Pradesh" },
+      ],
+    },
+    {
+      category: "ERP, CRM & Business Automation",
+      firms: [
+        { name: "CRMNext Solutions", city: "Bangalore" },
+        { name: "Techforce360", city: "Hyderabad" },
+        { name: "Infodream Systems", city: "Chennai" },
+        { name: "BizSpring Automations", city: "Telangana" },
+        { name: "SmartEdge ERP", city: "Andhra Pradesh" },
+      ],
+    },
+    {
+      category: "Startup Consulting & Strategy",
+      firms: [
+        { name: "StartIQ Consulting", city: "Bangalore" },
+        { name: "LaunchYard Partners", city: "Hyderabad" },
+        { name: "ScaleEdge Advisors", city: "Chennai" },
+        { name: "NextLeap Advisors", city: "Vijayawada, Andhra Pradesh" },
+        { name: "BizSpring Innovations", city: "Telangana" },
+      ],
+    },
+    {
+      category: "Accounting, Taxation & Virtual CFO",
+      firms: [
+        { name: "FinPoint Advisors", city: "Bangalore" },
+        { name: "Accufin Experts", city: "Hyderabad" },
+        { name: "LedgerWorks Consulting", city: "Chennai" },
+        { name: "BlueBook Finance", city: "Telangana" },
+        { name: "BalanceEdge Partners", city: "Vijayawada, Andhra Pradesh" },
+      ],
+    },
+    {
+      category: "Legal & IP Advisory",
+      firms: [
+        { name: "IPX LegalTech", city: "Bangalore" },
+        { name: "StartSafe Attorneys", city: "Hyderabad" },
+        { name: "LexEdge Associates", city: "Chennai" },
+        { name: "IncorpZone Legal", city: "Telangana" },
+        { name: "IPVista Law Partners", city: "Andhra Pradesh" },
+      ],
+    },
+    {
+      category: "HR, Payroll & Recruitment Services",
+      firms: [
+        { name: "TalentOne HR", city: "Bangalore" },
+        { name: "HireXpert Consulting", city: "Hyderabad" },
+        { name: "PeopleLogic", city: "Chennai" },
+        { name: "StaffHub Services", city: "Telangana" },
+        { name: "NextHire Consultancy", city: "Andhra Pradesh" },
+      ],
+    },
+    {
+      category: "Education, Training & Incubation",
+      firms: [
+        { name: "NASSCOM FutureSkills", city: "Bangalore" },
+        { name: "T-Hub Incubator", city: "Hyderabad" },
+        { name: "IITM Incubation Cell", city: "Chennai" },
+        { name: "SR Innovation Exchange", city: "Warangal, Telangana" },
+        { name: "Andhra Innovation Society", city: "Andhra Pradesh" },
+      ],
+    },
+    {
+      category: "SaaS, Tools & Productivity Partners",
+      firms: [
+        { name: "Zoho Channel Partners", city: "Chennai" },
+        { name: "ClickUp Resellers India", city: "Bangalore" },
+        { name: "Notion API Integrators", city: "Hyderabad" },
+        { name: "WorklyHQ Partners", city: "Telangana" },
+        { name: "FlowSoft Tools", city: "Andhra Pradesh" },
+      ],
+    },
+    {
+      category: "Engineering & Hardware Firms",
+      firms: [
+        { name: "Techtonics Engineering", city: "Bangalore" },
+        { name: "RoboticX Labs", city: "Hyderabad" },
+        { name: "Mekatron Innovations", city: "Chennai" },
+        { name: "IoTrix Systems", city: "Telangana" },
+        { name: "ElectraMech Labs", city: "Andhra Pradesh" },
+      ],
+    },
+    {
+      category: "Startup Ecosystem, Funding & Accelerators",
+      firms: [
+        { name: "10000 Startups by NASSCOM", city: "Bangalore" },
+        { name: "WE Hub", city: "Hyderabad" },
+        { name: "IITM Research Park", city: "Chennai" },
+        { name: "TSIC (Telangana State Innovation Cell)", city: "Telangana" },
+        { name: "Andhra Technology Business Incubator", city: "Andhra Pradesh" },
+      ],
+    },
+    {
+      category: "Operations, Events & Facility Management",
+      firms: [
+        { name: "OfficeEase Interiors", city: "Bangalore" },
+        { name: "Eventora Media", city: "Hyderabad" },
+        { name: "WorkNest Spaces", city: "Chennai" },
+        { name: "Facilito Management", city: "Telangana" },
+        { name: "CorpoLink Services", city: "Vijayawada, Andhra Pradesh" },
+      ],
+    },
+  ];
+
+  return (
+    <section className="text-center py-12">
+      <button
+        onClick={() => setShowExamples(!showExamples)}
+        className="px-6 py-3 bg-gradient-to-r from-[#4a90e2] to-[#8b5cf6] text-white font-semibold rounded-2xl shadow-lg hover:scale-105 transition-transform duration-200"
+      >
+        {showExamples ? "Hide Partner Examples" : "Show Partner Examples"}
+      </button>
+
+      {showExamples && (
+        <div className="mt-8 max-w-6xl mx-auto text-left space-y-8 bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+          {partnerExamples.map((group, index) => (
+            <div key={index}>
+              <h3 className="text-lg font-semibold text-[#4a4a4a] mb-3 border-l-4 border-[#4a90e2] pl-3">
+                {group.category}
+              </h3>
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                {group.firms.map((firm, i) => (
+                  <li
+                    key={i}
+                    className="bg-gray-50 hover:bg-gray-100 p-3 rounded-lg shadow-sm transition"
+                  >
+                    <span className="font-medium">{firm.name}</span>
+                    <span className="text-gray-600 text-sm"> — {firm.city}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      )}
+    </section>
+  );
+}
+
+
 // Service Partner Types
 function PartnerCategories() {
   const categories = [
@@ -283,6 +487,7 @@ export default function ServiceProvidersPage() {
       <Header />
       <div className="relative z-10">
         <HeroSection />
+		<PartnerExamples />		
         <PartnerCategories />
         <CTASection />
       </div>
