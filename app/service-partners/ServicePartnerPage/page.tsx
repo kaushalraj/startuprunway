@@ -289,9 +289,11 @@ export default function ServicePartnerPage() {
           Become a part of our growing ecosystem and help startups succeed while
           expanding your business opportunities.
         </p>
+		<Link href="/auth/partner/register/" passHref>
         <Button className="px-8 py-3 bg-indigo-600 text-white hover:bg-indigo-700">
           Join as Service Partner
         </Button>
+		</Link>
       </section>
     </div>
   );
