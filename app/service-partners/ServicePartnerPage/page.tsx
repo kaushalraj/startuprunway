@@ -170,11 +170,11 @@ export default function ServicePartnerPage() {
 
       {/* Flow Diagram */}
       <section className="mb-16 px-4">
-        <div className="bg-white p-6 rounded-lg shadow-lg">
-          <h3 className="text-xl font-semibold mb-4 text-center text-gray-800">
+        <div className="bg-[#1b1e3f] p-8 rounded-2xl shadow-lg border border-indigo-700">
+          <h3 className="text-2xl font-semibold mb-8 text-center text-indigo-300 tracking-wide">
             Partner Program Flow
           </h3>
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-6">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0 md:space-x-6">
             {[
               "Register",
               "Onboard",
@@ -184,12 +184,12 @@ export default function ServicePartnerPage() {
             ].map((step, i) => (
               <div
                 key={i}
-                className="flex flex-col items-center bg-indigo-50 p-4 rounded-lg shadow-sm"
+                className="flex flex-col items-center bg-gradient-to-br from-indigo-800 to-purple-700 p-5 rounded-xl shadow-md w-full md:w-1/5 text-center transition-transform transform hover:scale-105 hover:shadow-indigo-500/30"
               >
-                <span className="font-bold mb-2">
+                <span className="font-bold mb-2 text-lg text-white">
                   {i + 1}. {step}
                 </span>
-                <span className="text-center text-gray-700">
+                <span className="text-sm text-indigo-100 leading-snug">
                   {step === "Register" && "Submit your firm details & services"}
                   {step === "Onboard" && "Attend orientation and get aligned"}
                   {step === "Align Services" &&
