@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ShieldCheck, Lock, Eye, Users, FileCheck, Scale, Mail } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 // Header
 function Header() {
