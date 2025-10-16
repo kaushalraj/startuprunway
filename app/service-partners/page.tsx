@@ -689,7 +689,7 @@ function PartnerExamples() {
         <div className="mt-8 max-w-6xl mx-auto text-left space-y-8 bg-black p-6 rounded-2xl shadow-md border border-gray-100">
           {Object.entries(grouped).map(([category, subcats]) => (
             <div key={category}>
-              <h3 className="text-xl font-semibold text-[#222] mb-4 border-l-4 border-[#4a90e2] pl-3">
+              <h3 className="text-xl font-semibold text-green mb-4 border-l-4 border-[#4a90e2] pl-3">
                 {category}
               </h3>
 
