@@ -45,7 +45,7 @@ const heroMessages = [
   },
   {
     title: "For Students: Become a Studentpreneur",
-    subtitle: "Turn ideas into startups with hands-on innovation programs",
+    subtitle: "Transform from Job Seeker to Job Creator as a Studentpreneur",
   },
   {
     title: "For Service Partners: Connect & Collaborate",
