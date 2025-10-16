@@ -261,7 +261,7 @@ function CTASection() {
         </p>
 
         {/* Link to Service Partner Page */}
-        <Link href="/service-partners" passHref>
+        <Link href="/service-partners/ServicePartnerPage" passHref>
           <Button className="bg-[#ff6b35] text-white hover:bg-[#ff6b35]/90 px-8 py-6 rounded-full group">
             Join Partner Network
             <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
