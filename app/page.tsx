@@ -409,6 +409,12 @@ export default function StartupRunwayLanding() {
                   </p>
                 </motion.div>
               </AnimatePresence>
+			  
+              <p className="text-base md:text-lg text-slate-300 mb-8 leading-relaxed">
+                <span className="text-yellow-400 md:text-base">
+                  Your incredible idea might be next. Are you ready?
+                </span>
+              </p>			  
 
               <button
                 onClick={() => scrollToSection("services")}
