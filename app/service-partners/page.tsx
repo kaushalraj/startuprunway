@@ -707,7 +707,7 @@ function PartnerExamples() {
                       {firms.map((f, idx) => (
                         <li
                           key={idx}
-                          className="bg-gray-50 hover:bg-gray-100 p-3 rounded-lg shadow-sm transition flex items-center justify-between"
+                          className="bg-blue-100/20 hover:bg-gray-100 p-3 rounded-lg shadow-sm transition flex items-center justify-between"
                         >
                           <div>
                             <div className="font-medium">{f.name}</div>
