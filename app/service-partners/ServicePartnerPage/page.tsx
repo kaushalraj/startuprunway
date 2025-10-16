@@ -3,10 +3,65 @@
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 
+// Particle Background
+function ParticleBackground() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const resize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    resize();
+    window.addEventListener("resize", resize);
+
+    const particles = Array.from({ length: 80 }).map(() => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.6,
+      vy: (Math.random() - 0.5) * 0.6,
+      size: Math.random() * 2 + 1,
+      color: ["#ff6b35", "#4a90e2", "#8b5cf6", "#10b981"][
+        Math.floor(Math.random() * 4)
+      ],
+    }));
+
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let p of particles) {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.globalAlpha = 0.7;
+        ctx.fill();
+      }
+      requestAnimationFrame(animate);
+    };
+    animate();
+    return () => window.removeEventListener("resize", resize);
+  }, []);
+
+  return (
+    <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-0" />
+  );
+}
+
+
 export default function ServicePartnerPage() {
   return (
     <div className="min-h-screen bg-gray-50 py-16 px-6 md:px-20">
-      
+      <ParticleBackground />
       {/* Hero Section */}
       <section className="text-center mb-20">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
