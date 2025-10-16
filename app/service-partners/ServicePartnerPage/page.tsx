@@ -74,11 +74,31 @@ function ParticleBackground() {
   );
 }
 
+// Header
+function Header() {
+  return (
+    <header className="fixed top-0 left-0 w-full flex justify-center z-50 py-4 bg-transparent">
+      <Link href="/" className="flex items-center gap-3 cursor-pointer">
+        <Image
+          src="/images/startuprunway-logo.png"
+          alt="StartupRunway Logo"
+          width={32}
+          height={32}
+        />
+        <h1 className="text-2xl md:text-3xl font-bold text-white tracking-wide">
+          StartupRunway
+        </h1>
+      </Link>
+    </header>
+  );
+}
+
 
 export default function ServicePartnerPage() {
   return (
 	<div className="relative bg-[#0f1233] text-white overflow-hidden pt-20">
       <ParticleBackground />
+	  <Header />
       {/* Hero Section */}
       <section className="text-center mb-20">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
