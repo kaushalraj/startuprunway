@@ -36,28 +36,24 @@ const heroMessages = [
     subtitle: "Innovation Meets Business Management, All in One Platform",
   },
   {
-    title: "Founders: Empowering to Build, Automate & Scale",
-    subtitle:
-      "From ideation to scaling with strategy, SaaS, and AI tools to build smarter",
+    title: "For Founders: Build, Automate & Scale",
+    subtitle: "From idea to growth — execute smarter with StartupRunway",
   },
   {
-    title: "Entrepreneurs: Fueling with Growth Momentum",
-    subtitle:
-      "Mentorship, business setup, and funding pathways — all under one ecosystem.",
+    title: "For Entrepreneurs: Accelerate Your Growth",
+    subtitle: "Mentorship, setup, and funding — your business growth partner",
   },
   {
-    title: "Students: Studentpreneur University Program",
-    subtitle: "Transforming Students Into Startup Founders",
+    title: "For Students: Become a Studentpreneur",
+    subtitle: "Turn ideas into startups with hands-on innovation programs",
   },
   {
-    title: "Service Partners Network: Connecting with Next-Gen Startups",
-    subtitle:
-      "Join StartupRunway’s service partner network to power India’s growing startup ecosystem",
+    title: "For Service Partners: Connect & Collaborate",
+    subtitle: "Join India’s startup ecosystem and power the next generation",
   },
   {
-    title: "Investors: Enabling Investors to Discover the Next Unicorn",
-    subtitle:
-      "Access vetted startups, curated deal flow, and investment-ready founders across India",
+    title: "For Investors: Discover the Next Unicorn",
+    subtitle: "Access vetted startups and investment-ready opportunities",
   },
 ];
 
