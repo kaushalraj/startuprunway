@@ -680,7 +680,7 @@ function PartnerExamples() {
     <section className="text-center py-12">
       <button
         onClick={() => setShowExamples(!showExamples)}
-        className="px-6 py-3 bg-gradient-to-r from-[#4a90e2] to-[#8b5cf6] text-white font-semibold rounded-2xl shadow-lg hover:scale-105 transition-transform duration-200"
+        className="px-6 py-3 bg-gradient-to-br from-[#4a90e2] via-[#6bace2] to-[#8b5cf6] text-white font-semibold rounded-2xl shadow-lg hover:scale-105 transition-transform duration-200"
       >
         {showExamples ? "Hide Partner Examples" : "Show Partner Examples"}
       </button>
