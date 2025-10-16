@@ -704,19 +704,19 @@ function PartnerExamples() {
                       {firms.map((f, idx) => (
                         <li
                           key={idx}
-                          className="bg-blue-100/20 hover:bg-blue-700 p-3 rounded-lg shadow-sm transition flex items-center justify-between"
+                          className="bg-blue-100/20 hover:bg-blue-100/40 p-3 rounded-lg shadow-sm transition flex items-center justify-between"
                         >
                           <div>
-                            <div className="font-medium">{f.name}</div>
-                            <div className="text-sm text-emerald-300">
+                            <div className="font-medium text-white">
+                              {f.name}
+                            </div>
+                            <div className="text-sm text-gray-200">
                               {f.city}
                             </div>
                           </div>
-                          {/* optional: add quick-action like "Join" prefilled link */}
                           <a
                             href={`/join-partner?category=${encodeURIComponent(f.category)}&subcategory=${encodeURIComponent(f.subcategory)}&utm_source=examples`}
-                            className="ml-4 inline-block text-sm px-3 py-1 border rounded-full hover:bg-black-100"
-                            aria-label={`Join as ${f.subcategory}`}
+                            className="ml-4 inline-block text-sm px-3 py-1 border rounded-full hover:bg-white/20 text-white"
                           >
                             Join
                           </a>
