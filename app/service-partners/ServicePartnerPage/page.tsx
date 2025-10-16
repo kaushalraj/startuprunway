@@ -104,7 +104,7 @@ export default function ServicePartnerPage() {
         <h1 className="text-4xl md:text-5xl font-bold mb-4">
           StartupRunway Service Partner Program
         </h1>
-        <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto">
+        <p className="text-lg md:text-xl max-w-2xl mx-auto">
           Join our ecosystem and provide essential services to startups while growing your business.
         </p>
         <Button className="mt-6 px-8 py-3 bg-indigo-600 text-white hover:bg-indigo-700">
