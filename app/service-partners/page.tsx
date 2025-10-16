@@ -149,7 +149,7 @@ type Firm = {
   city: string;
 };
 
-export default function PartnerExamples() {
+function PartnerExamples() {
   const [showExamples, setShowExamples] = useState(false);
 
   const partnerExamples: Firm[] = [
