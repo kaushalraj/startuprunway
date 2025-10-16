@@ -32,7 +32,7 @@ export const dynamic = "force-dynamic";
 
 const heroMessages = [
   {
-    title: "One-Stop Startup Hub",
+    title: "One-Stop Startup Hub & Ecosystem",
     subtitle: "Innovation Meets Business Management, All in One Platform",
   },
   {
