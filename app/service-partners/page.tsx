@@ -708,7 +708,7 @@ function PartnerExamples() {
                         >
                           <div>
                             <div className="font-medium">{f.name}</div>
-                            <div className="text-sm text-white">
+                            <div className="text-sm text-emerald-300">
                               {f.city}
                             </div>
                           </div>
