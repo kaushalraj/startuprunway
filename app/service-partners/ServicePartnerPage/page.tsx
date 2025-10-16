@@ -290,7 +290,7 @@ export default function ServicePartnerPage() {
           expanding your business opportunities.
         </p>
         <Button className="px-8 py-3 bg-indigo-600 text-white hover:bg-indigo-700">
-          Join as Partner
+          Join as Service Partner
         </Button>
       </section>
     </div>
