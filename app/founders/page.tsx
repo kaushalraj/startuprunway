@@ -149,12 +149,14 @@ function HeroSection() {
           <Button className="bg-[#1db954] hover:bg-[#1db954]/90 text-white px-8 py-6 rounded-full">
             Get Started
           </Button>
+		  <Link href="/auth/customer/register/" passHref>
           <Button
             variant="outline"
             className="border-[#4892db] text-[#4892db] hover:bg-[#4892db]/10 px-8 py-6 rounded-full"
           >
-            Partner With Us
+            Join as Founder
           </Button>
+		  </Link>
         </motion.div>
       </div>
     </section>

@@ -104,12 +104,11 @@ function HeroSection() {
       </motion.p>
 
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
+		<Link href="/auth/partner/register/" passHref>	  
         <Button className="bg-[#1DB954] hover:bg-[#1DB954]/90 text-white px-8 py-6 rounded-full">
-          Join as Founder
+          Join as Investor
         </Button>
-        <Button variant="outline" className="border-[#4892DB] text-[#4892DB] hover:bg-[#4892DB]/10 px-8 py-6 rounded-full">
-          Explore Platform
-        </Button>
+		</Link>
       </div>
     </section>
   );
