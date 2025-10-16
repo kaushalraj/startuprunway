@@ -1,10 +1,22 @@
-'use client';
-import { useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { Users, Briefcase, Rocket, Building, Layers, FileText, Cloud, HeartHandshake, Lightbulb, ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import Image from 'next/image';
-import Link from 'next/link';
+"use client";
+import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import {
+  Users,
+  Briefcase,
+  Rocket,
+  Building,
+  Layers,
+  FileText,
+  Cloud,
+  HeartHandshake,
+  Lightbulb,
+  ArrowRight,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import Link from "next/link";
+import ServicePartnerPage from "./ServicePartnerPage";
 
 export const dynamic = "force-dynamic";
 
@@ -13,7 +25,12 @@ function Header() {
   return (
     <header className="fixed top-0 left-0 w-full flex justify-center z-50 py-4 bg-transparent">
       <Link href="/" className="flex items-center gap-3 cursor-pointer">
-        <Image src="/images/startuprunway-logo.png" alt="StartupRunway Logo" width={32} height={32} />
+        <Image
+          src="/images/startuprunway-logo.png"
+          alt="StartupRunway Logo"
+          width={32}
+          height={32}
+        />
         <h1 className="text-2xl md:text-3xl font-bold text-white tracking-wide">
           StartupRunway
         </h1>
@@ -30,7 +47,7 @@ function ParticleBackground() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     const resize = () => {
@@ -38,7 +55,7 @@ function ParticleBackground() {
       canvas.height = window.innerHeight;
     };
     resize();
-    window.addEventListener('resize', resize);
+    window.addEventListener("resize", resize);
 
     const particles = Array.from({ length: 80 }).map(() => ({
       x: Math.random() * canvas.width,
@@ -46,7 +63,9 @@ function ParticleBackground() {
       vx: (Math.random() - 0.5) * 0.6,
       vy: (Math.random() - 0.5) * 0.6,
       size: Math.random() * 2 + 1,
-      color: ['#ff6b35', '#4a90e2', '#8b5cf6', '#10b981'][Math.floor(Math.random() * 4)]
+      color: ["#ff6b35", "#4a90e2", "#8b5cf6", "#10b981"][
+        Math.floor(Math.random() * 4)
+      ],
     }));
 
     const animate = () => {
@@ -66,16 +85,22 @@ function ParticleBackground() {
       requestAnimationFrame(animate);
     };
     animate();
-    return () => window.removeEventListener('resize', resize);
+    return () => window.removeEventListener("resize", resize);
   }, []);
 
-  return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-0" />;
+  return (
+    <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-0" />
+  );
+}
+
+export default function Page() {
+  return <ServicePartnerPage />;
 }
 
 // Hero Section
 function HeroSection() {
   return (
-	<section className="relative min-h-screen py-16 flex items-center justify-center px-4 text-center">
+    <section className="relative min-h-screen py-16 flex items-center justify-center px-4 text-center">
       <div className="max-w-4xl mx-auto z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -102,8 +127,11 @@ function HeroSection() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-lg md:text-xl text-gray-300 mb-8"
         >
-          <p>Collaborate. Empower. Grow.  </p>
-          <p>Join India's most vibrant ecosystem empowering startups with real-world expertise.</p>
+          <p>Collaborate. Empower. Grow. </p>
+          <p>
+            Join India's most vibrant ecosystem empowering startups with
+            real-world expertise.
+          </p>
         </motion.p>
 
         <Button className="bg-[#ff6b35] hover:bg-[#ff6b35]/90 text-white px-8 py-6 rounded-full group">
@@ -120,52 +148,60 @@ function PartnerCategories() {
   const categories = [
     {
       icon: Briefcase,
-      title: 'CA & Accounting Firms',
-      message: 'Empower startups with financial structure, compliance, and growth advisory — become their trusted financial backbone.',
-      color: '#ff6b35'
+      title: "CA & Accounting Firms",
+      message:
+        "Empower startups with financial structure, compliance, and growth advisory — become their trusted financial backbone.",
+      color: "#ff6b35",
     },
     {
       icon: FileText,
-      title: 'Legal & Compliance Experts',
-      message: 'Help founders navigate business laws, IPs, and contracts — be the guiding force of ethical startup growth.',
-      color: '#4a90e2'
+      title: "Legal & Compliance Experts",
+      message:
+        "Help founders navigate business laws, IPs, and contracts — be the guiding force of ethical startup growth.",
+      color: "#4a90e2",
     },
     {
       icon: Building,
-      title: 'Incubators & Accelerators',
-      message: 'Collaborate with StartupRunway to discover, mentor, and nurture promising early-stage ventures together.',
-      color: '#8b5cf6'
+      title: "Incubators & Accelerators",
+      message:
+        "Collaborate with StartupRunway to discover, mentor, and nurture promising early-stage ventures together.",
+      color: "#8b5cf6",
     },
     {
       icon: Layers,
-      title: 'Marketing & Branding Agencies',
-      message: 'Shape the identity of emerging startups — from logo to launch, turn vision into brand power.',
-      color: '#10b981'
+      title: "Marketing & Branding Agencies",
+      message:
+        "Shape the identity of emerging startups — from logo to launch, turn vision into brand power.",
+      color: "#10b981",
     },
     {
       icon: Users,
-      title: 'HR & Recruitment Partners',
-      message: 'Build the founding teams of India’s next unicorns — match passion with purpose.',
-      color: '#f59e0b'
+      title: "HR & Recruitment Partners",
+      message:
+        "Build the founding teams of India’s next unicorns — match passion with purpose.",
+      color: "#f59e0b",
     },
     {
       icon: Cloud,
-      title: 'Cloud & SaaS Providers',
-      message: 'Enable digital transformation — offer tools, infrastructure, and credits that scale startups faster.',
-      color: '#4a90e2'
+      title: "Cloud & SaaS Providers",
+      message:
+        "Enable digital transformation — offer tools, infrastructure, and credits that scale startups faster.",
+      color: "#4a90e2",
     },
     {
       icon: Rocket,
-      title: 'Startup Consultants',
-      message: 'Guide founders with business models, GTM strategy, and execution frameworks — shape startup success stories.',
-      color: '#8b5cf6'
+      title: "Startup Consultants",
+      message:
+        "Guide founders with business models, GTM strategy, and execution frameworks — shape startup success stories.",
+      color: "#8b5cf6",
     },
     {
       icon: Lightbulb,
-      title: 'Innovation & R&D Hubs',
-      message: 'Partner with StartupRunway to foster product innovation, prototype labs, and co-creation opportunities.',
-      color: '#10b981'
-    }
+      title: "Innovation & R&D Hubs",
+      message:
+        "Partner with StartupRunway to foster product innovation, prototype labs, and co-creation opportunities.",
+      color: "#10b981",
+    },
   ];
 
   return (
@@ -192,7 +228,7 @@ function PartnerCategories() {
                 transition={{ delay: index * 0.1 }}
                 className="bg-[#131a3a] rounded-2xl p-6 border border-white/10 hover:border-white/20 hover:shadow-2xl hover:scale-105 transition-all duration-300 group"
               >
-                <div 
+                <div
                   className="w-14 h-14 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
                   style={{ backgroundColor: `${cat.color}20` }}
                 >
@@ -224,7 +260,8 @@ function CTASection() {
           Let’s Empower India’s Startup Revolution
         </motion.h2>
         <p className="text-lg text-gray-300 mb-8">
-          Partner with StartupRunway to connect your expertise with thousands of founders shaping tomorrow.
+          Partner with StartupRunway to connect your expertise with thousands of
+          founders shaping tomorrow.
         </p>
         <Button className="bg-[#ff6b35] text-white hover:bg-[#ff6b35]/90 px-8 py-6 rounded-full group">
           Join Partner Network
@@ -241,6 +278,7 @@ export default function ServiceProvidersPage() {
     <div className="relative bg-[#0f1233] text-white overflow-hidden pt-20">
       <ParticleBackground />
       <Header />
+      <ServicePartnerPage />
       <div className="relative z-10">
         <HeroSection />
         <PartnerCategories />
