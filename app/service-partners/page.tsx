@@ -93,10 +93,6 @@ function ParticleBackground() {
   );
 }
 
-export default function Page() {
-  return <ServicePartnerPage />;
-}
-
 // Hero Section
 function HeroSection() {
   return (
