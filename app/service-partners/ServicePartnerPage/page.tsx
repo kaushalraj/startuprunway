@@ -3,22 +3,7 @@
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
 import Link from "next/link";
-
-
-import {
-  Users,
-  Briefcase,
-  Rocket,
-  Building,
-  Layers,
-  FileText,
-  Cloud,
-  HeartHandshake,
-  Lightbulb,
-  ArrowRight,
-} from "lucide-react";
 
 // Particle Background
 function ParticleBackground() {
@@ -27,7 +12,6 @@ function ParticleBackground() {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
@@ -69,9 +53,7 @@ function ParticleBackground() {
     return () => window.removeEventListener("resize", resize);
   }, []);
 
-  return (
-    <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-0" />
-  );
+  return <canvas ref={canvasRef} className="fixed inset-0 pointer-events-none z-0" />;
 }
 
 // Header
@@ -85,7 +67,7 @@ function Header() {
           width={32}
           height={32}
         />
-        <h1 className="text-2xl md:text-3xl font-bold text-white tracking-wide">
+        <h1 className="text-2xl md:text-3xl font-extrabold text-white tracking-wide">
           StartupRunway
         </h1>
       </Link>
@@ -93,18 +75,18 @@ function Header() {
   );
 }
 
-
 export default function ServicePartnerPage() {
   return (
-	<div className="relative bg-[#0f1233] text-white overflow-hidden pt-20">
+    <div className="relative bg-gradient-to-b from-[#0c0f2c] via-[#11153f] to-[#0f1233] text-white font-sans overflow-hidden pt-28">
       <ParticleBackground />
-	  <Header />
+      <Header />
+
       {/* Hero Section */}
-      <section className="text-center mb-20">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4">
+      <section className="text-center mb-20 px-4">
+        <h1 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight text-white">
           StartupRunway Service Partner Program
         </h1>
-        <p className="text-lg md:text-xl max-w-2xl mx-auto">
+        <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
           Join our ecosystem and provide essential services to startups while growing your business.
         </p>
         <Button className="mt-6 px-8 py-3 bg-indigo-600 text-white hover:bg-indigo-700">
@@ -113,12 +95,12 @@ export default function ServicePartnerPage() {
       </section>
 
       {/* Who Can Join */}
-      <section className="mb-16">
-        <h2 className="text-2xl font-semibold mb-4">Who Can Join?</h2>
-        <p className="mb-4">
+      <section className="mb-16 px-4">
+        <h2 className="text-3xl font-semibold mb-4 text-white">Who Can Join?</h2>
+        <p className="mb-4 text-gray-300">
           Any firm providing professional services relevant to startups can join:
         </p>
-        <ul className="list-disc list-inside space-y-2">
+        <ul className="list-disc list-inside space-y-2 text-gray-300">
           <li>Digital Marketing Agencies – SEO, branding, campaigns, social media</li>
           <li>CA / Accounting Firms – GST filing, bookkeeping, audits, tax advisory</li>
           <li>Legal Firms / Lawyers – Company registration, contracts, IP, compliance</li>
@@ -129,59 +111,43 @@ export default function ServicePartnerPage() {
       </section>
 
       {/* Program Participation Steps */}
-      <section className="mb-16">
-        <h2 className="text-2xl font-semibold mb-4">How to Participate</h2>
-        <ol className="list-decimal list-inside space-y-4 mb-8">
-          <li>
-            <strong>Registration:</strong> Fill out the Partner Registration Form on our website with firm details, services offered, experience, and certifications.
-          </li>
-          <li>
-            <strong>Onboarding:</strong> Attend orientation to understand platform processes, client engagement, and revenue models.
-          </li>
-          <li>
-            <strong>Service Alignment:</strong> Identify which startup stage your services fit: Ideation, Growth, Scale, or Investor Readiness.
-          </li>
-          <li>
-            <strong>Program Participation:</strong> Engage with startups in Startup Onboarding, Growth Acceleration, Investor Readiness, and Workshops/Mentorship programs.
-          </li>
-          <li>
-            <strong>Revenue Models:</strong> Offer services via fixed fees, retainers, or referral/commission.
-          </li>
+      <section className="mb-16 px-4">
+        <h2 className="text-3xl font-semibold mb-4 text-white">How to Participate</h2>
+        <ol className="list-decimal list-inside space-y-4 mb-8 text-gray-300">
+          <li><strong>Registration:</strong> Fill out the Partner Registration Form with firm details, services, experience, and certifications.</li>
+          <li><strong>Onboarding:</strong> Attend orientation to understand platform processes, client engagement, and revenue models.</li>
+          <li><strong>Service Alignment:</strong> Identify which startup stage your services fit: Ideation, Growth, Scale, or Investor Readiness.</li>
+          <li><strong>Program Participation:</strong> Engage with startups in Startup Onboarding, Growth Acceleration, Investor Readiness, and Workshops/Mentorship programs.</li>
+          <li><strong>Revenue Models:</strong> Offer services via fixed fees, retainers, or referral/commission.</li>
         </ol>
+      </section>
 
-        {/* Flow Diagram */}
+      {/* Flow Diagram */}
+      <section className="mb-16 px-4">
         <div className="bg-white p-6 rounded-lg shadow-lg">
-          <h3 className="text-xl font-semibold mb-4 text-center">Partner Program Flow</h3>
+          <h3 className="text-xl font-semibold mb-4 text-center text-gray-800">Partner Program Flow</h3>
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-6">
-            <div className="flex flex-col items-center bg-indigo-50 p-4 rounded-lg shadow-sm">
-              <span className="font-bold mb-2">1. Register</span>
-              <span className="text-center">Submit your firm details & services</span>
-            </div>
-            <div className="flex flex-col items-center bg-indigo-50 p-4 rounded-lg shadow-sm">
-              <span className="font-bold mb-2">2. Onboard</span>
-              <span className="text-center">Attend orientation and get aligned</span>
-            </div>
-            <div className="flex flex-col items-center bg-indigo-50 p-4 rounded-lg shadow-sm">
-              <span className="font-bold mb-2">3. Align Services</span>
-              <span className="text-center">Match services with startup needs</span>
-            </div>
-            <div className="flex flex-col items-center bg-indigo-50 p-4 rounded-lg shadow-sm">
-              <span className="font-bold mb-2">4. Engage Startups</span>
-              <span className="text-center">Provide services and track projects</span>
-            </div>
-            <div className="flex flex-col items-center bg-indigo-50 p-4 rounded-lg shadow-sm">
-              <span className="font-bold mb-2">5. Earn Revenue</span>
-              <span className="text-center">Fixed fees, retainer, or commission</span>
-            </div>
+            {["Register", "Onboard", "Align Services", "Engage Startups", "Earn Revenue"].map((step, i) => (
+              <div key={i} className="flex flex-col items-center bg-indigo-50 p-4 rounded-lg shadow-sm">
+                <span className="font-bold mb-2">{i + 1}. {step}</span>
+                <span className="text-center text-gray-700">
+                  {step === "Register" && "Submit your firm details & services"}
+                  {step === "Onboard" && "Attend orientation and get aligned"}
+                  {step === "Align Services" && "Match services with startup needs"}
+                  {step === "Engage Startups" && "Provide services and track projects"}
+                  {step === "Earn Revenue" && "Fixed fees, retainer, or commission"}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Revenue Model Table */}
-      <section className="mb-16">
-        <h2 className="text-2xl font-semibold mb-4">Revenue Models for Service Partners</h2>
+      <section className="mb-16 px-4">
+        <h2 className="text-3xl font-semibold mb-4 text-white">Revenue Models for Service Partners</h2>
         <div className="overflow-x-auto">
-          <table className="min-w-full bg-white border border-gray-200 rounded-lg">
+          <table className="min-w-full bg-white border border-gray-200 rounded-lg text-gray-800">
             <thead className="bg-gray-100">
               <tr>
                 <th className="py-3 px-6 text-left border-b border-gray-200">Revenue Model</th>
@@ -195,7 +161,7 @@ export default function ServicePartnerPage() {
                 <td className="py-3 px-6">One-time charge for providing a specific service to a startup.</td>
                 <td className="py-3 px-6">Company registration, GST setup, branding package</td>
               </tr>
-              <tr className="border-b">
+              <tr className="border-b bg-gray-50">
                 <td className="py-3 px-6">Retainer / Subscription</td>
                 <td className="py-3 px-6">Recurring monthly or quarterly support for ongoing startup needs.</td>
                 <td className="py-3 px-6">Payroll management, bookkeeping, marketing campaigns</td>
@@ -211,9 +177,9 @@ export default function ServicePartnerPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="mb-16">
-        <h2 className="text-2xl font-semibold mb-4">Benefits for Service Partners</h2>
-        <ul className="list-disc list-inside text-gray-700 space-y-2">
+      <section className="mb-16 px-4">
+        <h2 className="text-3xl font-semibold mb-4 text-white">Benefits for Service Partners</h2>
+        <ul className="list-disc list-inside space-y-2 text-gray-300">
           <li>Access to curated startup clients at all stages</li>
           <li>Recurring revenue opportunities through ongoing services</li>
           <li>Brand visibility as a trusted partner in the startup ecosystem</li>
@@ -223,16 +189,15 @@ export default function ServicePartnerPage() {
       </section>
 
       {/* Final Call-to-Action */}
-      <section className="text-center mb-16">
-        <h2 className="text-2xl font-semibold mb-4">Get Started Today</h2>
-        <p className="text-gray-700 mb-6">
+      <section className="text-center mb-16 px-4">
+        <h2 className="text-3xl font-semibold mb-4 text-white">Get Started Today</h2>
+        <p className="text-gray-200 mb-6">
           Become a part of our growing ecosystem and help startups succeed while expanding your business opportunities.
         </p>
         <Button className="px-8 py-3 bg-indigo-600 text-white hover:bg-indigo-700">
           Join as Partner
         </Button>
       </section>
-
     </div>
   );
 }
