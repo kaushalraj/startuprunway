@@ -68,15 +68,27 @@ export default function StartupRunwayLanding() {
   const [loginDropdownOpen, setLoginDropdownOpen] = useState(false);
 
 const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
+const intervalRef = React.useRef<NodeJS.Timeout | null>(null);
 
 useEffect(() => {
+  // Clear any previous interval before setting a new one
+  if (intervalRef.current) {
+    clearInterval(intervalRef.current);
+  }
+
   let index = 0;
-  const interval = setInterval(() => {
+
+  intervalRef.current = setInterval(() => {
     index = (index + 1) % heroMessages.length;
     setCurrentHeroIndex(index);
-  }, 7000);
+  }, 5000);
 
-  return () => clearInterval(interval);
+  // Cleanup on unmount or re-render
+  return () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+  };
 }, []);
 
 
