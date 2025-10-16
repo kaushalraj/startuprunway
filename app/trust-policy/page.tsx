@@ -3,11 +3,32 @@
 import { motion } from "framer-motion";
 import { ShieldCheck, Lock, Eye, Users, FileCheck, Scale, Mail } from "lucide-react";
 
+// Header
+function Header() {
+  return (
+    <header className="fixed top-0 left-0 w-full flex justify-center z-50 py-4 bg-transparent">
+      <Link href="/" className="flex items-center gap-3 cursor-pointer">
+        <Image
+          src="/images/startuprunway-logo.png"
+          alt="StartupRunway Logo"
+          width={32}
+          height={32}
+        />
+        <h1 className="text-2xl md:text-3xl font-extrabold text-white tracking-wide">
+          StartupRunway
+        </h1>
+      </Link>
+    </header>
+  );
+}
+
+
 export default function TrustPolicyPage() {
   return (
     <main className="relative min-h-screen bg-gradient-to-b from-[#020617] via-[#0a0f1f] to-[#111827] text-gray-200 overflow-hidden">
       {/* ------------------------------ HERO SECTION ------------------------------ */}
       <section className="relative flex flex-col items-center justify-center text-center min-h-[70vh] px-6 py-20">
+	  <Header />
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
