@@ -99,9 +99,11 @@ export default function ServicePartnerPage() {
           Join our ecosystem and provide essential services to startups while
           growing your business.
         </p>
+		<Link href="/auth/partner/register/" passHref>
         <Button className="mt-6 px-8 py-3 bg-indigo-600 text-white hover:bg-indigo-700">
           Join as Partner
         </Button>
+		</Link>
       </section>
 
       {/* Who Can Join */}
