@@ -41,7 +41,7 @@ const heroMessages = [
   },
   {
     title: "For Entrepreneurs: Accelerate Your Growth",
-    subtitle: "Mentorship, setup, and funding — your business growth partner",
+    subtitle: "Mentorship, setup, and funding — your growth partner",
   },
   {
     title: "For Students: Become a Studentpreneur",
