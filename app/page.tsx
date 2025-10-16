@@ -75,7 +75,7 @@ export default function StartupRunwayLanding() {
         index = (index + 1) % heroMessages.length;
         setCurrentHeroIndex(index);
       }
-    }, 7000);
+    }, 8000);
 
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
