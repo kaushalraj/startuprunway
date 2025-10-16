@@ -698,9 +698,6 @@ function PartnerExamples() {
                   <div key={subcat}>
                     <div className="flex items-center justify-between mb-2">
                       <h4 className="text-md font-medium">{subcat}</h4>
-                      <span className="text-sm text-gray-500">
-                        {firms.length} examples
-                      </span>
                     </div>
 
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
@@ -718,7 +715,7 @@ function PartnerExamples() {
                           {/* optional: add quick-action like "Join" prefilled link */}
                           <a
                             href={`/join-partner?category=${encodeURIComponent(f.category)}&subcategory=${encodeURIComponent(f.subcategory)}&utm_source=examples`}
-                            className="ml-4 inline-block text-sm px-3 py-1 border rounded-full hover:bg-gray-100"
+                            className="ml-4 inline-block text-sm px-3 py-1 border rounded-full hover:bg-yellow-100"
                             aria-label={`Join as ${f.subcategory}`}
                           >
                             Join
