@@ -48,11 +48,11 @@ const heroMessages = [
     subtitle: "Join and Transform from Job Seeker to Job Creator",
   },
   {
-    title: "Service Partners: Connect and Collaborate",
-    subtitle: "Join India’s startup ecosystem and power the next generation",
+    title: "Partners: Connect & Collaborate",
+    subtitle: "Join India’s startup ecosystem and power the Next-Gen",
   },
   {
-    title: "Investors: Discover the Next-Gen Unicorn",
+    title: "Investors: Discover the Next Unicorn",
     subtitle: "Access vetted startups and investment-ready opportunities",
   },
 ];
