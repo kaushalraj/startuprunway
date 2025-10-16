@@ -118,7 +118,7 @@ export default function ServicePartnerPage() {
         <p className="text-gray-700 mb-4">
           Any firm providing professional services relevant to startups can join:
         </p>
-        <ul className="list-disc list-inside text-gray-700 space-y-2">
+        <ul className="list-disc list-inside space-y-2">
           <li>Digital Marketing Agencies – SEO, branding, campaigns, social media</li>
           <li>CA / Accounting Firms – GST filing, bookkeeping, audits, tax advisory</li>
           <li>Legal Firms / Lawyers – Company registration, contracts, IP, compliance</li>
@@ -131,7 +131,7 @@ export default function ServicePartnerPage() {
       {/* Program Participation Steps */}
       <section className="mb-16">
         <h2 className="text-2xl font-semibold mb-4">How to Participate</h2>
-        <ol className="list-decimal list-inside text-gray-700 space-y-4 mb-8">
+        <ol className="list-decimal list-inside space-y-4 mb-8">
           <li>
             <strong>Registration:</strong> Fill out the Partner Registration Form on our website with firm details, services offered, experience, and certifications.
           </li>
@@ -155,23 +155,23 @@ export default function ServicePartnerPage() {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-6">
             <div className="flex flex-col items-center bg-indigo-50 p-4 rounded-lg shadow-sm">
               <span className="font-bold mb-2">1. Register</span>
-              <span className="text-gray-600 text-center">Submit your firm details & services</span>
+              <span className="text-center">Submit your firm details & services</span>
             </div>
             <div className="flex flex-col items-center bg-indigo-50 p-4 rounded-lg shadow-sm">
               <span className="font-bold mb-2">2. Onboard</span>
-              <span className="text-gray-600 text-center">Attend orientation and get aligned</span>
+              <span className="text-center">Attend orientation and get aligned</span>
             </div>
             <div className="flex flex-col items-center bg-indigo-50 p-4 rounded-lg shadow-sm">
               <span className="font-bold mb-2">3. Align Services</span>
-              <span className="text-gray-600 text-center">Match services with startup needs</span>
+              <span className="text-center">Match services with startup needs</span>
             </div>
             <div className="flex flex-col items-center bg-indigo-50 p-4 rounded-lg shadow-sm">
               <span className="font-bold mb-2">4. Engage Startups</span>
-              <span className="text-gray-600 text-center">Provide services and track projects</span>
+              <span className="text-center">Provide services and track projects</span>
             </div>
             <div className="flex flex-col items-center bg-indigo-50 p-4 rounded-lg shadow-sm">
               <span className="font-bold mb-2">5. Earn Revenue</span>
-              <span className="text-gray-600 text-center">Fixed fees, retainer, or commission</span>
+              <span className="text-center">Fixed fees, retainer, or commission</span>
             </div>
           </div>
         </div>
@@ -190,17 +190,17 @@ export default function ServicePartnerPage() {
               </tr>
             </thead>
             <tbody>
-              <tr className="border-b border-gray-200">
+              <tr className="border-b">
                 <td className="py-3 px-6">Fixed Fee per Startup</td>
                 <td className="py-3 px-6">One-time charge for providing a specific service to a startup.</td>
                 <td className="py-3 px-6">Company registration, GST setup, branding package</td>
               </tr>
-              <tr className="border-b border-gray-200 bg-gray-50">
+              <tr className="border-b">
                 <td className="py-3 px-6">Retainer / Subscription</td>
                 <td className="py-3 px-6">Recurring monthly or quarterly support for ongoing startup needs.</td>
                 <td className="py-3 px-6">Payroll management, bookkeeping, marketing campaigns</td>
               </tr>
-              <tr className="border-b border-gray-200">
+              <tr className="border-b">
                 <td className="py-3 px-6">Commission / Referral</td>
                 <td className="py-3 px-6">Earn a percentage of project value or service fee for referred startups.</td>
                 <td className="py-3 px-6">Referral for funding assistance, legal services, or IT solutions</td>
