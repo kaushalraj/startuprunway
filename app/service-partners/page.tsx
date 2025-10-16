@@ -715,7 +715,7 @@ function PartnerExamples() {
                           {/* optional: add quick-action like "Join" prefilled link */}
                           <a
                             href={`/join-partner?category=${encodeURIComponent(f.category)}&subcategory=${encodeURIComponent(f.subcategory)}&utm_source=examples`}
-                            className="ml-4 inline-block text-sm px-3 py-1 border rounded-full hover:bg-yellow-100"
+                            className="ml-4 inline-block text-sm px-3 py-1 border rounded-full hover:bg-black-100"
                             aria-label={`Join as ${f.subcategory}`}
                           >
                             Join
