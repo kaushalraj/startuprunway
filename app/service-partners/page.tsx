@@ -274,7 +274,6 @@ export default function ServiceProvidersPage() {
     <div className="relative bg-[#0f1233] text-white overflow-hidden pt-20">
       <ParticleBackground />
       <Header />
-      <ServicePartnerPage />
       <div className="relative z-10">
         <HeroSection />
         <PartnerCategories />
