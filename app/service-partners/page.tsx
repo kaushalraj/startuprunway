@@ -259,14 +259,20 @@ function CTASection() {
           Partner with StartupRunway to connect your expertise with thousands of
           founders shaping tomorrow.
         </p>
-        <Button className="bg-[#ff6b35] text-white hover:bg-[#ff6b35]/90 px-8 py-6 rounded-full group">
-          Join Partner Network
-          <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-        </Button>
+
+        {/* Link to Service Partner Page */}
+        <Link href="/service-partners" passHref>
+          <Button className="bg-[#ff6b35] text-white hover:bg-[#ff6b35]/90 px-8 py-6 rounded-full group">
+            Join Partner Network
+            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+          </Button>
+        </Link>
+
       </div>
     </section>
   );
 }
+
 
 // Main
 export default function ServiceProvidersPage() {
