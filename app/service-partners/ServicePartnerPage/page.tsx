@@ -77,7 +77,6 @@ function ParticleBackground() {
 
 export default function ServicePartnerPage() {
   return (
-    {/* <div className="min-h-screen bg-gray-50 py-16 px-6 md:px-20"> */}
 	<div className="relative bg-[#0f1233] text-white overflow-hidden pt-20">
       <ParticleBackground />
       {/* Hero Section */}
